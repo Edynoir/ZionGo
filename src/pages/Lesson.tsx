@@ -3,13 +3,16 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { QuizHeader } from '../components/lesson/QuizHeader';
 import { QuizFooter } from '../components/lesson/QuizFooter';
 import { MultipleChoiceQuestion } from '../components/lesson/MultipleChoiceQuestion';
-import { units } from '../data/lessons';
+import { getUnits } from '../data/lessons';
 import { useUserStore } from '../store/useUserStore';
+import { useTranslation } from '../utils/i18n';
 
 export const Lesson = () => {
     const { lessonId } = useParams();
     const navigate = useNavigate();
-    const { loseHeart, gainXp, completeLesson } = useUserStore();
+    const { language, loseHeart, gainXp, completeLessonById } = useUserStore();
+    const { t } = useTranslation(language);
+    const units = getUnits(language);
 
     // Find the lesson data
     const currentUnit = units.find(u => u.levels.some(l => l.id === lessonId));
@@ -21,7 +24,7 @@ export const Lesson = () => {
     const [status, setStatus] = useState<'IDLE' | 'CORRECT' | 'WRONG'>('IDLE');
 
     if (!currentLevel || questions.length === 0) {
-        return <div className="p-8 text-center text-gray-500">Lesson not found or empty.</div>;
+        return <div className="p-8 text-center text-gray-500">{t('common.loading')}</div>;
     }
 
     const currentQuestion = questions[currentQuestionIndex];
@@ -48,8 +51,10 @@ export const Lesson = () => {
             setSelectedOption(null);
             setStatus('IDLE');
         } else {
-            // Finish lesson
-            completeLesson();
+            // Finish lesson - save progress with lesson ID
+            if (lessonId) {
+                completeLessonById(lessonId);
+            }
             navigate('/');
         }
     };
@@ -72,6 +77,7 @@ export const Lesson = () => {
                 onCheck={handleCheck}
                 onContinue={handleContinue}
                 isCheckDisabled={!selectedOption}
+                correctAnswer={currentQuestion.correctAnswer}
             />
         </div>
     );

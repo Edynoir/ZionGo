@@ -24,7 +24,11 @@ interface UserState {
     streak: number;
     gems: number;
     theme: 'light' | 'dark';
+    notifications: boolean;
+    fontSize: 'small' | 'medium' | 'large';
+    language: 'en' | 'mn';
     lastLessonDate: string | null;
+    completedLessons: string[];
     loading: boolean;
     error: string | null;
 
@@ -38,7 +42,9 @@ interface UserState {
     loseHeart: () => void;
     gainXp: (amount: number) => void;
     toggleTheme: () => void;
+    updateSettings: (settings: { notifications?: boolean; fontSize?: 'small' | 'medium' | 'large'; language?: 'en' | 'mn'; theme?: 'light' | 'dark' }) => void;
     completeLesson: () => void;
+    completeLessonById: (lessonId: string) => void;
     buyItem: (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => void;
     clearError: () => void;
 }
@@ -50,7 +56,11 @@ export const useUserStore = create<UserState>((set) => ({
     streak: 1,
     gems: 100,
     theme: 'light',
+    notifications: true,
+    fontSize: 'medium',
+    language: 'en',
     lastLessonDate: null,
+    completedLessons: [],
     loading: true,
     error: null,
 
@@ -77,7 +87,11 @@ export const useUserStore = create<UserState>((set) => ({
                             streak: data.streak ?? 1,
                             gems: data.gems ?? 100,
                             lastLessonDate: data.lastLessonDate ?? null,
-                            theme: data.theme ?? 'light'
+                            completedLessons: data.completedLessons ?? [],
+                            theme: data.theme ?? 'light',
+                            notifications: data.notifications ?? true,
+                            fontSize: data.fontSize ?? 'medium',
+                            language: data.language ?? 'en'
                         });
 
                         // Sync theme
@@ -86,6 +100,11 @@ export const useUserStore = create<UserState>((set) => ({
                         } else {
                             document.documentElement.classList.remove('dark');
                         }
+
+                        // Sync font size
+                        const fontSize = data.fontSize ?? 'medium';
+                        document.documentElement.classList.remove('font-small', 'font-medium', 'font-large');
+                        document.documentElement.classList.add(`font-${fontSize}`);
                     } else {
                         // Initialize new user doc
                         setDoc(userRef, {
@@ -94,6 +113,9 @@ export const useUserStore = create<UserState>((set) => ({
                             streak: 1,
                             gems: 100,
                             theme: 'light',
+                            notifications: true,
+                            fontSize: 'medium',
+                            language: 'en',
                             lastLessonDate: null,
                             email: user.email,
                             displayName: user.displayName,
@@ -177,6 +199,30 @@ export const useUserStore = create<UserState>((set) => ({
         return { theme: newTheme };
     }),
 
+    updateSettings: (settings) => set((state) => {
+        // Apply theme if it's being updated
+        if (settings.theme !== undefined) {
+            if (settings.theme === 'dark') {
+                document.documentElement.classList.add('dark');
+            } else {
+                document.documentElement.classList.remove('dark');
+            }
+        }
+
+        // Apply font size if it's being updated
+        if (settings.fontSize !== undefined) {
+            document.documentElement.classList.remove('font-small', 'font-medium', 'font-large');
+            document.documentElement.classList.add(`font-${settings.fontSize}`);
+        }
+
+        // Persist to Firestore
+        if (state.user) {
+            updateDoc(doc(db, 'users', state.user.uid), settings);
+        }
+
+        return settings;
+    }),
+
     completeLesson: () => set((state) => {
         const today = new Date().toISOString().split('T')[0];
         const lastDate = state.lastLessonDate;
@@ -196,6 +242,40 @@ export const useUserStore = create<UserState>((set) => ({
         }
 
         const updates = {
+            streak: newStreak,
+            lastLessonDate: today,
+            xp: state.xp + 10,
+            gems: state.gems + 5
+        };
+
+        if (state.user) {
+            updateDoc(doc(db, 'users', state.user.uid), updates);
+        }
+
+        return updates;
+    }),
+
+    completeLessonById: (lessonId: string) => set((state) => {
+        if (state.completedLessons.includes(lessonId)) return {};
+
+        const newCompleted = [...state.completedLessons, lessonId];
+        const today = new Date().toISOString().split('T')[0];
+        const lastDate = state.lastLessonDate;
+
+        let newStreak = state.streak;
+        if (lastDate !== today) {
+            const yesterday = new Date();
+            yesterday.setDate(yesterday.getDate() - 1);
+            const yesterdayString = yesterday.toISOString().split('T')[0];
+            if (lastDate === yesterdayString) {
+                newStreak += 1;
+            } else {
+                newStreak = 1;
+            }
+        }
+
+        const updates = {
+            completedLessons: newCompleted,
             streak: newStreak,
             lastLessonDate: today,
             xp: state.xp + 10,

@@ -6,6 +6,8 @@ import { Lesson } from './pages/Lesson';
 import { Leaderboard } from './pages/Leaderboard';
 import { Shop } from './pages/Shop';
 import { Profile } from './pages/Profile';
+import { DoctrinalMastery } from './pages/DoctrinalMastery';
+import { More } from './pages/More';
 import { Landing } from './pages/Landing';
 import { useUserStore } from './store/useUserStore';
 import { Loader } from 'lucide-react';
@@ -31,11 +33,13 @@ function App() {
       <Routes>
         {user ? (
           <>
-            <Route path="/" element={<Layout />}>
-              <Route index element={<Learn />} />
-              <Route path="leaderboard" element={<Leaderboard />} />
-              <Route path="shop" element={<Shop />} />
-              <Route path="profile" element={<Profile />} />
+            <Route element={<Layout />}>
+              <Route path="/" element={<Learn />} />
+              <Route path="/leaderboard" element={<Leaderboard />} />
+              <Route path="/shop" element={<Shop />} />
+              <Route path="/profile" element={<Profile />} />
+              <Route path="/doctrinal-mastery" element={<DoctrinalMastery />} />
+              <Route path="/more" element={<More />} />
             </Route>
             <Route path="/lesson/:lessonId" element={<Lesson />} />
             <Route path="*" element={<Navigate to="/" replace />} />

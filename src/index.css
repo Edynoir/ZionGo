@@ -49,3 +49,28 @@ body {
 .btn-super {
   @apply bg-[#1cb0f6] text-white border-b-4 border-[#1899d6] active:border-b-0 active:translate-y-1 transition-all uppercase font-bold tracking-widest rounded-xl px-4 py-3 cursor-pointer;
 }
+
+/* Font Size Settings */
+.font-small {
+  font-size: 14px;
+}
+
+.font-medium {
+  font-size: 16px;
+}
+
+.font-large {
+  font-size: 18px;
+}
+
+.font-small * {
+  font-size: inherit;
+}
+
+.font-medium * {
+  font-size: inherit;
+}
+
+.font-large * {
+  font-size: inherit;
+}

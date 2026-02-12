@@ -3,6 +3,7 @@ import { Trophy, User, Loader } from 'lucide-react';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useUserStore } from '../store/useUserStore';
+import { useTranslation } from '../utils/i18n';
 
 interface LeaderboardUser {
     uid: string;
@@ -13,7 +14,8 @@ interface LeaderboardUser {
 }
 
 export const Leaderboard = () => {
-    const { user: currentUser } = useUserStore();
+    const { user: currentUser, language } = useUserStore();
+    const { t } = useTranslation(language);
     const [users, setUsers] = useState<LeaderboardUser[]>([]);
     const [loading, setLoading] = useState(true);
 
@@ -43,8 +45,8 @@ export const Leaderboard = () => {
     return (
         <div className="flex flex-col items-center py-8">
             <div className="mb-8 text-center">
-                <h1 className="text-2xl font-bold text-[var(--text-primary)]">Amethyst League</h1>
-                <p className="text-[var(--text-secondary)]">Top 10 advance to the next league</p>
+                <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('leaderboard.title')}</h1>
+                <p className="text-[var(--text-secondary)]">{t('leaderboard.subtitle')}</p>
             </div>
 
             <div className="max-w-lg w-full border-2 border-[var(--border-color)] rounded-2xl overflow-hidden bg-[var(--bg-card)]">
@@ -67,7 +69,7 @@ export const Leaderboard = () => {
                             </div>
 
                             <span className="flex-1 font-bold text-[var(--text-primary)] truncate">
-                                {user.displayName || 'Anonymous User'}
+                                {user.displayName || t('leaderboard.anonymous')}
                             </span>
 
                             <span className="font-bold text-[var(--text-secondary)]">
@@ -78,7 +80,7 @@ export const Leaderboard = () => {
                 })}
                 {users.length === 0 && (
                     <div className="p-8 text-center text-gray-400">
-                        No users found yet. Be the first!
+                        {t('leaderboard.noUsers')}
                     </div>
                 )}
             </div>

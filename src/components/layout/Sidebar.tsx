@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Trophy, Store, User, MoreHorizontal } from 'lucide-react';
+import { Home, Trophy, Store, User, MoreHorizontal, Book } from 'lucide-react';
 import clsx from 'clsx';
+import { useUserStore } from '../../store/useUserStore';
+import { useTranslation } from '../../utils/i18n';
 import logoImg from '../../assets/logo.svg';
 import logoTextImg from '../../assets/logo-text.svg';
 
@@ -25,6 +27,9 @@ const SidebarItem = ({ icon: Icon, label, href }: { icon: any, label: string, hr
 };
 
 export const Sidebar = () => {
+    const { language } = useUserStore();
+    const { t } = useTranslation(language);
+
     return (
         <div className="hidden md:flex flex-col w-20 lg:w-64 h-screen border-r-2 border-[var(--border-color)] p-4 fixed left-0 top-0 bg-[var(--bg-card)] z-50 transition-colors">
             <a href="/" className="mb-8 px-2 flex items-center gap-3 hover:opacity-80 transition-opacity">
@@ -33,23 +38,43 @@ export const Sidebar = () => {
             </a>
 
             <nav className="flex-1">
-                <SidebarItem icon={Home} label="Learn" href="/" />
-                <SidebarItem icon={Trophy} label="Leaderboard" href="/leaderboard" />
-                <SidebarItem icon={Store} label="Shop" href="/shop" />
-                <SidebarItem icon={User} label="Profile" href="/profile" />
-                <SidebarItem icon={MoreHorizontal} label="More" href="/more" />
+                <SidebarItem icon={Home} label={t('nav.learn')} href="/" />
+                <SidebarItem icon={Book} label={t('nav.mastery')} href="/doctrinal-mastery" />
+                <SidebarItem icon={Trophy} label={t('nav.leaderboard')} href="/leaderboard" />
+                <SidebarItem icon={Store} label={t('nav.shop')} href="/shop" />
+                <SidebarItem icon={User} label={t('nav.profile')} href="/profile" />
+                <SidebarItem icon={MoreHorizontal} label={t('nav.more')} href="/more" />
             </nav>
         </div>
     );
 };
 
 export const MobileNav = () => {
+    const location = useLocation();
+
+    const navItems = [
+        { icon: Home, href: "/" },
+        { icon: Book, href: "/doctrinal-mastery" },
+        { icon: Trophy, href: "/leaderboard" },
+        { icon: Store, href: "/shop" },
+        { icon: MoreHorizontal, href: "/more" }
+    ];
+
     return (
         <div className="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-[var(--bg-card)] border-t-2 border-[var(--border-color)] flex justify-around items-center px-4 z-50 transition-colors">
-            <Link to="/" className="text-sky-500"><Home size={28} strokeWidth={2.5} /></Link>
-            <Link to="/leaderboard" className="text-gray-400"><Trophy size={28} strokeWidth={2.5} /></Link>
-            <Link to="/shop" className="text-gray-400"><Store size={28} strokeWidth={2.5} /></Link>
-            <Link to="/profile" className="text-gray-400"><User size={28} strokeWidth={2.5} /></Link>
+            {navItems.map(({ icon: Icon, href }) => {
+                const isActive = location.pathname === href;
+
+                return (
+                    <Link
+                        key={href}
+                        to={href}
+                        className={isActive ? "text-sky-500" : "text-gray-400"}
+                    >
+                        <Icon size={28} strokeWidth={2.5} />
+                    </Link>
+                );
+            })}
         </div>
     );
 };

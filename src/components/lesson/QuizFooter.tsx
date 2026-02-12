@@ -1,14 +1,19 @@
-import clsx from 'clsx';
 import { Check, X } from 'lucide-react';
+import { useTranslation } from '../../utils/i18n';
+import { useUserStore } from '../../store/useUserStore';
+import clsx from 'clsx';
 
 interface QuizFooterProps {
     status: 'IDLE' | 'CORRECT' | 'WRONG';
     onCheck: () => void;
     onContinue: () => void;
     isCheckDisabled: boolean;
+    correctAnswer?: string;
 }
 
-export const QuizFooter = ({ status, onCheck, onContinue, isCheckDisabled }: QuizFooterProps) => {
+export const QuizFooter = ({ status, onCheck, onContinue, isCheckDisabled, correctAnswer }: QuizFooterProps) => {
+    const { language } = useUserStore();
+    const { t } = useTranslation(language);
     const isIdle = status === 'IDLE';
 
     return (
@@ -24,13 +29,16 @@ export const QuizFooter = ({ status, onCheck, onContinue, isCheckDisabled }: Qui
                     {status === 'CORRECT' && (
                         <div className="flex items-center gap-3">
                             <div className="bg-green-500 rounded-full p-2 text-white"><Check size={32} strokeWidth={4} /></div>
-                            <div className="text-green-600 font-bold text-2xl">Nicely done!</div>
+                            <div className="text-green-600 font-bold text-2xl">{t('common.correct')}</div>
                         </div>
                     )}
                     {status === 'WRONG' && (
                         <div className="flex items-center gap-3">
                             <div className="bg-rose-500 rounded-full p-2 text-white"><X size={32} strokeWidth={4} /></div>
-                            <div className="text-rose-600 font-bold text-2xl">Correct answer: [Show answer logic here]</div>
+                            <div>
+                                <div className="text-rose-600 font-bold text-2xl">{t('common.incorrect')}</div>
+                                <div className="text-rose-500 font-bold text-lg">{t('common.correctAnswer')}: {correctAnswer}</div>
+                            </div>
                         </div>
                     )}
                 </div>
@@ -46,7 +54,7 @@ export const QuizFooter = ({ status, onCheck, onContinue, isCheckDisabled }: Qui
                                 "btn-super bg-rose-500 border-rose-600 text-white" // Error state button style
                     )}
                 >
-                    {isIdle ? 'CHECK' : 'CONTINUE'}
+                    {isIdle ? t('common.check') : t('common.continue')}
                 </button>
             </div>
         </div>
