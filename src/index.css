@@ -1,0 +1,59 @@
+@import "tailwindcss";
+
+:root {
+  --font-body: "Din Round", "Varela Round", sans-serif;
+
+  /* Light Mode (Default) */
+  --bg-body: #ffffff;
+  --bg-card: #ffffff;
+  --text-primary: #3c3c3c;
+  --text-secondary: #777777;
+  --border-color: #e5e5e5;
+
+  /* Duolingo-ish palette (unchanged mostly) */
+  --color-success: #58cc02;
+  --color-success-dark: #46a302;
+  --color-error: #ff4b4b;
+  --color-error-dark: #ea2b2b;
+  --color-primary: #1cb0f6;
+  --color-primary-dark: #1899d6;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-body: #131F24;
+    --bg-card: #131F24;
+    --text-primary: #ffffff;
+    --text-secondary: #a0a0a0;
+    --border-color: #37464f;
+  }
+}
+
+.dark {
+  --bg-body: #131F24;
+  --bg-card: #131F24;
+  --text-primary: #ffffff;
+  --text-secondary: #a0a0a0;
+  --border-color: #37464f;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-body);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* 3D Button Effect Utilities */
+.btn-primary {
+  @apply bg-[#58cc02] text-white border-b-4 border-[#46a302] active:border-b-0 active:translate-y-1 transition-all uppercase font-bold tracking-widest rounded-xl px-4 py-3 cursor-pointer;
+}
+
+.btn-secondary {
+  @apply bg-[var(--bg-card)] text-[var(--text-secondary)] border-2 border-b-4 border-[var(--border-color)] active:border-b-2 active:translate-y-[2px] hover:brightness-95 transition-all uppercase font-bold tracking-widest rounded-xl px-4 py-3 cursor-pointer;
+}
+
+.btn-super {
+  @apply bg-[#1cb0f6] text-white border-b-4 border-[#1899d6] active:border-b-0 active:translate-y-1 transition-all uppercase font-bold tracking-widest rounded-xl px-4 py-3 cursor-pointer;
+}
