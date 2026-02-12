@@ -133,7 +133,23 @@ export const useUserStore = create<UserState>((set) => ({
         try {
             set({ error: null });
             const provider = new GoogleAuthProvider();
-            await signInWithPopup(auth, provider);
+            const result = await signInWithPopup(auth, provider);
+            const user = result.user;
+            const userRef = doc(db, 'users', user.uid);
+            await setDoc(userRef, {
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                hearts: 5,
+                xp: 0,
+                streak: 1,
+                gems: 100,
+                theme: 'light',
+                notifications: true,
+                fontSize: 'medium',
+                language: 'en',
+                lastLessonDate: null
+            }, { merge: true });
         } catch (err: any) {
             set({ error: err.message });
         }
@@ -152,7 +168,23 @@ export const useUserStore = create<UserState>((set) => ({
     signupEmail: async (email, pass) => {
         try {
             set({ error: null });
-            await createUserWithEmailAndPassword(auth, email, pass);
+            const cred = await createUserWithEmailAndPassword(auth, email, pass);
+            const user = cred.user;
+            const userRef = doc(db, 'users', user.uid);
+            await setDoc(userRef, {
+                email: user.email,
+                displayName: user.displayName,
+                photoURL: user.photoURL,
+                hearts: 5,
+                xp: 0,
+                streak: 1,
+                gems: 100,
+                theme: 'light',
+                notifications: true,
+                fontSize: 'medium',
+                language: 'en',
+                lastLessonDate: null
+            }, { merge: true });
         } catch (err: any) {
             set({ error: err.message });
             throw err;
