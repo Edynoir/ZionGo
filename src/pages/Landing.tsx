@@ -9,9 +9,8 @@ export const Landing = () => {
         <div className="min-h-screen bg-[#131F24] text-white font-[var(--font-body)]">
             {/* Navbar */}
             <nav className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
-                <div className="flex items-center gap-2">
-                    <BookOpen className="text-[#58cc02]" size={32} />
-                    <h1 className="text-2xl font-bold tracking-tighter">ZionGo</h1>
+                <div className="flex items-center gap-3">
+                    <img src="/src/assets/main.svg" alt="ZionGo" className="h-16 md:h-20 w-auto object-contain" />
                 </div>
                 <button
                     onClick={() => setShowAuthModal(true)}

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Trophy, Store, User, MoreHorizontal, BookOpen } from 'lucide-react';
+import { Home, Trophy, Store, User, MoreHorizontal } from 'lucide-react';
 import clsx from 'clsx';
 
 const SidebarItem = ({ icon: Icon, label, href }: { icon: any, label: string, href: string }) => {
@@ -25,10 +25,10 @@ const SidebarItem = ({ icon: Icon, label, href }: { icon: any, label: string, hr
 export const Sidebar = () => {
     return (
         <div className="hidden md:flex flex-col w-20 lg:w-64 h-screen border-r-2 border-[var(--border-color)] p-4 fixed left-0 top-0 bg-[var(--bg-card)] z-50 transition-colors">
-            <div className="mb-8 px-2">
+            <a href="/" className="mb-8 px-2 flex items-center gap-3 hover:opacity-80 transition-opacity">
+                <img src="/src/assets/logo.svg" alt="ZionGo" className="w-8 h-8 lg:w-10 lg:h-10 object-contain" />
                 <h1 className="text-2xl font-bold text-green-500 hidden lg:block tracking-tighter">ZionGo</h1>
-                <BookOpen className="lg:hidden text-green-500" size={32} />
-            </div>
+            </a>
 
             <nav className="flex-1">
                 <SidebarItem icon={Home} label="Learn" href="/" />
