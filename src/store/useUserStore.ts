@@ -1,30 +1,155 @@
 import { create } from 'zustand';
+import { auth, db } from '../firebase/config';
+import {
+    GoogleAuthProvider,
+    signInWithPopup,
+    signOut,
+    onAuthStateChanged,
+    createUserWithEmailAndPassword,
+    signInWithEmailAndPassword
+} from 'firebase/auth';
+import type { User } from 'firebase/auth';
+import {
+    doc,
+    setDoc,
+    updateDoc,
+    increment,
+    onSnapshot
+} from 'firebase/firestore';
 
 interface UserState {
+    user: User | null;
     hearts: number;
     xp: number;
     streak: number;
     gems: number;
     theme: 'light' | 'dark';
-    lastLessonDate: string | null; // ISO Date string
+    lastLessonDate: string | null;
+    loading: boolean;
+    error: string | null;
+
+    // Actions
+    initAuth: () => () => void;
+    loginGoogle: () => Promise<void>;
+    loginEmail: (email: string, pass: string) => Promise<void>;
+    signupEmail: (email: string, pass: string) => Promise<void>;
+    logout: () => Promise<void>;
 
     loseHeart: () => void;
     gainXp: (amount: number) => void;
     toggleTheme: () => void;
     completeLesson: () => void;
+    clearError: () => void;
 }
 
 export const useUserStore = create<UserState>((set) => ({
+    user: null,
     hearts: 5,
     xp: 0,
     streak: 1,
     gems: 100,
     theme: 'light',
     lastLessonDate: null,
+    loading: true,
+    error: null,
 
-    loseHeart: () => set((state) => ({ hearts: Math.max(0, state.hearts - 1) })),
+    initAuth: () => {
+        return onAuthStateChanged(auth, async (user) => {
+            set({ user, loading: false });
 
-    gainXp: (amount) => set((state) => ({ xp: state.xp + amount })),
+            if (user) {
+                // Subscribe to real-time updates for this user
+                const userRef = doc(db, 'users', user.uid);
+                const unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
+                    if (docSnap.exists()) {
+                        const data = docSnap.data();
+                        set({
+                            hearts: data.hearts ?? 5,
+                            xp: data.xp ?? 0,
+                            streak: data.streak ?? 1,
+                            gems: data.gems ?? 100,
+                            lastLessonDate: data.lastLessonDate ?? null,
+                            theme: data.theme ?? 'light'
+                        });
+
+                        // Sync theme
+                        if (data.theme === 'dark') {
+                            document.documentElement.classList.add('dark');
+                        } else {
+                            document.documentElement.classList.remove('dark');
+                        }
+                    } else {
+                        // Initialize new user doc
+                        setDoc(userRef, {
+                            hearts: 5,
+                            xp: 0,
+                            streak: 1,
+                            gems: 100,
+                            theme: 'light',
+                            lastLessonDate: null
+                        }, { merge: true });
+                    }
+                });
+
+                return unsubscribeSnapshot;
+            }
+        });
+    },
+
+    loginGoogle: async () => {
+        try {
+            set({ error: null });
+            const provider = new GoogleAuthProvider();
+            await signInWithPopup(auth, provider);
+        } catch (err: any) {
+            set({ error: err.message });
+        }
+    },
+
+    loginEmail: async (email, pass) => {
+        try {
+            set({ error: null });
+            await signInWithEmailAndPassword(auth, email, pass);
+        } catch (err: any) {
+            set({ error: err.message });
+            throw err;
+        }
+    },
+
+    signupEmail: async (email, pass) => {
+        try {
+            set({ error: null });
+            await createUserWithEmailAndPassword(auth, email, pass);
+        } catch (err: any) {
+            set({ error: err.message });
+            throw err;
+        }
+    },
+
+    logout: async () => {
+        await signOut(auth);
+        set({ user: null, hearts: 5, xp: 0, streak: 0, error: null });
+    },
+
+    loseHeart: () => {
+        set((state) => {
+            const newHearts = Math.max(0, state.hearts - 1);
+            if (state.user) {
+                updateDoc(doc(db, 'users', state.user.uid), { hearts: newHearts });
+            }
+            return { hearts: newHearts };
+        });
+    },
+
+    gainXp: (amount) => {
+        set((state) => {
+            const newXp = state.xp + amount;
+            if (state.user) {
+                updateDoc(doc(db, 'users', state.user.uid), { xp: increment(amount) });
+            }
+            return { xp: newXp };
+        });
+    },
 
     toggleTheme: () => set((state) => {
         const newTheme = state.theme === 'light' ? 'dark' : 'light';
@@ -33,6 +158,11 @@ export const useUserStore = create<UserState>((set) => ({
         } else {
             document.documentElement.classList.remove('dark');
         }
+
+        if (state.user) {
+            updateDoc(doc(db, 'users', state.user.uid), { theme: newTheme });
+        }
+
         return { theme: newTheme };
     }),
 
@@ -50,14 +180,23 @@ export const useUserStore = create<UserState>((set) => ({
             if (lastDate === yesterdayString) {
                 newStreak += 1;
             } else {
-                newStreak = 1; // Reset streak if missed a day (logic can be refined)
+                newStreak = 1;
             }
         }
 
-        return {
+        const updates = {
             streak: newStreak,
             lastLessonDate: today,
-            xp: state.xp + 10 // Bonus XP for finishing
+            xp: state.xp + 10,
+            gems: state.gems + 5
         };
+
+        if (state.user) {
+            updateDoc(doc(db, 'users', state.user.uid), updates);
+        }
+
+        return updates;
     }),
+
+    clearError: () => set({ error: null })
 }));

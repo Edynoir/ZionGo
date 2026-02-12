@@ -1,7 +1,16 @@
+import { useEffect } from 'react';
 import { Outlet } from 'react-router-dom';
 import { Sidebar, MobileNav } from './Sidebar';
+import { useUserStore } from '../../store/useUserStore';
 
 export const Layout = () => {
+    const initAuth = useUserStore((state) => state.initAuth);
+
+    useEffect(() => {
+        const unsub = initAuth();
+        return () => unsub();
+    }, []);
+
     return (
         <div className="min-h-screen bg-[var(--bg-body)] md:pl-20 lg:pl-64 pb-20 md:pb-0 transition-colors">
             <Sidebar />
