@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { BookOpen, LogIn, Star, Shield, Zap } from 'lucide-react';
+import { BookOpen, Star, Shield, Zap } from 'lucide-react';
 import { AuthModal } from '../components/auth/AuthModal';
 
 export const Landing = () => {
