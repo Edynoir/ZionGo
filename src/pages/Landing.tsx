@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Star, Shield, Zap } from 'lucide-react';
 import { AuthModal } from '../components/auth/AuthModal';
+import mainLogo from '../assets/main.svg';
 
 export const Landing = () => {
     const [showAuthModal, setShowAuthModal] = useState(false);
@@ -10,7 +11,7 @@ export const Landing = () => {
             {/* Navbar */}
             <nav className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
                 <div className="flex items-center gap-3">
-                    <img src="/src/assets/main.svg" alt="ZionGo" className="h-16 md:h-20 w-auto object-contain" />
+                    <img src={mainLogo} alt="ZionGo" className="h-16 md:h-20 w-auto object-contain" />
                 </div>
                 <button
                     onClick={() => setShowAuthModal(true)}

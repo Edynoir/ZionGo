@@ -1,6 +1,8 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Home, Trophy, Store, User, MoreHorizontal } from 'lucide-react';
 import clsx from 'clsx';
+import logoImg from '../../assets/logo.svg';
+import logoTextImg from '../../assets/logo-text.svg';
 
 const SidebarItem = ({ icon: Icon, label, href }: { icon: any, label: string, href: string }) => {
     const location = useLocation();
@@ -26,8 +28,8 @@ export const Sidebar = () => {
     return (
         <div className="hidden md:flex flex-col w-20 lg:w-64 h-screen border-r-2 border-[var(--border-color)] p-4 fixed left-0 top-0 bg-[var(--bg-card)] z-50 transition-colors">
             <a href="/" className="mb-8 px-2 flex items-center gap-3 hover:opacity-80 transition-opacity">
-                <img src="/src/assets/logo.svg" alt="ZionGo Logo" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
-                <img src="/src/assets/only text.svg" alt="ZionGo" className="h-6 lg:h-8 w-auto hidden lg:block" />
+                <img src={logoImg} alt="ZionGo Logo" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
+                <img src={logoTextImg} alt="ZionGo" className="h-6 lg:h-8 w-auto hidden lg:block" />
             </a>
 
             <nav className="flex-1">
