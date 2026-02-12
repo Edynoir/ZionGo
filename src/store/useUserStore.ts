@@ -61,6 +61,13 @@ export const useUserStore = create<UserState>((set) => ({
             if (user) {
                 // Subscribe to real-time updates for this user
                 const userRef = doc(db, 'users', user.uid);
+                // Sync latest Auth profile to Firestore (e.g. if they changed name/photo)
+                setDoc(userRef, {
+                    email: user.email,
+                    displayName: user.displayName,
+                    photoURL: user.photoURL
+                }, { merge: true });
+
                 const unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
                     if (docSnap.exists()) {
                         const data = docSnap.data();
@@ -87,7 +94,10 @@ export const useUserStore = create<UserState>((set) => ({
                             streak: 1,
                             gems: 100,
                             theme: 'light',
-                            lastLessonDate: null
+                            lastLessonDate: null,
+                            email: user.email,
+                            displayName: user.displayName,
+                            photoURL: user.photoURL
                         }, { merge: true });
                     }
                 });
