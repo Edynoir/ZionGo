@@ -77,7 +77,7 @@ const englishUnits: Unit[] = [
                         type: "MULTIPLE_CHOICE",
                         question: "In which U.S. state did the First Vision occur?",
                         options: ["New York", "Ohio", "Missouri", "Illinois"],
-                        correctAnswer: "New York"
+                        correctAnswer: "Missouri"
                     }
                 ]
             },
@@ -664,7 +664,7 @@ const mongolianUnits: Unit[] = [
                         type: "MULTIPLE_CHOICE",
                         question: "АНУ-ын аль мужид Анхны Үзэгдэл болсон бэ?",
                         options: ["Нью-Йорк", "Огайо", "Миссури", "Иллинойс"],
-                        correctAnswer: "Нью-Йорк"
+                        correctAnswer: "Миссури"
                     }
                 ]
             },
