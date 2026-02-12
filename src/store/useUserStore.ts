@@ -39,6 +39,7 @@ interface UserState {
     gainXp: (amount: number) => void;
     toggleTheme: () => void;
     completeLesson: () => void;
+    buyItem: (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => void;
     clearError: () => void;
 }
 
@@ -197,6 +198,24 @@ export const useUserStore = create<UserState>((set) => ({
 
         return updates;
     }),
+
+    buyItem: (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => {
+        set((state) => {
+            if (state.gems < cost) return {}; // Not enough gems
+
+            const updates: Partial<UserState> = { gems: state.gems - cost };
+
+            if (type === 'HEARTS') {
+                updates.hearts = 5;
+            }
+            // Add other logic logic later if needed (e.g. freeze inventory)
+
+            if (state.user) {
+                updateDoc(doc(db, 'users', state.user.uid), updates);
+            }
+            return updates;
+        });
+    },
 
     clearError: () => set({ error: null })
 }));

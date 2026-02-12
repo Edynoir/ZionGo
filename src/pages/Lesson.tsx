@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { QuizHeader } from '../components/lesson/QuizHeader';
 import { QuizFooter } from '../components/lesson/QuizFooter';
 import { MultipleChoiceQuestion } from '../components/lesson/MultipleChoiceQuestion';
-import { mockUnits } from '../data/mockData';
+import { units } from '../data/lessons';
 import { useUserStore } from '../store/useUserStore';
 
 export const Lesson = () => {
@@ -11,14 +11,13 @@ export const Lesson = () => {
     const navigate = useNavigate();
     const { loseHeart, gainXp, completeLesson } = useUserStore();
 
-    // Find the lesson data (Mock logic: just find any level with this ID for now)
-    // In real app, we'd query by ID properly
-    const currentUnit = mockUnits.find(u => u.levels.some(l => l.id === lessonId));
+    // Find the lesson data
+    const currentUnit = units.find(u => u.levels.some(l => l.id === lessonId));
     const currentLevel = currentUnit?.levels.find(l => l.id === lessonId);
     const questions = currentLevel?.questions || [];
 
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [selectedOptionId, setSelectedOptionId] = useState<string | null>(null);
+    const [selectedOption, setSelectedOption] = useState<string | null>(null);
     const [status, setStatus] = useState<'IDLE' | 'CORRECT' | 'WRONG'>('IDLE');
 
     if (!currentLevel || questions.length === 0) {
@@ -29,13 +28,13 @@ export const Lesson = () => {
     const progress = ((currentQuestionIndex) / questions.length) * 100;
 
     const handleCheck = () => {
-        if (!selectedOptionId) return;
+        if (!selectedOption) return;
 
-        const isCorrect = currentQuestion.options.find(o => o.id === selectedOptionId)?.isCorrect;
+        const isCorrect = currentQuestion.correctAnswer === selectedOption;
 
         if (isCorrect) {
             setStatus('CORRECT');
-            gainXp(10); // Mock XP gain
+            gainXp(10);
         } else {
             setStatus('WRONG');
             loseHeart();
@@ -46,7 +45,7 @@ export const Lesson = () => {
         if (currentQuestionIndex < questions.length - 1) {
             // Next question
             setCurrentQuestionIndex(prev => prev + 1);
-            setSelectedOptionId(null);
+            setSelectedOption(null);
             setStatus('IDLE');
         } else {
             // Finish lesson
@@ -62,8 +61,8 @@ export const Lesson = () => {
             <main className="flex-1 overflow-y-auto pb-32">
                 <MultipleChoiceQuestion
                     question={currentQuestion}
-                    selectedOptionId={selectedOptionId}
-                    onSelectOption={setSelectedOptionId}
+                    selectedOption={selectedOption}
+                    onSelectOption={setSelectedOption}
                     status={status}
                 />
             </main>
@@ -72,7 +71,7 @@ export const Lesson = () => {
                 status={status}
                 onCheck={handleCheck}
                 onContinue={handleContinue}
-                isCheckDisabled={!selectedOptionId}
+                isCheckDisabled={!selectedOption}
             />
         </div>
     );

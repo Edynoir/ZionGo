@@ -2,8 +2,15 @@ import { Heart, Zap, Shield } from 'lucide-react';
 import { useUserStore } from '../store/useUserStore';
 import clsx from 'clsx';
 
-const ShopItem = ({ icon: Icon, title, description, cost, color }: any) => (
-    <button className="flex items-center gap-4 w-full p-4 border-2 border-t-0 first:border-t-2 border-[var(--border-color)] hover:bg-[var(--bg-card)]/50 bg-[var(--bg-card)] transition-colors text-left group">
+const ShopItem = ({ icon: Icon, title, description, cost, color, onBuy, canAfford }: any) => (
+    <button
+        onClick={onBuy}
+        disabled={!canAfford}
+        className={clsx(
+            "flex items-center gap-4 w-full p-4 border-2 border-t-0 first:border-t-2 border-[var(--border-color)] transition-colors text-left group",
+            canAfford ? "hover:bg-[var(--bg-card)]/50 bg-[var(--bg-card)] cursor-pointer" : "bg-gray-100 opacity-50 cursor-not-allowed"
+        )}
+    >
         <div className={clsx("p-2 rounded-xl text-white", color)}>
             <Icon size={24} />
         </div>
@@ -18,7 +25,14 @@ const ShopItem = ({ icon: Icon, title, description, cost, color }: any) => (
 );
 
 export const Shop = () => {
-    const { gems } = useUserStore();
+    const { gems, buyItem } = useUserStore();
+
+    const handleBuy = (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => {
+        if (gems >= cost) {
+            buyItem(cost, type);
+            // Could add toast here
+        }
+    };
 
     return (
         <div className="flex flex-col items-center py-8">
@@ -37,6 +51,8 @@ export const Shop = () => {
                     description="Get full health so you can worry less about making mistakes."
                     cost={350}
                     color="bg-rose-500"
+                    onBuy={() => handleBuy(350, 'HEARTS')}
+                    canAfford={gems >= 350}
                 />
                 <ShopItem
                     icon={Shield}
@@ -44,6 +60,8 @@ export const Shop = () => {
                     description="Streak Freeze allows your streak to remain in place for one full day of inactivity."
                     cost={200}
                     color="bg-blue-500"
+                    onBuy={() => handleBuy(200, 'FREEZE')}
+                    canAfford={gems >= 200}
                 />
                 <ShopItem
                     icon={Zap}
@@ -51,6 +69,8 @@ export const Shop = () => {
                     description="Attempt to double your 50 gem wager by maintaining a 7 day streak."
                     cost={50}
                     color="bg-yellow-500"
+                    onBuy={() => handleBuy(50, 'WAGER')}
+                    canAfford={gems >= 50}
                 />
             </div>
         </div>

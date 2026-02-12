@@ -1,5 +1,7 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
 :root {
   --font-body: "Din Round", "Varela Round", sans-serif;
 
@@ -17,16 +19,6 @@
   --color-error-dark: #ea2b2b;
   --color-primary: #1cb0f6;
   --color-primary-dark: #1899d6;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --bg-body: #131F24;
-    --bg-card: #131F24;
-    --text-primary: #ffffff;
-    --text-secondary: #a0a0a0;
-    --border-color: #37464f;
-  }
 }
 
 .dark {

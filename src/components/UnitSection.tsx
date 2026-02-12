@@ -1,12 +1,11 @@
-import { Star, Check, Lock } from 'lucide-react';
+import { Star, Check, Lock, BookOpen } from 'lucide-react';
 import clsx from 'clsx';
+import { Link } from 'react-router-dom';
 import type { Unit, Level } from '../types/curriculum';
 
 interface UnitSectionProps {
     unit: Unit;
 }
-
-import { Link } from 'react-router-dom';
 
 const LevelButton = ({ level, color }: { level: Level; color: string }) => {
     const isLocked = level.status === 'LOCKED';
@@ -59,5 +58,3 @@ export const UnitSection = ({ unit }: UnitSectionProps) => {
         </div>
     );
 };
-
-import { BookOpen } from 'lucide-react';
