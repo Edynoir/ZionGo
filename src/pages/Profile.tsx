@@ -3,11 +3,20 @@ import { User, Flame, LogIn } from 'lucide-react';
 import { useUserStore } from '../store/useUserStore';
 import { useTranslation } from '../utils/i18n';
 import { AuthModal } from '../components/auth/AuthModal';
+import { AvatarSelector } from '../components/profile/AvatarSelector';
 
 export const Profile = () => {
-    const { user, xp, streak, language, logout } = useUserStore();
+    const { user, xp, streak, nickname, language, logout, updateNickname } = useUserStore();
     const { t } = useTranslation(language);
     const [showAuthModal, setShowAuthModal] = useState(false);
+    const [showAvatarSelector, setShowAvatarSelector] = useState(false);
+    const [isEditingNickname, setIsEditingNickname] = useState(false);
+    const [nicknameInput, setNicknameInput] = useState(nickname || '');
+
+    const handleSaveNickname = async () => {
+        await updateNickname(nicknameInput);
+        setIsEditingNickname(false);
+    };
 
     return (
         <div className="flex flex-col items-center py-8 relative">
@@ -20,17 +29,77 @@ export const Profile = () => {
                 </div>
             )}
 
+            {showAvatarSelector && (
+                <div className="fixed inset-0 bg-black/50 z-[100] flex items-center justify-center p-4">
+                    <div className="absolute inset-0" onClick={() => setShowAvatarSelector(false)} />
+                    <div className="z-10 w-full max-w-md">
+                        <AvatarSelector onClose={() => setShowAvatarSelector(false)} />
+                    </div>
+                </div>
+            )}
+
             <div className="flex flex-col items-center gap-4 mb-8">
-                <div className="w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 border-4 border-[var(--bg-card)] shadow-lg overflow-hidden">
+                <div className="relative group w-24 h-24 bg-gray-200 rounded-full flex items-center justify-center text-gray-400 border-4 border-[var(--bg-card)] shadow-lg overflow-hidden">
                     {user?.photoURL ? (
                         <img src={user.photoURL} alt="Avatar" className="w-full h-full object-cover" />
                     ) : (
                         <User size={48} />
                     )}
+                    {user && (
+                        <button
+                            onClick={() => setShowAvatarSelector(true)}
+                            className="absolute inset-0 bg-black/40 opacity-0 group-hover:opacity-100 flex items-center justify-center transition-opacity"
+                        >
+                            <span className="text-white text-[10px] font-bold uppercase text-center px-2">{t('profile.changeAvatar')}</span>
+                        </button>
+                    )}
                 </div>
-                <h1 className="text-2xl font-bold text-[var(--text-primary)]">
-                    {user?.displayName || user?.email?.split('@')[0] || 'Guest User'}
-                </h1>
+                {isEditingNickname ? (
+                    <div className="flex flex-col items-center gap-2">
+                        <input
+                            type="text"
+                            value={nicknameInput}
+                            onChange={(e) => setNicknameInput(e.target.value)}
+                            placeholder={t('profile.nicknamePlaceholder') || "Enter nickname..."}
+                            className="bg-[var(--bg-card)] border-2 border-[var(--border-color)] rounded-xl px-4 py-2 font-bold focus:outline-none focus:border-blue-500 text-center"
+                            autoFocus
+                        />
+                        <div className="flex gap-2">
+                            <button
+                                onClick={handleSaveNickname}
+                                className="bg-[#58cc02] text-white px-4 py-1 rounded-lg font-bold text-sm shadow-sm hover:bg-[#46a302] transition-all"
+                            >
+                                {t('common.save') || "Save"}
+                            </button>
+                            <button
+                                onClick={() => {
+                                    setIsEditingNickname(false);
+                                    setNicknameInput(nickname || '');
+                                }}
+                                className="bg-gray-200 text-gray-700 px-4 py-1 rounded-lg font-bold text-sm shadow-sm hover:bg-gray-300 transition-all"
+                            >
+                                {t('common.cancel') || "Cancel"}
+                            </button>
+                        </div>
+                    </div>
+                ) : (
+                    <div className="flex flex-col items-center gap-1">
+                        <h1 className="text-2xl font-bold text-[var(--text-primary)]">
+                            {nickname || user?.displayName || user?.email?.split('@')[0] || 'Guest User'}
+                        </h1>
+                        {user && (
+                            <button
+                                onClick={() => {
+                                    setIsEditingNickname(true);
+                                    setNicknameInput(nickname || user?.displayName || user?.email?.split('@')[0] || '');
+                                }}
+                                className="text-blue-500 text-sm font-bold hover:underline"
+                            >
+                                {t('profile.editNickname') || "Edit Nickname"}
+                            </button>
+                        )}
+                    </div>
+                )}
                 <p className="text-[var(--text-secondary)]">{t('profile.joined')}</p>
 
                 {!user ? (

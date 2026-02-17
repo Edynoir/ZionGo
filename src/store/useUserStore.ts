@@ -30,8 +30,10 @@ interface UserState {
     language: 'en' | 'mn';
     lastLessonDate: string | null;
     completedLessons: string[];
+    nickname: string | null;
     loading: boolean;
     error: string | null;
+    getLeague: (xp: number) => { name: string; key: string; nextXp: number | null; progress: number };
 
     // Actions
     initAuth: () => () => void;
@@ -47,6 +49,8 @@ interface UserState {
     completeLesson: () => void;
     completeLessonById: (lessonId: string) => void;
     buyItem: (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => void;
+    updateNickname: (name: string) => Promise<void>;
+    updateAvatar: (url: string) => Promise<void>;
     clearError: () => void;
 }
 
@@ -64,6 +68,7 @@ export const useUserStore = create<UserState>()(
             language: 'en',
             lastLessonDate: null,
             completedLessons: [],
+            nickname: null,
             loading: true,
             error: null,
 
@@ -96,7 +101,8 @@ export const useUserStore = create<UserState>()(
                                         theme: data.theme ?? 'light',
                                         notifications: data.notifications ?? true,
                                         fontSize: data.fontSize ?? 'medium',
-                                        language: data.language ?? 'en'
+                                        language: data.language ?? 'en',
+                                        nickname: data.nickname ?? null
                                     });
                                 }
                                 // Sync theme
@@ -357,6 +363,39 @@ export const useUserStore = create<UserState>()(
                 });
             },
 
+            updateNickname: async (name: string) => {
+                const state = get();
+                if (!state.user) return;
+
+                try {
+                    await updateDoc(doc(db, 'users', state.user.uid), { nickname: name });
+                    set({ nickname: name });
+                } catch (err: any) {
+                    set({ error: err.message });
+                }
+            },
+
+            updateAvatar: async (url: string) => {
+                const state = get();
+                if (!state.user) return;
+
+                try {
+                    await updateDoc(doc(db, 'users', state.user.uid), { photoURL: url });
+                    set({ user: { ...state.user, photoURL: url } as User });
+                } catch (err: any) {
+                    set({ error: err.message });
+                }
+            },
+
+            getLeague: (xp: number) => {
+                if (xp < 500) return { name: 'Egypt', key: 'leaderboard.cityEgypt', nextXp: 500, progress: (xp / 500) * 100 };
+                if (xp < 1500) return { name: 'Wilderness', key: 'leaderboard.cityWilderness', nextXp: 1500, progress: ((xp - 500) / 1000) * 100 };
+                if (xp < 3000) return { name: 'Zarahemla', key: 'leaderboard.cityZarahemla', nextXp: 3000, progress: ((xp - 1500) / 1500) * 100 };
+                if (xp < 5000) return { name: 'Bountiful', key: 'leaderboard.cityBountiful', nextXp: 5000, progress: ((xp - 3000) / 2000) * 100 };
+                if (xp < 10000) return { name: 'City of Enoch', key: 'leaderboard.cityEnoch', nextXp: 10000, progress: ((xp - 5000) / 5000) * 100 };
+                return { name: 'Zion', key: 'leaderboard.cityZion', nextXp: null, progress: 100 };
+            },
+
             clearError: () => set({ error: null })
         }),
         {
@@ -371,7 +410,8 @@ export const useUserStore = create<UserState>()(
                 fontSize: state.fontSize,
                 language: state.language,
                 lastLessonDate: state.lastLessonDate,
-                completedLessons: state.completedLessons
+                completedLessons: state.completedLessons,
+                nickname: state.nickname
             }),
         }
     )

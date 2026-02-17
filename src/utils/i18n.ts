@@ -40,6 +40,10 @@ type TranslationKeys = {
     'profile.getStarted': string;
     'profile.signOut': string;
     'profile.joined': string;
+    'profile.editNickname': string;
+    'profile.nicknamePlaceholder': string;
+    'profile.changeAvatar': string;
+    'profile.selectAvatar': string;
 
     // Shop
     'shop.title': string;
@@ -56,6 +60,20 @@ type TranslationKeys = {
     'leaderboard.subtitle': string;
     'leaderboard.noUsers': string;
     'leaderboard.anonymous': string;
+    'leaderboard.cityEgypt': string;
+    'leaderboard.cityWilderness': string;
+    'leaderboard.cityZarahemla': string;
+    'leaderboard.cityBountiful': string;
+    'leaderboard.cityEnoch': string;
+    'leaderboard.cityZion': string;
+    'leaderboard.viewMap': string;
+    'leaderboard.viewList': string;
+    'leaderboard.egyptDesc': string;
+    'leaderboard.wildernessDesc': string;
+    'leaderboard.zarahemlaDesc': string;
+    'leaderboard.bountifulDesc': string;
+    'leaderboard.enochDesc': string;
+    'leaderboard.zionDesc': string;
 
     // Doctrinal Mastery
     'mastery.title': string;
@@ -89,6 +107,8 @@ type TranslationKeys = {
     'common.correct': string;
     'common.incorrect': string;
     'common.correctAnswer': string;
+    'common.save': string;
+    'common.cancel': string;
 };
 
 const translations: Record<Language, TranslationKeys> = {
@@ -130,6 +150,10 @@ const translations: Record<Language, TranslationKeys> = {
         'profile.getStarted': 'Get Started',
         'profile.signOut': 'Sign Out',
         'profile.joined': 'Joined February 2026',
+        'profile.editNickname': 'Edit Nickname',
+        'profile.nicknamePlaceholder': 'Enter nickname...',
+        'profile.changeAvatar': 'Change Avatar',
+        'profile.selectAvatar': 'Select Your Avatar',
 
         // Shop
         'shop.title': 'Shop',
@@ -143,9 +167,23 @@ const translations: Record<Language, TranslationKeys> = {
 
         // Leaderboard
         'leaderboard.title': 'Amethyst League',
-        'leaderboard.subtitle': 'Top 10 advance to the next league',
+        'leaderboard.subtitle': 'Your journey to Zion begins here',
         'leaderboard.noUsers': 'No users found yet. Be the first!',
         'leaderboard.anonymous': 'Anonymous User',
+        'leaderboard.cityEgypt': 'Egypt',
+        'leaderboard.cityWilderness': 'Wilderness',
+        'leaderboard.cityZarahemla': 'Zarahemla',
+        'leaderboard.cityBountiful': 'Bountiful',
+        'leaderboard.cityEnoch': 'City of Enoch',
+        'leaderboard.cityZion': 'Zion',
+        'leaderboard.viewMap': 'Map View',
+        'leaderboard.viewList': 'List View',
+        'leaderboard.egyptDesc': 'Where it all began. The journey starts with a desire to seek the promised land.',
+        'leaderboard.wildernessDesc': 'Lehi and his family traveled through the wilderness, learning to trust in the Liahona.',
+        'leaderboard.zarahemlaDesc': 'The center of the Nephite civilization, a place of great faith and learning.',
+        'leaderboard.bountifulDesc': 'Where the Savior appeared to the people, a land of abundance and spiritual peace.',
+        'leaderboard.enochDesc': 'A city so righteous that they were taken up to heaven. A higher law awaits.',
+        'leaderboard.zionDesc': 'The ultimate destination. A place of one heart and one mind, dwelling in righteousness.',
 
         // Doctrinal Mastery
         'mastery.title': 'Doctrinal Mastery',
@@ -179,6 +217,8 @@ const translations: Record<Language, TranslationKeys> = {
         'common.correct': 'Nicely done!',
         'common.incorrect': 'Incorrect!',
         'common.correctAnswer': 'Correct answer',
+        'common.save': 'Save',
+        'common.cancel': 'Cancel',
     },
     mn: {
         // Navigation
@@ -218,6 +258,10 @@ const translations: Record<Language, TranslationKeys> = {
         'profile.getStarted': 'Эхлэх',
         'profile.signOut': 'Гарах',
         'profile.joined': '2026 оны 2-р сард нэгдсэн',
+        'profile.editNickname': 'Хоч нэр засах',
+        'profile.nicknamePlaceholder': 'Хоч нэр оруулна уу...',
+        'profile.changeAvatar': 'Зураг өөрчлөх',
+        'profile.selectAvatar': 'Зурагаа сонгоно уу',
 
         // Shop
         'shop.title': 'Дэлгүүр',
@@ -231,9 +275,23 @@ const translations: Record<Language, TranslationKeys> = {
 
         // Leaderboard
         'leaderboard.title': 'Аметист лиг',
-        'leaderboard.subtitle': 'Эхний 10 дараагийн лиг рүү шилжинэ',
+        'leaderboard.subtitle': 'Сион руу хүрэх таны аялал эндээс эхэлнэ',
         'leaderboard.noUsers': 'Одоогоор хэрэглэгч байхгүй байна. Анхны хүн болоорой!',
         'leaderboard.anonymous': 'Нэргүй хэрэглэгч',
+        'leaderboard.cityEgypt': 'Египет',
+        'leaderboard.cityWilderness': 'Зэлүүд газар',
+        'leaderboard.cityZarahemla': 'Зарахемла',
+        'leaderboard.cityBountiful': 'Өгөөмөр',
+        'leaderboard.cityEnoch': 'Енохын хот',
+        'leaderboard.cityZion': 'Сион',
+        'leaderboard.viewMap': 'Газрын зураг',
+        'leaderboard.viewList': 'Жагсаалт',
+        'leaderboard.egyptDesc': 'Бүх зүйл эхэлсэн газар. Аялал амлагдсан нутгийг эрэлхийлэх хүслээр эхэлдэг.',
+        'leaderboard.wildernessDesc': 'Лихай болон түүний гэр бүл Лиахона дээр итгэж суран, зэлүүд газраар аялсан.',
+        'leaderboard.zarahemlaDesc': 'Нифайчуудын соёл иргэншлийн төв, агуу итгэл ба суралцах газар.',
+        'leaderboard.bountifulDesc': 'Аврагч хүмүүст үзэгдсэн газар, элбэг дэлбэг байдал ба оюуны амар амгалангийн нутаг.',
+        'leaderboard.enochDesc': 'Тэнгэрт аваачигдах хүртлээ зөв шударга байсан хот. Дээд хууль хүлээж байна.',
+        'leaderboard.zionDesc': 'Эцсийн зорилго. Зөв шударга байдалд оршин суух, нэг зүрх сэтгэл ба нэг оюун ухаантай газар.',
 
         // Doctrinal Mastery
         'mastery.title': 'Сургаалын ном',
@@ -267,6 +325,8 @@ const translations: Record<Language, TranslationKeys> = {
         'common.correct': 'Сайн байна!',
         'common.incorrect': 'Буруу байна!',
         'common.correctAnswer': 'Зөв хариулт',
+        'common.save': 'Хадгалах',
+        'common.cancel': 'Цуцлах',
     },
 };
 
