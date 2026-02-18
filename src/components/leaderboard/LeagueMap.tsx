@@ -63,37 +63,92 @@ export const LeagueMap = () => {
                         <stop offset="100%" stopColor="#ea580c" />
                     </linearGradient>
                     <filter id="shadow">
-                        <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.1" />
+                        <feDropShadow dx="0" dy="2" stdDeviation="3" floodOpacity="0.2" />
                     </filter>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="blur" />
+                        <feComposite in="SourceGraphic" in2="blur" operator="over" />
+                    </filter>
+                    {/* Pattern for a subtle parchment texture */}
+                    <pattern id="parchment" x="0" y="0" width="100" height="100" patternUnits="userSpaceOnUse">
+                        <rect width="100" height="100" fill="transparent" />
+                        <circle cx="10" cy="10" r="1" fill="currentColor" opacity="0.05" />
+                        <circle cx="60" cy="40" r="1.5" fill="currentColor" opacity="0.03" />
+                    </pattern>
                 </defs>
 
-                {/* Stylized Abstract Landmasses */}
-                <g className="opacity-20 dark:opacity-10 transition-opacity duration-500">
-                    <path
-                        d="M -50 100 Q 150 50 100 300 T 200 600 T -50 900 Z"
+                {/* Background Texture/Parchment Feel */}
+                <rect width="100%" height="100%" fill="url(#parchment)" className="text-orange-900/5 dark:text-orange-50/5" />
+
+                {/* Stylized Terrain and Islands */}
+                <g className="transition-opacity duration-1000">
+                    {/* Left Landmass (Mountains/Hills) */}
+                    <motion.path
+                        d="M -100 0 L -20 0 Q 80 150 20 350 T 150 650 T -50 950 L -100 950 Z"
                         fill="#fef3c7"
-                        className="dark:fill-orange-950"
-                    />
-                    <path
-                        d="M 400 50 Q 250 200 450 400 T 350 750 T 500 950 L 500 50 Z"
-                        fill="#fef3c7"
-                        className="dark:fill-orange-900"
+                        className="dark:fill-orange-950/40 opacity-40 dark:opacity-20"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.4 }}
                     />
 
-                    {/* Subtle Wave lines */}
-                    {[...Array(5)].map((_, i) => (
-                        <path
+                    {/* Right Landmass (Islands) */}
+                    <motion.path
+                        d="M 500 50 Q 320 180 480 320 T 420 550 T 550 850 L 550 50 Z"
+                        fill="#fef9c3"
+                        className="dark:fill-orange-900/40 opacity-40 dark:opacity-20"
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 0.4 }}
+                    />
+
+                    {/* Decorative Mountains (Stylized Triangles) */}
+                    {[
+                        { x: 10, y: 120, s: 0.8 }, { x: 45, y: 450, s: 1.2 },
+                        { x: 85, y: 280, s: 0.7 }, { x: 75, y: 720, s: 1 }
+                    ].map((m, i) => (
+                        <g key={`mtn-${i}`} transform={`translate(${m.x * 4}, ${m.y}) scale(${m.s})`} className="opacity-10 dark:opacity-5">
+                            <path d="M 0 40 L 30 0 L 60 40 Z" fill="currentColor" className="text-orange-900" />
+                        </g>
+                    ))}
+
+                    {/* Animated Clouds (Fun Element) */}
+                    {[
+                        { y: 80, d: 25, delay: 0 },
+                        { y: 350, d: 35, delay: 5 },
+                        { y: 650, d: 30, delay: 2 }
+                    ].map((cloud, i) => (
+                        <motion.g
+                            key={`cloud-${i}`}
+                            initial={{ x: -100 }}
+                            animate={{ x: 600 }}
+                            transition={{ duration: cloud.d, repeat: Infinity, ease: "linear", delay: cloud.delay }}
+                            className="opacity-40 dark:opacity-10"
+                        >
+                            <path
+                                d="M 25 10 Q 30 0 40 10 Q 55 5 60 20 Q 75 25 60 40 L 20 40 Q 5 35 10 20 Q 15 10 25 10"
+                                fill="white"
+                                className="dark:fill-gray-400"
+                            />
+                        </motion.g>
+                    ))}
+
+                    {/* Animated Wave Lines (Water Texture) */}
+                    {[...Array(8)].map((_, i) => (
+                        <motion.path
                             key={`wave-${i}`}
-                            d={`M ${100 + i * 50} ${200 + i * 150} Q ${125 + i * 50} ${210 + i * 150} ${150 + i * 50} ${200 + i * 150} T ${200 + i * 50} ${200 + i * 150}`}
-                            stroke="#cbd5e1"
-                            strokeWidth="2"
+                            d={`M ${50 + (i % 3) * 120} ${150 + i * 100} Q ${75 + (i % 3) * 120} ${160 + i * 100} ${100 + (i % 3) * 120} ${150 + i * 100} T ${150 + (i % 3) * 120} ${150 + i * 100}`}
+                            stroke="currentColor"
+                            strokeWidth="1.5"
                             fill="none"
-                            className="dark:stroke-gray-800"
+                            className="text-blue-300 dark:text-blue-900/30"
+                            animate={{
+                                d: `M ${50 + (i % 3) * 120} ${155 + i * 100} Q ${75 + (i % 3) * 120} ${145 + i * 100} ${100 + (i % 3) * 120} ${155 + i * 100} T ${150 + (i % 3) * 120} ${155 + i * 100}`
+                            }}
+                            transition={{ duration: 3 + (i % 2), repeat: Infinity, repeatType: "mirror", ease: "easeInOut" }}
                         />
                     ))}
                 </g>
 
-                {/* Main Journey Path */}
+                {/* Interactive Path Highlights */}
                 <path
                     d={`M ${CITIES[0].x}% 40 
                        ${CITIES.slice(1).map((c, i) => {
@@ -102,14 +157,13 @@ export const LeagueMap = () => {
                         return `C ${prev.x}% ${cp1y}, ${c.x}% ${cp1y}, ${c.x}% ${c.y * 150 + 40}`;
                     }).join(' ')}`}
                     fill="none"
-                    stroke="url(#pathGradient)"
-                    strokeWidth="16"
+                    stroke="#cbd5e1"
+                    strokeWidth="12"
                     strokeLinecap="round"
-                    filter="url(#shadow)"
-                    className="opacity-30 dark:opacity-20"
+                    className="opacity-10 dark:opacity-5"
                 />
 
-                {/* Active Path (Dash Array for "journey" effect) */}
+                {/* Main Journey Path (Progress dots) */}
                 <path
                     d={`M ${CITIES[0].x}% 40 
                        ${CITIES.slice(1).map((c, i) => {
@@ -119,30 +173,59 @@ export const LeagueMap = () => {
                     }).join(' ')}`}
                     fill="none"
                     stroke="url(#pathGradient)"
-                    strokeWidth="16"
+                    strokeWidth="14"
                     strokeLinecap="round"
-                    strokeDasharray="20 20"
-                    className="animate-[pulse_4s_infinite]"
+                    strokeDasharray="1 24"
+                    className="opacity-40"
+                    filter="url(#shadow)"
+                />
+
+                {/* Active Path Journey Effect */}
+                <path
+                    d={`M ${CITIES[0].x}% 40 
+                       ${CITIES.slice(1).map((c, i) => {
+                        const prev = CITIES[i];
+                        const cp1y = (prev.y * 150 + 40 + c.y * 150 + 40) / 2;
+                        return `C ${prev.x}% ${cp1y}, ${c.x}% ${cp1y}, ${c.x}% ${c.y * 150 + 40}`;
+                    }).join(' ')}`}
+                    fill="none"
+                    stroke="url(#pathGradient)"
+                    strokeWidth="14"
+                    strokeLinecap="round"
+                    strokeDasharray="10 30"
+                    className="animate-[dash_8s_linear_infinite]"
                 />
             </svg>
 
+            <style dangerouslySetInnerHTML={{
+                __html: `
+                @keyframes dash {
+                    to { stroke-dashoffset: -400; }
+                }
+            ` }} />
+
             {/* City Nodes */}
             <div className="relative" style={{ height: '850px' }}>
-                {CITIES.map((city) => {
+                {CITIES.map((city, idx) => {
                     const isUnlocked = xp >= city.xp;
                     const Icon = city.icon;
 
                     return (
-                        <div
+                        <motion.div
                             key={city.id}
-                            className="absolute -translate-x-1/2 -translate-y-1/2 group"
+                            initial={{ opacity: 0, scale: 0.5 }}
+                            animate={{ opacity: 1, scale: 1 }}
+                            transition={{ delay: idx * 0.1, type: "spring" }}
+                            className="absolute -translate-x-1/2 -translate-y-1/2 z-20"
                             style={{ left: `${city.x}%`, top: `${city.y * 150 + 40}px` }}
                         >
-                            <button
+                            <motion.button
                                 onClick={() => setSelectedCity(city)}
-                                className={`w-16 h-16 rounded-2xl flex items-center justify-center shadow-xl transition-all duration-300 transform group-hover:scale-110 active:scale-95 border-b-4 ${isUnlocked
+                                whileHover={{ scale: 1.1, y: -5 }}
+                                whileTap={{ scale: 0.95 }}
+                                className={`w-16 h-16 rounded-3xl flex items-center justify-center shadow-xl transition-all duration-300 border-b-4 ${isUnlocked
                                     ? 'bg-white dark:bg-gray-800 border-gray-200 dark:border-gray-700'
-                                    : 'bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-950 grayscale'
+                                    : 'bg-gray-100 dark:bg-gray-900 border-gray-200 dark:border-gray-950 grayscale opacity-80'
                                     }`}
                             >
                                 <Icon
@@ -151,14 +234,26 @@ export const LeagueMap = () => {
                                     className={isUnlocked ? 'drop-shadow-sm' : ''}
                                 />
                                 {isUnlocked && (
-                                    <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-sm" />
+                                    <motion.div
+                                        animate={{ scale: [1, 1.2, 1] }}
+                                        transition={{ duration: 2, repeat: Infinity }}
+                                        className="absolute -top-1 -right-1 w-5 h-5 bg-green-500 rounded-full border-2 border-white dark:border-gray-800 shadow-sm flex items-center justify-center"
+                                    >
+                                        <div className="w-1.5 h-1.5 bg-white rounded-full" />
+                                    </motion.div>
                                 )}
-                            </button>
-                            <span className={`absolute top-full mt-2 left-1/2 -translate-x-1/2 whitespace-nowrap font-bold text-sm ${isUnlocked ? 'text-[var(--text-primary)]' : 'text-gray-400'
-                                }`}>
+                            </motion.button>
+                            <span className={`absolute top-full mt-3 left-1/2 -translate-x-1/2 whitespace-nowrap font-black text-xs tracking-wider uppercase ${isUnlocked ? 'text-[var(--text-primary)]' : 'text-gray-400'
+                                }`}
+                                style={{ textShadow: '0 1px 2px rgba(0,0,0,0.05)' }}
+                            >
                                 {t(city.nameKey as any)}
                             </span>
-                        </div>
+                            {/* Unlock glow */}
+                            {isUnlocked && (
+                                <div className="absolute inset-0 -z-10 bg-white/20 dark:bg-white/5 blur-xl rounded-full" />
+                            )}
+                        </motion.div>
                     );
                 })}
 
