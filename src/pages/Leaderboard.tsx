@@ -32,16 +32,32 @@ export const Leaderboard = () => {
             limit(10)
         );
 
-        const unsubscribe = onSnapshot(q, (snapshot) => {
-            const fetchedUsers: LeaderboardUser[] = [];
-            snapshot.forEach((doc) => {
-                fetchedUsers.push({ uid: doc.id, ...doc.data() } as LeaderboardUser);
-            });
-            setUsers(fetchedUsers);
-            setLoading(false);
-        });
+        // Safety timeout to prevent infinite loading if Firebase doesn't respond
+        const timeout = setTimeout(() => {
+            if (loading) setLoading(false);
+        }, 5000);
 
-        return () => unsubscribe();
+        const unsubscribe = onSnapshot(q,
+            (snapshot) => {
+                const fetchedUsers: LeaderboardUser[] = [];
+                snapshot.forEach((doc) => {
+                    fetchedUsers.push({ uid: doc.id, ...doc.data() } as LeaderboardUser);
+                });
+                setUsers(fetchedUsers);
+                setLoading(false);
+                clearTimeout(timeout);
+            },
+            (error) => {
+                console.error("Leaderboard fetch error:", error);
+                setLoading(false);
+                clearTimeout(timeout);
+            }
+        );
+
+        return () => {
+            unsubscribe();
+            clearTimeout(timeout);
+        };
     }, []);
 
     if (loading) {

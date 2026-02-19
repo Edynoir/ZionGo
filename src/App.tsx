@@ -6,6 +6,7 @@ import { Lesson } from './pages/Lesson';
 import { Leaderboard } from './pages/Leaderboard';
 import { Shop } from './pages/Shop';
 import { Profile } from './pages/Profile';
+import { AdminPanel } from './pages/AdminPanel';
 import { DoctrinalMastery } from './pages/DoctrinalMastery';
 import { More } from './pages/More';
 import { Landing } from './pages/Landing';
@@ -38,6 +39,7 @@ function App() {
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/admin" element={<AdminPanel />} />
               <Route path="/doctrinal-mastery" element={<DoctrinalMastery />} />
               <Route path="/more" element={<More />} />
             </Route>

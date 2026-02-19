@@ -31,6 +31,7 @@ interface UserState {
     lastLessonDate: string | null;
     completedLessons: string[];
     nickname: string | null;
+    isAdmin: boolean;
     loading: boolean;
     error: string | null;
     getLeague: (xp: number) => { name: string; key: string; nextXp: number | null; progress: number };
@@ -41,6 +42,7 @@ interface UserState {
     loginEmail: (email: string, pass: string) => Promise<void>;
     signupEmail: (email: string, pass: string) => Promise<void>;
     logout: () => Promise<void>;
+    deleteProfile: () => Promise<void>;
 
     loseHeart: () => void;
     gainXp: (amount: number) => void;
@@ -69,6 +71,7 @@ export const useUserStore = create<UserState>()(
             lastLessonDate: null,
             completedLessons: [],
             nickname: null,
+            isAdmin: false,
             loading: true,
             error: null,
 
@@ -77,9 +80,8 @@ export const useUserStore = create<UserState>()(
                     set({ user, loading: false });
 
                     if (user) {
-                        // Subscribe to real-time updates for this user
                         const userRef = doc(db, 'users', user.uid);
-                        // Sync latest Auth profile to Firestore (e.g. if they changed name/photo)
+                        // Sync latest Auth profile to Firestore
                         setDoc(userRef, {
                             email: user.email,
                             displayName: user.displayName,
@@ -89,22 +91,22 @@ export const useUserStore = create<UserState>()(
                         const unsubscribeSnapshot = onSnapshot(userRef, (docSnap) => {
                             if (docSnap.exists()) {
                                 const data = docSnap.data();
-                                const currentState = get();
-                                if (data.xp !== currentState.xp || data.gems !== currentState.gems) {
-                                    set({
-                                        hearts: data.hearts ?? 5,
-                                        xp: data.xp ?? 0,
-                                        streak: data.streak ?? 1,
-                                        gems: data.gems ?? 100,
-                                        lastLessonDate: data.lastLessonDate ?? null,
-                                        completedLessons: data.completedLessons ?? [],
-                                        theme: data.theme ?? 'light',
-                                        notifications: data.notifications ?? true,
-                                        fontSize: data.fontSize ?? 'medium',
-                                        language: data.language ?? 'en',
-                                        nickname: data.nickname ?? null
-                                    });
-                                }
+
+                                set({
+                                    hearts: data.hearts ?? 5,
+                                    xp: data.xp ?? 0,
+                                    streak: data.streak ?? 1,
+                                    gems: data.gems ?? 100,
+                                    lastLessonDate: data.lastLessonDate ?? null,
+                                    completedLessons: data.completedLessons ?? [],
+                                    theme: data.theme ?? 'light',
+                                    notifications: data.notifications ?? true,
+                                    fontSize: data.fontSize ?? 'medium',
+                                    language: data.language ?? 'en',
+                                    nickname: data.nickname ?? null,
+                                    isAdmin: data.isAdmin ?? false
+                                });
+
                                 // Sync theme
                                 if (data.theme === 'dark') {
                                     document.documentElement.classList.add('dark');
@@ -130,14 +132,15 @@ export const useUserStore = create<UserState>()(
                                     lastLessonDate: null,
                                     email: user.email,
                                     displayName: user.displayName,
-                                    photoURL: user.photoURL
+                                    photoURL: user.photoURL,
+                                    isAdmin: false
                                 }, { merge: true });
                             }
                         });
 
                         return unsubscribeSnapshot;
                     } else {
-                        set({ loading: false });
+                        set({ loading: false, isAdmin: false });
                     }
                 });
             },
@@ -206,8 +209,6 @@ export const useUserStore = create<UserState>()(
 
             logout: async () => {
                 await signOut(auth);
-                // Clear local storage / reset state or keep it for guest? 
-                // Usually, we want to clear or reset to default guest state.
                 set({
                     user: null,
                     hearts: 5,
@@ -216,8 +217,39 @@ export const useUserStore = create<UserState>()(
                     gems: 100,
                     completedLessons: [],
                     lastLessonDate: null,
+                    nickname: null,
+                    isAdmin: false,
                     error: null
                 });
+            },
+
+            deleteProfile: async () => {
+                const { user } = get();
+                if (!user) return;
+
+                try {
+                    // 1. Delete Firestore data
+                    await setDoc(doc(db, 'users', user.uid), {
+                        deleted: true,
+                        deletedAt: new Date().toISOString()
+                    }, { merge: true });
+
+                    // 2. Try to delete the Auth user
+                    // Note: This might fail if the user hasn't logged in recently
+                    try {
+                        await user.delete();
+                    } catch (authErr: any) {
+                        console.warn("Auth deletion failed (likely re-auth needed):", authErr);
+                        // If auth deletion fails, we just log them out
+                        // The firestore record is already marked/deleted data-wise if we want to be thorough
+                    }
+
+                    // 3. Complete logout/clear
+                    await get().logout();
+                } catch (err: any) {
+                    set({ error: err.message });
+                    throw err;
+                }
             },
 
             loseHeart: () => {

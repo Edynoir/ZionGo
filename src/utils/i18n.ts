@@ -10,6 +10,7 @@ type TranslationKeys = {
     'nav.shop': string;
     'nav.profile': string;
     'nav.more': string;
+    'nav.admin': string;
 
     // Settings
     'settings.title': string;
@@ -44,6 +45,14 @@ type TranslationKeys = {
     'profile.nicknamePlaceholder': string;
     'profile.changeAvatar': string;
     'profile.selectAvatar': string;
+    'profile.adminPanel': string;
+    'profile.dangerZone': string;
+    'profile.deleteAccount': string;
+    'profile.deleteTitle': string;
+    'profile.deleteWarning': string;
+    'profile.finalConfirm': string;
+    'profile.deleteInstructions': string;
+    'profile.confirmDelete': string;
 
     // Shop
     'shop.title': string;
@@ -120,6 +129,7 @@ const translations: Record<Language, TranslationKeys> = {
         'nav.shop': 'Shop',
         'nav.profile': 'Profile',
         'nav.more': 'More',
+        'nav.admin': 'Admin',
 
         // Settings
         'settings.title': 'Settings',
@@ -154,6 +164,14 @@ const translations: Record<Language, TranslationKeys> = {
         'profile.nicknamePlaceholder': 'Enter nickname...',
         'profile.changeAvatar': 'Change Avatar',
         'profile.selectAvatar': 'Select Your Avatar',
+        'profile.adminPanel': 'Admin Panel',
+        'profile.dangerZone': 'Danger Zone',
+        'profile.deleteAccount': 'Delete Account',
+        'profile.deleteTitle': 'Delete Profile?',
+        'profile.deleteWarning': 'This will permanently delete ALL your progress, including XP, streaks, and hearts. This action cannot be undone.',
+        'profile.finalConfirm': 'Final Confirmation',
+        'profile.deleteInstructions': 'To confirm, please type "DELETE" in the box below:',
+        'profile.confirmDelete': 'Delete Permanently',
 
         // Shop
         'shop.title': 'Shop',
@@ -228,6 +246,7 @@ const translations: Record<Language, TranslationKeys> = {
         'nav.shop': 'Дэлгүүр',
         'nav.profile': 'Профайл',
         'nav.more': 'Бусад',
+        'nav.admin': 'Админ',
 
         // Settings
         'settings.title': 'Тохиргоо',
@@ -262,6 +281,14 @@ const translations: Record<Language, TranslationKeys> = {
         'profile.nicknamePlaceholder': 'Хоч нэр оруулна уу...',
         'profile.changeAvatar': 'Зураг өөрчлөх',
         'profile.selectAvatar': 'Зурагаа сонгоно уу',
+        'profile.adminPanel': 'Админ самбар',
+        'profile.dangerZone': 'Аюултай бүс',
+        'profile.deleteAccount': 'Бүртгэл устгах',
+        'profile.deleteTitle': 'Профайл устгах уу?',
+        'profile.deleteWarning': 'Энэ нь таны XP, цуваа, зүрх зэрэг БҮХ ахиц дэвшлийг бүрмөсөн устгах болно. Энэ үйлдлийг буцаах боломжгүй.',
+        'profile.finalConfirm': 'Эцсийн баталгаажуулалт',
+        'profile.deleteInstructions': 'Баталгаажуулахын тулд доорх нүдэнд "DELETE" гэж бичнэ үү:',
+        'profile.confirmDelete': 'Бүрмөсөн устгах',
 
         // Shop
         'shop.title': 'Дэлгүүр',

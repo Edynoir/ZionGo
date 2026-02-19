@@ -1,15 +1,17 @@
 import { useState } from 'react';
-import { User, Flame, LogIn } from 'lucide-react';
+import { User, Flame, LogIn, Trash2 } from 'lucide-react';
 import { useUserStore } from '../store/useUserStore';
 import { useTranslation } from '../utils/i18n';
 import { AuthModal } from '../components/auth/AuthModal';
 import { AvatarSelector } from '../components/profile/AvatarSelector';
+import { DeleteProfileModal } from '../components/profile/DeleteProfileModal';
 
 export const Profile = () => {
     const { user, xp, streak, nickname, language, logout, updateNickname } = useUserStore();
     const { t } = useTranslation(language);
     const [showAuthModal, setShowAuthModal] = useState(false);
     const [showAvatarSelector, setShowAvatarSelector] = useState(false);
+    const [showDeleteModal, setShowDeleteModal] = useState(false);
     const [isEditingNickname, setIsEditingNickname] = useState(false);
     const [nicknameInput, setNicknameInput] = useState(nickname || '');
 
@@ -17,6 +19,8 @@ export const Profile = () => {
         await updateNickname(nicknameInput);
         setIsEditingNickname(false);
     };
+
+    const { isAdmin } = useUserStore();
 
     return (
         <div className="flex flex-col items-center py-8 relative">
@@ -36,6 +40,10 @@ export const Profile = () => {
                         <AvatarSelector onClose={() => setShowAvatarSelector(false)} />
                     </div>
                 </div>
+            )}
+
+            {showDeleteModal && (
+                <DeleteProfileModal onClose={() => setShowDeleteModal(false)} />
             )}
 
             <div className="flex flex-col items-center gap-4 mb-8">
@@ -111,12 +119,14 @@ export const Profile = () => {
                         {t('profile.getStarted')}
                     </button>
                 ) : (
-                    <button
-                        onClick={logout}
-                        className="text-rose-500 font-bold uppercase tracking-widest text-sm hover:underline"
-                    >
-                        {t('profile.signOut')}
-                    </button>
+                    <div className="flex flex-col items-center gap-4">
+                        <button
+                            onClick={logout}
+                            className="text-rose-500 font-bold uppercase tracking-widest text-sm hover:underline"
+                        >
+                            {t('profile.signOut')}
+                        </button>
+                    </div>
                 )}
             </div>
 
@@ -141,6 +151,22 @@ export const Profile = () => {
                         </div>
                     </div>
                 </div>
+
+                {/* Danger Zone */}
+                {user && (
+                    <div className="pt-8 border-t border-[var(--border-color)]">
+                        <h2 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">
+                            {t('profile.dangerZone') || "Danger Zone"}
+                        </h2>
+                        <button
+                            onClick={() => setShowDeleteModal(true)}
+                            className="flex items-center justify-center gap-2 w-full p-4 border-2 border-rose-500/20 text-rose-500 font-bold rounded-2xl hover:bg-rose-50 dark:hover:bg-rose-950/20 transition-all active:scale-95"
+                        >
+                            <Trash2 size={20} />
+                            {t('profile.deleteAccount') || "Delete Account"}
+                        </button>
+                    </div>
+                )}
             </div>
         </div>
     );

@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Trophy, Store, User, MoreHorizontal, Book } from 'lucide-react';
+import { Home, Trophy, Store, User, MoreHorizontal, Book, ShieldCheck } from 'lucide-react';
 import clsx from 'clsx';
 import { useUserStore } from '../../store/useUserStore';
 import { useTranslation } from '../../utils/i18n';
@@ -27,7 +27,7 @@ const SidebarItem = ({ icon: Icon, label, href }: { icon: any, label: string, hr
 };
 
 export const Sidebar = () => {
-    const { language } = useUserStore();
+    const { language, isAdmin } = useUserStore();
     const { t } = useTranslation(language);
 
     return (
@@ -43,6 +43,7 @@ export const Sidebar = () => {
                 <SidebarItem icon={Trophy} label={t('nav.leaderboard')} href="/leaderboard" />
                 <SidebarItem icon={Store} label={t('nav.shop')} href="/shop" />
                 <SidebarItem icon={User} label={t('nav.profile')} href="/profile" />
+                {isAdmin && <SidebarItem icon={ShieldCheck} label={t('nav.admin')} href="/admin" />}
                 <SidebarItem icon={MoreHorizontal} label={t('nav.more')} href="/more" />
             </nav>
         </div>
@@ -50,13 +51,13 @@ export const Sidebar = () => {
 };
 
 export const MobileNav = () => {
-    const location = useLocation();
-
+    const { isAdmin } = useUserStore();
     const navItems = [
         { icon: Home, href: "/" },
         { icon: Book, href: "/doctrinal-mastery" },
         { icon: Trophy, href: "/leaderboard" },
         { icon: Store, href: "/shop" },
+        ...(isAdmin ? [{ icon: ShieldCheck, href: "/admin" }] : []),
         { icon: MoreHorizontal, href: "/more" }
     ];
 
