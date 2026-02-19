@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { collection, getDocs } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useUserStore } from '../store/useUserStore';
-import { useTranslation } from '../utils/i18n';
 import { Users, LayoutDashboard, ShieldCheck, Loader, BarChart3 } from 'lucide-react';
 import { Navigate } from 'react-router-dom';
 
@@ -12,7 +11,7 @@ interface AdminStats {
 }
 
 export const AdminPanel = () => {
-    const { isAdmin, language } = useUserStore();
+    const { isAdmin } = useUserStore();
     const [stats, setStats] = useState<AdminStats>({ totalUsers: 0, totalXP: 0 });
     const [loading, setLoading] = useState(true);
 

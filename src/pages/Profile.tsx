@@ -20,8 +20,6 @@ export const Profile = () => {
         setIsEditingNickname(false);
     };
 
-    const { isAdmin } = useUserStore();
-
     return (
         <div className="flex flex-col items-center py-8 relative">
             {showAuthModal && (
