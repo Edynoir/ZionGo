@@ -612,6 +612,444 @@ const englishUnits: Unit[] = [
                 ]
             }
         ]
+    },
+    {
+        id: 5,
+        title: "Unit 5: Prophets & Revelation",
+        description: "Learn about living prophets and personal revelation.",
+        color: "bg-[#ff4b4b]",
+        levels: [
+            {
+                id: "prophet-1",
+                title: "Living Prophets",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    {
+                        id: 1301,
+                        type: "MULTIPLE_CHOICE",
+                        question: "Who is the current president of The Church of Jesus Christ of Latter-day Saints?",
+                        options: ["Russell M. Nelson", "Thomas S. Monson", "Gordon B. Hinckley", "Spencer W. Kimball"],
+                        correctAnswer: "Russell M. Nelson"
+                    },
+                    {
+                        id: 1302,
+                        type: "TRUE_FALSE",
+                        question: "The prophet is the only person authorized to receive revelation for the entire Church.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 1303,
+                        type: "MULTIPLE_CHOICE",
+                        question: "According to Amos 3:7, the Lord reveals his secrets to whom?",
+                        options: ["His servants the prophets", "All people", "Only the righteous", "Angels"],
+                        correctAnswer: "His servants the prophets"
+                    },
+                    {
+                        id: 1304,
+                        type: "MULTIPLE_CHOICE",
+                        question: "How many members serve in the First Presidency?",
+                        options: ["3", "12", "7", "1"],
+                        correctAnswer: "3"
+                    },
+                    {
+                        id: 1305,
+                        type: "TRUE_FALSE",
+                        question: "The Quorum of the Twelve Apostles are also prophets, seers, and revelators.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            },
+            {
+                id: "prophet-2",
+                title: "Personal Revelation",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "40%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    {
+                        id: 1401,
+                        type: "MULTIPLE_CHOICE",
+                        question: "Through what means does God primarily speak to us personally?",
+                        options: ["The Holy Ghost", "Thunder", "Dreams only", "Written letters"],
+                        correctAnswer: "The Holy Ghost"
+                    },
+                    {
+                        id: 1402,
+                        type: "TRUE_FALSE",
+                        question: "Every member of the Church can receive personal revelation for their own life.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 1403,
+                        type: "MULTIPLE_CHOICE",
+                        question: "In D&C 8:2-3, how does the Lord say He will tell us things?",
+                        options: ["In your mind and in your heart", "Through a loud voice", "Only through dreams", "Through other people only"],
+                        correctAnswer: "In your mind and in your heart"
+                    },
+                    {
+                        id: 1404,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What practice is essential for receiving personal revelation?",
+                        options: ["Prayer", "Fasting only", "Traveling to the temple only", "Reading newspapers"],
+                        correctAnswer: "Prayer"
+                    },
+                    {
+                        id: 1405,
+                        type: "TRUE_FALSE",
+                        question: "The Holy Ghost can give us feelings of peace and comfort.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            },
+            {
+                id: "prophet-3",
+                title: "Scripture Study",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "60%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    {
+                        id: 1501,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What are the four standard works of the Church?",
+                        options: ["Bible, Book of Mormon, D&C, Pearl of Great Price", "Bible, Quran, Torah, Vedas", "Only the Bible", "Bible and Book of Mormon only"],
+                        correctAnswer: "Bible, Book of Mormon, D&C, Pearl of Great Price"
+                    },
+                    {
+                        id: 1502,
+                        type: "TRUE_FALSE",
+                        question: "Nephi said 'feast upon the words of Christ' (2 Nephi 32:3).",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 1503,
+                        type: "MULTIPLE_CHOICE",
+                        question: "According to D&C 88:118, we should seek learning by what two means?",
+                        options: ["Study and faith", "Study and travel", "Faith and luck", "Money and power"],
+                        correctAnswer: "Study and faith"
+                    },
+                    {
+                        id: 1504,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What does 2 Timothy 3:16 say about scripture?",
+                        options: ["All scripture is given by inspiration of God", "Scripture is man-made", "Only some scripture is true", "Scripture is not needed"],
+                        correctAnswer: "All scripture is given by inspiration of God"
+                    },
+                    {
+                        id: 1505,
+                        type: "TRUE_FALSE",
+                        question: "Reading the scriptures daily brings us closer to Heavenly Father.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 6,
+        title: "Unit 6: Missionary Work & Service",
+        description: "Sharing the gospel and serving others like Jesus Christ.",
+        color: "bg-[#00c9a7]",
+        levels: [
+            {
+                id: "mission-1",
+                title: "Sharing the Gospel",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    {
+                        id: 1601,
+                        type: "MULTIPLE_CHOICE",
+                        question: "At what age can young men serve a full-time mission?",
+                        options: ["18", "16", "21", "25"],
+                        correctAnswer: "18"
+                    },
+                    {
+                        id: 1602,
+                        type: "MULTIPLE_CHOICE",
+                        question: "At what age can young women serve a full-time mission?",
+                        options: ["19", "18", "21", "16"],
+                        correctAnswer: "19"
+                    },
+                    {
+                        id: 1603,
+                        type: "TRUE_FALSE",
+                        question: "Every member of the Church is a missionary.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 1604,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What did Jesus say in Matthew 28:19?",
+                        options: ["Go ye therefore, and teach all nations", "Stay home and study", "Only teach your family", "Pray silently"],
+                        correctAnswer: "Go ye therefore, and teach all nations"
+                    },
+                    {
+                        id: 1605,
+                        type: "MULTIPLE_CHOICE",
+                        question: "How long is a typical young men's mission?",
+                        options: ["24 months", "12 months", "6 months", "36 months"],
+                        correctAnswer: "24 months"
+                    }
+                ]
+            },
+            {
+                id: "mission-2",
+                title: "Service to Others",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "45%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    {
+                        id: 1701,
+                        type: "MULTIPLE_CHOICE",
+                        question: "In Mosiah 2:17, King Benjamin says that serving others is the same as serving whom?",
+                        options: ["God", "The king", "Yourself", "No one"],
+                        correctAnswer: "God"
+                    },
+                    {
+                        id: 1702,
+                        type: "TRUE_FALSE",
+                        question: "Jesus taught that the greatest commandment involves loving God and loving your neighbor.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 1703,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What parable teaches about helping those in need regardless of social barriers?",
+                        options: ["The Good Samaritan", "The Prodigal Son", "The Sower", "The Ten Virgins"],
+                        correctAnswer: "The Good Samaritan"
+                    },
+                    {
+                        id: 1704,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What is the Church's humanitarian program called?",
+                        options: ["Latter-day Saint Charities", "LDS Aid", "Church Fund", "Samaritan Services"],
+                        correctAnswer: "Latter-day Saint Charities"
+                    },
+                    {
+                        id: 1705,
+                        type: "TRUE_FALSE",
+                        question: "Fast offerings help care for those who are poor and in need.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            },
+            {
+                id: "mission-3",
+                title: "Christlike Attributes",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    {
+                        id: 1801,
+                        type: "MULTIPLE_CHOICE",
+                        question: "According to Moroni 7:47, what is 'the pure love of Christ'?",
+                        options: ["Charity", "Faith", "Hope", "Obedience"],
+                        correctAnswer: "Charity"
+                    },
+                    {
+                        id: 1802,
+                        type: "TRUE_FALSE",
+                        question: "Christlike attributes include faith, hope, charity, and virtue.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 1803,
+                        type: "MULTIPLE_CHOICE",
+                        question: "In the Sermon on the Mount, Jesus said 'Blessed are the meek, for they shall...'",
+                        options: ["Inherit the earth", "See God", "Find gold", "Live forever"],
+                        correctAnswer: "Inherit the earth"
+                    },
+                    {
+                        id: 1804,
+                        type: "MULTIPLE_CHOICE",
+                        question: "Which chapter in Preach My Gospel focuses on Christlike attributes?",
+                        options: ["Chapter 6", "Chapter 1", "Chapter 3", "Chapter 10"],
+                        correctAnswer: "Chapter 6"
+                    },
+                    {
+                        id: 1805,
+                        type: "TRUE_FALSE",
+                        question: "Patience is one of the Christlike attributes we should develop.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: "Unit 7: The Second Coming & Last Days",
+        description: "Preparing for the Savior's return and the Millennium.",
+        color: "bg-[#845ef7]",
+        levels: [
+            {
+                id: "second-1",
+                title: "Signs of the Times",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    {
+                        id: 1901,
+                        type: "MULTIPLE_CHOICE",
+                        question: "Which of these is a sign of the Second Coming mentioned in the scriptures?",
+                        options: ["Wars and rumors of wars", "World peace", "Everyone being wealthy", "No more natural disasters"],
+                        correctAnswer: "Wars and rumors of wars"
+                    },
+                    {
+                        id: 1902,
+                        type: "TRUE_FALSE",
+                        question: "The gospel must be preached to all nations before the Second Coming.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 1903,
+                        type: "MULTIPLE_CHOICE",
+                        question: "According to Joseph Smith—Matthew 1:37, what parable is used to describe the signs before the Lord comes?",
+                        options: ["The parable of the fig tree", "The parable of the sower", "The parable of the talents", "The parable of the lost coin"],
+                        correctAnswer: "The parable of the fig tree"
+                    },
+                    {
+                        id: 1904,
+                        type: "MULTIPLE_CHOICE",
+                        question: "In Matthew 24:36, who knows the exact day and hour of the Second Coming?",
+                        options: ["Only the Father", "Everyone", "The prophets", "The angels"],
+                        correctAnswer: "Only the Father"
+                    },
+                    {
+                        id: 1905,
+                        type: "TRUE_FALSE",
+                        question: "The building of temples throughout the world is a sign of the times.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            },
+            {
+                id: "second-2",
+                title: "Preparing for His Coming",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "40%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    {
+                        id: 2001,
+                        type: "MULTIPLE_CHOICE",
+                        question: "In the parable of the Ten Virgins, what did the five wise virgins have that the foolish did not?",
+                        options: ["Extra oil", "Extra money", "Extra food", "Extra clothing"],
+                        correctAnswer: "Extra oil"
+                    },
+                    {
+                        id: 2002,
+                        type: "TRUE_FALSE",
+                        question: "We should live each day as if the Savior could come at any time.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 2003,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What does the oil in the parable of the Ten Virgins represent?",
+                        options: ["Our personal preparation and faithfulness", "Literal oil", "Money", "Physical strength"],
+                        correctAnswer: "Our personal preparation and faithfulness"
+                    },
+                    {
+                        id: 2004,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What are members encouraged to have for temporal preparedness?",
+                        options: ["Food storage and emergency supplies", "Only cash", "Nothing special", "A survival shelter"],
+                        correctAnswer: "Food storage and emergency supplies"
+                    },
+                    {
+                        id: 2005,
+                        type: "TRUE_FALSE",
+                        question: "Keeping the commandments is part of spiritual preparation for the Second Coming.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            },
+            {
+                id: "second-3",
+                title: "The Millennium",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    {
+                        id: 2101,
+                        type: "MULTIPLE_CHOICE",
+                        question: "How long will the Millennium last?",
+                        options: ["1,000 years", "100 years", "500 years", "Forever"],
+                        correctAnswer: "1,000 years"
+                    },
+                    {
+                        id: 2102,
+                        type: "TRUE_FALSE",
+                        question: "During the Millennium, Satan will be bound.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    },
+                    {
+                        id: 2103,
+                        type: "MULTIPLE_CHOICE",
+                        question: "Who will reign personally on the earth during the Millennium?",
+                        options: ["Jesus Christ", "A king", "The prophet only", "An angel"],
+                        correctAnswer: "Jesus Christ"
+                    },
+                    {
+                        id: 2104,
+                        type: "MULTIPLE_CHOICE",
+                        question: "What important work will continue during the Millennium?",
+                        options: ["Temple work for the dead", "Building spaceships", "Creating new countries", "Nothing, it will be a rest"],
+                        correctAnswer: "Temple work for the dead"
+                    },
+                    {
+                        id: 2105,
+                        type: "TRUE_FALSE",
+                        question: "According to Article of Faith 10, the earth will receive its paradisiacal glory during the Millennium.",
+                        options: ["True", "False"],
+                        correctAnswer: "True"
+                    }
+                ]
+            }
+        ]
     }
 ];
 
@@ -1196,6 +1634,174 @@ const mongolianUnits: Unit[] = [
                         options: ["Үнэн", "Худал"],
                         correctAnswer: "Үнэн"
                     }
+                ]
+            }
+        ]
+    },
+    {
+        id: 5,
+        title: "Нэгж 5: Бошиглогчид ба Илчлэлт",
+        description: "Амьд бошиглогчид ба хувийн илчлэлтийн талаар суралц.",
+        color: "bg-[#ff4b4b]",
+        levels: [
+            {
+                id: "prophet-1",
+                title: "Амьд бошиглогчид",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 1301, type: "MULTIPLE_CHOICE", question: "Есүс Христийн Хожмын Үеийн Гэгээнтнүүдийн Сүмийн одоогийн ерөнхийлөгч хэн бэ?", options: ["Рассэлл М. Нэлсон", "Томас С. Монсон", "Гордон Б. Хинкли", "Спэнсэр В. Кимбалл"], correctAnswer: "Рассэлл М. Нэлсон" },
+                    { id: 1302, type: "TRUE_FALSE", question: "Бошиглогч бол бүх Сүмд зориулсан илчлэлт хүлээн авах эрх мэдэлтэй цорын ганц хүн юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 1303, type: "MULTIPLE_CHOICE", question: "Амос 3:7-д Их Эзэн нууцуудаа хэнд илчилдэг гэж байдаг вэ?", options: ["Өөрийн зарц бошиглогчдод", "Бүх хүмүүст", "Зөвхөн зөвт хүмүүст", "Тэнгэр элч нарт"], correctAnswer: "Өөрийн зарц бошиглогчдод" },
+                    { id: 1304, type: "MULTIPLE_CHOICE", question: "Тэргүүн Зөвлөлд хэдэн гишүүн үйлчилдэг вэ?", options: ["3", "12", "7", "1"], correctAnswer: "3" },
+                    { id: 1305, type: "TRUE_FALSE", question: "Арван хоёр Төлөөлөгчийн Чуулга нь бас бошиглогчид, үзмэрчид, илчлэгчид юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "prophet-2",
+                title: "Хувийн илчлэлт",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "40%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 1401, type: "MULTIPLE_CHOICE", question: "Бурхан бидэнтэй хувиараа голчлон яаж ярьдаг вэ?", options: ["Ариун Сүнсээр дамжуулан", "Аянгаар", "Зөвхөн зүүдээр", "Бичгээр"], correctAnswer: "Ариун Сүнсээр дамжуулан" },
+                    { id: 1402, type: "TRUE_FALSE", question: "Сүмийн гишүүн бүр хувийн амьдралдаа хувийн илчлэлт хүлээн авч чадна.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 1403, type: "MULTIPLE_CHOICE", question: "С ба Г 8:2-3-т Их Эзэн бидэнд юу яаж хэлнэ гэж хэлсэн бэ?", options: ["Оюун санаа ба зүрх сэтгэлд чинь", "Чанга дуу хоолойгоор", "Зөвхөн зүүдээр", "Зөвхөн бусад хүмүүсээр дамжуулан"], correctAnswer: "Оюун санаа ба зүрх сэтгэлд чинь" },
+                    { id: 1404, type: "MULTIPLE_CHOICE", question: "Хувийн илчлэлт хүлээн авахад ямар зуршил чухал вэ?", options: ["Залбирал", "Зөвхөн мацаг", "Зөвхөн ариун сүмд очих", "Сонин унших"], correctAnswer: "Залбирал" },
+                    { id: 1405, type: "TRUE_FALSE", question: "Ариун Сүнс бидэнд амар амгалан, тайвшралын мэдрэмж өгч чадна.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "prophet-3",
+                title: "Судар судлал",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "60%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 1501, type: "MULTIPLE_CHOICE", question: "Сүмийн дөрвөн жишиг бүтээл юу вэ?", options: ["Библи, Мормоны Ном, С ба Г, Агуу Үнэт Сувд", "Библи, Куран, Тора, Ведас", "Зөвхөн Библи", "Зөвхөн Библи ба Мормоны Ном"], correctAnswer: "Библи, Мормоны Ном, С ба Г, Агуу Үнэт Сувд" },
+                    { id: 1502, type: "TRUE_FALSE", question: "Нифай 'Христийн үгсийг наршин ид' гэж хэлсэн (2 Нифай 32:3).", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 1503, type: "MULTIPLE_CHOICE", question: "С ба Г 88:118-д бид суралцах ёстой хоёр арга замаар юу гэж заасан бэ?", options: ["Суралцах ба итгэлээр", "Суралцах ба аялах", "Итгэл ба азаар", "Мөнгө ба хүчээр"], correctAnswer: "Суралцах ба итгэлээр" },
+                    { id: 1504, type: "MULTIPLE_CHOICE", question: "2 Тимот 3:16-д судрын тухай юу гэж хэлсэн бэ?", options: ["Бүх судар Бурханы онгодоор өгөгдсөн", "Судар бол хүний бүтээл", "Зарим судар л үнэн", "Судар хэрэггүй"], correctAnswer: "Бүх судар Бурханы онгодоор өгөгдсөн" },
+                    { id: 1505, type: "TRUE_FALSE", question: "Өдөр бүр судар уншсанаар бид Тэнгэрлэг Эцэгт ойрхон болно.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 6,
+        title: "Нэгж 6: Номлолын Ажил ба Үйлчлэл",
+        description: "Сайн мэдээг хуваалцах ба Есүс Христ шиг бусдад үйлчлэх.",
+        color: "bg-[#00c9a7]",
+        levels: [
+            {
+                id: "mission-1",
+                title: "Сайн мэдээг хуваалцах",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 1601, type: "MULTIPLE_CHOICE", question: "Залуучууд хэдэн наснаас бүтэн цагийн номлолд үйлчилж болох вэ?", options: ["18", "16", "21", "25"], correctAnswer: "18" },
+                    { id: 1602, type: "MULTIPLE_CHOICE", question: "Охид хэдэн наснаас бүтэн цагийн номлолд үйлчилж болох вэ?", options: ["19", "18", "21", "16"], correctAnswer: "19" },
+                    { id: 1603, type: "TRUE_FALSE", question: "Сүмийн гишүүн бүр номлогч юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 1604, type: "MULTIPLE_CHOICE", question: "Матай 28:19-д Есүс юу гэж хэлсэн бэ?", options: ["Тиймээс та нар яваад бүх үндэстнийг номлогтун", "Гэртээ байж суралц", "Зөвхөн гэр бүлдээ заа", "Чимээгүй залбир"], correctAnswer: "Тиймээс та нар яваад бүх үндэстнийг номлогтун" },
+                    { id: 1605, type: "MULTIPLE_CHOICE", question: "Залуучуудын ердийн номлол хэр удаан үргэлжилдэг вэ?", options: ["24 сар", "12 сар", "6 сар", "36 сар"], correctAnswer: "24 сар" }
+                ]
+            },
+            {
+                id: "mission-2",
+                title: "Бусдад үйлчлэх",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "45%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 1701, type: "MULTIPLE_CHOICE", question: "Мозая 2:17-д Бенжамин хаан бусдад үйлчлэх нь хэнд үйлчлэхтэй адил гэж хэлсэн бэ?", options: ["Бурханд", "Хаанд", "Өөртөө", "Хэнд ч биш"], correctAnswer: "Бурханд" },
+                    { id: 1702, type: "TRUE_FALSE", question: "Есүс хамгийн агуу зарлиг бол Бурханыг хайрлах ба хөршөө хайрлах юм гэж заасан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 1703, type: "MULTIPLE_CHOICE", question: "Ямар сургаалт зүйрлэл нийгмийн ялгаваргүй бусдад тусалж байхыг заадаг вэ?", options: ["Сайн Самари хүн", "Тэнэмэл хүү", "Тариачин", "Арван Онгон охид"], correctAnswer: "Сайн Самари хүн" },
+                    { id: 1704, type: "MULTIPLE_CHOICE", question: "Сүмийн хүмүүнлэгийн хөтөлбөрийг юу гэж нэрлэдэг вэ?", options: ["Хожмын Үеийн Гэгээнтнүүдийн Буяны Байгууллага", "LDS Тусламж", "Сүмийн Сан", "Самари Үйлчилгээ"], correctAnswer: "Хожмын Үеийн Гэгээнтнүүдийн Буяны Байгууллага" },
+                    { id: 1705, type: "TRUE_FALSE", question: "Мацгийн өргөл нь ядуу, эмзэг хүмүүст тусалдаг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "mission-3",
+                title: "Христийнхтэй адил чанарууд",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 1801, type: "MULTIPLE_CHOICE", question: "Моронай 7:47-д 'Христийн цэвэр хайр' гэж юуг хэлдэг вэ?", options: ["Энэрэл", "Итгэл", "Найдвар", "Дуулгавартай байдал"], correctAnswer: "Энэрэл" },
+                    { id: 1802, type: "TRUE_FALSE", question: "Христийн чанаруудад итгэл, найдвар, энэрэл, ёс суртахуун зэрэг орно.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 1803, type: "MULTIPLE_CHOICE", question: "Уулан дээрх номлолд Есүс 'Дөлгөөн хүмүүс ерөөлтэй еэ, учир нь тэд...' гэж хэлсэн", options: ["Газрыг өвлөнө", "Бурханыг харна", "Алт олно", "Мөнхөд амьдарна"], correctAnswer: "Газрыг өвлөнө" },
+                    { id: 1804, type: "MULTIPLE_CHOICE", question: "Миний Сайн Мэдээг Номло номын аль бүлэг Христийн чанаруудад төвлөрдөг вэ?", options: ["Бүлэг 6", "Бүлэг 1", "Бүлэг 3", "Бүлэг 10"], correctAnswer: "Бүлэг 6" },
+                    { id: 1805, type: "TRUE_FALSE", question: "Тэвчээр бол бидний хөгжүүлэх ёстой Христийн чанаруудын нэг юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 7,
+        title: "Нэгж 7: Хоёр Дахь Ирэлт ба Эцсийн Өдрүүд",
+        description: "Аврагчийн эргэн ирэлт ба Мянганы хаанчлалд бэлтгэх.",
+        color: "bg-[#845ef7]",
+        levels: [
+            {
+                id: "second-1",
+                title: "Цаг үеийн тэмдгүүд",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 1901, type: "MULTIPLE_CHOICE", question: "Судруудад дурдагдсан Хоёр Дахь Ирэлтийн тэмдгүүдийн аль нь вэ?", options: ["Дайн ба дайны цуурхал", "Дэлхийн энх тайван", "Бүгд баялаг болох", "Байгалийн гамшиг байхгүй"], correctAnswer: "Дайн ба дайны цуурхал" },
+                    { id: 1902, type: "TRUE_FALSE", question: "Хоёр Дахь Ирэлтийн өмнө бүх үндэстэнд сайн мэдээг номлох ёстой.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 1903, type: "MULTIPLE_CHOICE", question: "Иосеф Смит—Матай 1:37-д ямар сургаалт зүйрлэл хэрэглэсэн бэ?", options: ["Инжрийн модны зүйрлэл", "Тариачны зүйрлэл", "Талантуудын зүйрлэл", "Алдагдсан зоосны зүйрлэл"], correctAnswer: "Инжрийн модны зүйрлэл" },
+                    { id: 1904, type: "MULTIPLE_CHOICE", question: "Матай 24:36-д Хоёр Дахь Ирэлтийн яг тухайн өдөр, цагийг хэн мэддэг вэ?", options: ["Зөвхөн Эцэг", "Бүгд", "Бошиглогчид", "Тэнгэр элч нар"], correctAnswer: "Зөвхөн Эцэг" },
+                    { id: 1905, type: "TRUE_FALSE", question: "Дэлхий даяар ариун сүмүүд баригдаж байгаа нь цаг үеийн тэмдэг юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "second-2",
+                title: "Түүний ирэлтэд бэлтгэх",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "40%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 2001, type: "MULTIPLE_CHOICE", question: "Арван Онгон Охидын зүйрлэлд тав мэргэн охид тэнэг охидод байгаагүй юутай байсан бэ?", options: ["Нэмэлт тос", "Нэмэлт мөнгө", "Нэмэлт хоол", "Нэмэлт хувцас"], correctAnswer: "Нэмэлт тос" },
+                    { id: 2002, type: "TRUE_FALSE", question: "Аврагч хэдийд ч ирж болно гэсэн мэт өдөр бүр амьдрах ёстой.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2003, type: "MULTIPLE_CHOICE", question: "Арван Онгон Охидын зүйрлэл дэх тос юуг төлөөлдөг вэ?", options: ["Хувийн бэлтгэл ба итгэлтэй байдал", "Жинхэнэ тос", "Мөнгө", "Биеийн хүч"], correctAnswer: "Хувийн бэлтгэл ба итгэлтэй байдал" },
+                    { id: 2004, type: "MULTIPLE_CHOICE", question: "Цаг хугацааны бэлтгэлд юу хийхийг уриалдаг вэ?", options: ["Хүнсний нөөц ба яаралтай тусламжийн хэрэгсэл", "Зөвхөн бэлэн мөнгө", "Юу ч хэрэггүй", "Амьд үлдэх бункер"], correctAnswer: "Хүнсний нөөц ба яаралтай тусламжийн хэрэгсэл" },
+                    { id: 2005, type: "TRUE_FALSE", question: "Зарлигуудыг дагах нь Хоёр Дахь Ирэлтэд сүнслэг бэлтгэлийн нэг хэсэг юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "second-3",
+                title: "Мянганы хаанчлал",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 2101, type: "MULTIPLE_CHOICE", question: "Мянганы хаанчлал хэр удаан үргэлжлэх вэ?", options: ["1,000 жил", "100 жил", "500 жил", "Мөнхөд"], correctAnswer: "1,000 жил" },
+                    { id: 2102, type: "TRUE_FALSE", question: "Мянганы хаанчлалын үеэр Сатан хүлээгдэх болно.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2103, type: "MULTIPLE_CHOICE", question: "Мянганы хаанчлалын үеэр дэлхий дээр хэн хувиараа хаанчлах вэ?", options: ["Есүс Христ", "Хаан", "Зөвхөн бошиглогч", "Тэнгэр элч"], correctAnswer: "Есүс Христ" },
+                    { id: 2104, type: "MULTIPLE_CHOICE", question: "Мянганы хаанчлалын үеэр ямар чухал ажил үргэлжлэх вэ?", options: ["Нас барагсдын төлөөх ариун сүмийн ажил", "Сансрын хөлөг барих", "Шинэ улс үүсгэх", "Юу ч биш, амрах үе"], correctAnswer: "Нас барагсдын төлөөх ариун сүмийн ажил" },
+                    { id: 2105, type: "TRUE_FALSE", question: "Итгэлийн зүйлс 10-ын дагуу, дэлхий диваажингийн алдраа хүлээн авна.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
                 ]
             }
         ]

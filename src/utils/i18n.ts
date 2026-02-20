@@ -108,6 +108,17 @@ type TranslationKeys = {
     'mastery.cardCount': string;
     'mastery.noFlashcards': string;
     'mastery.notEnoughQuiz': string;
+    'mastery.shuffle': string;
+    'mastery.fullScripture': string;
+    'mastery.openExternal': string;
+    'mastery.selectCorrectText': string;
+    'mastery.whichVolume': string;
+
+    // Lesson
+    'lesson.completed': string;
+    'lesson.totalXp': string;
+    'lesson.gems': string;
+    'lesson.review': string;
 
     // Common
     'common.loading': string;
@@ -227,6 +238,17 @@ const translations: Record<Language, TranslationKeys> = {
         'mastery.cardCount': 'Card',
         'mastery.noFlashcards': 'No flashcards selected.',
         'mastery.notEnoughQuiz': 'Not enough data for quiz (need at least 4 items).',
+        'mastery.shuffle': 'Shuffle',
+        'mastery.fullScripture': 'Full Scripture',
+        'mastery.openExternal': 'Open in Church Library',
+        'mastery.selectCorrectText': 'Select the Correct Scripture Text',
+        'mastery.whichVolume': 'Which Volume Is This From?',
+
+        // Lesson
+        'lesson.completed': 'You completed',
+        'lesson.totalXp': 'Total XP',
+        'lesson.gems': 'Gems',
+        'lesson.review': 'Review Lesson',
 
         // Common
         'common.loading': 'Loading...',
@@ -344,6 +366,17 @@ const translations: Record<Language, TranslationKeys> = {
         'mastery.cardCount': 'Карт',
         'mastery.noFlashcards': 'Карт сонгоогүй байна.',
         'mastery.notEnoughQuiz': 'Шалгалт авахад хангалтгүй өгөгдөл (дор хаяж 4 зүйл хэрэгтэй).',
+        'mastery.shuffle': 'Холих',
+        'mastery.fullScripture': 'Бүтэн судар',
+        'mastery.openExternal': 'Сүмийн номын санд нээх',
+        'mastery.selectCorrectText': 'Зөв судрын бичвэрийг сонгоно уу',
+        'mastery.whichVolume': 'Энэ ямар ботиос вэ?',
+
+        // Lesson
+        'lesson.completed': 'Та дуусгалаа',
+        'lesson.totalXp': 'Нийт XP',
+        'lesson.gems': 'Эрдэнийн чулуу',
+        'lesson.review': 'Хичээлээ шалгах',
 
         // Common
         'common.loading': 'Ачаалж байна...',
