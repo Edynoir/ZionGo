@@ -685,6 +685,34 @@ export const masteryData: MasteryScripture[] = [
         reference: 'Doctrine and Covenants 135:3',
         text: 'Joseph Smith “brought forth the Book of Mormon, which he translated by the gift and power of God.”',
         url: 'https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/135?lang=eng&id=3#p3'
+    },
+    {
+        id: 'ot-25',
+        volume: 'Old Testament',
+        reference: 'Isaiah 55:8–9',
+        text: 'For my thoughts are not your thoughts, neither are your ways my ways, saith the Lord.',
+        url: 'https://www.churchofjesuschrist.org/study/scriptures/ot/isa/55?lang=eng&id=8-9#p8'
+    },
+    {
+        id: 'nt-25',
+        volume: 'New Testament',
+        reference: '1 John 4:19',
+        text: 'We love him, because he first loved us.',
+        url: 'https://www.churchofjesuschrist.org/study/scriptures/nt/1-jn/4?lang=eng&id=19#p19'
+    },
+    {
+        id: 'bom-25',
+        volume: 'Book of Mormon',
+        reference: 'Moroni 8:25',
+        text: 'And the first fruits of repentance is baptism.',
+        url: 'https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/8?lang=eng&id=25#p25'
+    },
+    {
+        id: 'dc-25',
+        volume: 'Doctrine and Covenants',
+        reference: 'Doctrine and Covenants 133:37',
+        text: 'And this gospel shall be preached unto every nation, and kindred, and tongue, and people.',
+        url: 'https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/133?lang=eng&id=37#p37'
     }
 ];
 
@@ -929,13 +957,11 @@ const mongolianMasteryData: MasteryScripture[] = [
         text: 'Гэрлэлтийн шинэ бөгөөд үүрдийн гэрээ.',
         url: 'https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/131?lang=mon&id=1-4#p1'
     },
-    {
-        id: 'dc-24',
-        volume: 'Doctrine and Covenants',
-        reference: 'Сургаал ба Гэрээ 135:3',
-        text: 'Иосеф Смит "Мормоны номыг, Бурханы бэлэг ба хүчээр орчуулсан."',
-        url: 'https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/135?lang=mon&id=3#p3'
-    }
+    { id: 'dc-24', volume: 'Doctrine and Covenants', reference: 'Сургаал ба Гэрээ 135:3', text: 'Иосеф Смит "Мормоны номыг, Бурханы бэлэг ба хүчээр орчуулсан."', url: 'https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/135?lang=mon&id=3#p3' },
+    { id: 'ot-25', volume: 'Old Testament', reference: 'Исаиа 55:8–9', text: 'Учир нь Миний бодол санаа та нарынх биш, та нарын зам Минийх биш гэж Эзэн айлдаж байна.', url: 'https://www.churchofjesuschrist.org/study/scriptures/ot/isa/55?lang=mon&id=8-9#p8' },
+    { id: 'nt-25', volume: 'New Testament', reference: '1 Иохан 4:19', text: 'Тэр анх биднийг хайрласан учраас бид Түүнийг хайрладаг.', url: 'https://www.churchofjesuschrist.org/study/scriptures/nt/1-jn/4?lang=mon&id=19#p19' },
+    { id: 'bom-25', volume: 'Book of Mormon', reference: 'Моронай 8:25', text: 'Наманчлалын анхны үр жимс бол баптисм юм.', url: 'https://www.churchofjesuschrist.org/study/scriptures/bofm/moro/8?lang=mon&id=25#p25' },
+    { id: 'dc-25', volume: 'Doctrine and Covenants', reference: 'Сургаал ба Гэрээ 133:37', text: 'Мөн энэ сайн мэдээ бүх үндэстэн, ястан, хэлтэн ба хүмүүст номлогдох болно.', url: 'https://www.churchofjesuschrist.org/study/scriptures/dc-testament/dc/133?lang=mon&id=37#p37' }
 ];
 
 export type Language = 'en' | 'mn';

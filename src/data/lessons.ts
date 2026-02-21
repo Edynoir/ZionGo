@@ -77,7 +77,7 @@ const englishUnits: Unit[] = [
                         type: "MULTIPLE_CHOICE",
                         question: "In which U.S. state did the First Vision occur?",
                         options: ["New York", "Ohio", "Missouri", "Illinois"],
-                        correctAnswer: "Missouri"
+                        correctAnswer: "New York"
                     }
                 ]
             },
@@ -1040,13 +1040,408 @@ const englishUnits: Unit[] = [
                         options: ["Temple work for the dead", "Building spaceships", "Creating new countries", "Nothing, it will be a rest"],
                         correctAnswer: "Temple work for the dead"
                     },
-                    {
-                        id: 2105,
-                        type: "TRUE_FALSE",
-                        question: "According to Article of Faith 10, the earth will receive its paradisiacal glory during the Millennium.",
-                        options: ["True", "False"],
-                        correctAnswer: "True"
-                    }
+                ]
+            }
+        ]
+    },
+    {
+        id: 8,
+        title: "Unit 8: Church History & Pioneers",
+        description: "The journey West and the establishment of Zion.",
+        color: "bg-[#ff9600]",
+        levels: [
+            {
+                id: "history-1",
+                title: "The Exodus West",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 2201, type: "MULTIPLE_CHOICE", question: "In what year did the first pioneer company enter the Salt Lake Valley?", options: ["1847", "1830", "1820", "1850"], correctAnswer: "1847" },
+                    { id: 2202, type: "MULTIPLE_CHOICE", question: "Who led the pioneers to the Salt Lake Valley?", options: ["Brigham Young", "Joseph Smith", "John Taylor", "Wilford Woodruff"], correctAnswer: "Brigham Young" },
+                    { id: 2203, type: "TRUE_FALSE", question: "The pioneers walked over 1,000 miles to reach their new home.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2204, type: "MULTIPLE_CHOICE", question: "What was the name of the pioneer trail?", options: ["The Mormon Trail", "The Oregon Trail", "The Santa Fe Trail", "The Silk Road"], correctAnswer: "The Mormon Trail" },
+                    { id: 2205, type: "TRUE_FALSE", question: "Many pioneers used handcarts to pull their belongings across the plains.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            },
+            {
+                id: "history-2",
+                title: "Building Zion",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "40%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 2301, type: "MULTIPLE_CHOICE", question: "Which temple took 40 years to build?", options: ["Salt Lake Temple", "Kirtland Temple", "Nauvoo Temple", "Manti Temple"], correctAnswer: "Salt Lake Temple" },
+                    { id: 2302, type: "TRUE_FALSE", question: "The Relief Society was organized in Nauvoo.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2303, type: "MULTIPLE_CHOICE", question: "Who was the first president of the Relief Society?", options: ["Emma Smith", "Eliza R. Snow", "Lucy Mack Smith", "Zina D. H. Young"], correctAnswer: "Emma Smith" },
+                    { id: 2304, type: "MULTIPLE_CHOICE", question: "What famous structure in Salt Lake City is known for its acoustics?", options: ["The Tabernacle", "The Conference Center", "The Beehive House", "The Lion House"], correctAnswer: "The Tabernacle" },
+                    { id: 2305, type: "TRUE_FALSE", question: "The Church was organized on April 6, 1830.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            },
+            {
+                id: "history-3",
+                title: "Worldwide Growth",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "60%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 2401, type: "MULTIPLE_CHOICE", question: "Where was the first international mission of the Church?", options: ["United Kingdom", "Canada", "Germany", "Japan"], correctAnswer: "United Kingdom" },
+                    { id: 2402, type: "TRUE_FALSE", question: "The Church has members in nearly every country in the world.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2403, type: "MULTIPLE_CHOICE", question: "What year did the Church reach 10 million members?", options: ["1997", "1980", "2010", "2020"], correctAnswer: "1997" },
+                    { id: 2404, type: "MULTIPLE_CHOICE", question: "The 'I'm a Mormon' campaign was replaced by which emphasis?", options: ["The Church of Jesus Christ", "Latter-day Saints", "The Restoration", "Faith in Christ"], correctAnswer: "The Church of Jesus Christ" },
+                    { id: 2405, type: "TRUE_FALSE", question: "The first temple in Europe was built in Switzerland.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 9,
+        title: "Unit 9: Living the Gospel",
+        description: "Applying the principles of the gospel in daily life.",
+        color: "bg-[#1cb0f6]",
+        levels: [
+            {
+                id: "living-1",
+                title: "The Word of Wisdom",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 2501, type: "MULTIPLE_CHOICE", question: "Which section of the Doctrine and Covenants contains the Word of Wisdom?", options: ["Section 89", "Section 1", "Section 76", "Section 121"], correctAnswer: "Section 89" },
+                    { id: 2502, type: "TRUE_FALSE", question: "The Word of Wisdom encourages the use of wholesome herbs and grains.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2503, type: "MULTIPLE_CHOICE", question: "What substance is specifically forbidden in the Word of Wisdom?", options: ["Alcohol", "Water", "Milk", "Juice"], correctAnswer: "Alcohol" },
+                    { id: 2504, type: "MULTIPLE_CHOICE", question: "The Lord promises that those who obey the Word of Wisdom shall find what?", options: ["Wisdom and great treasures of knowledge", "Wealth", "Fame", "Superpowers"], correctAnswer: "Wisdom and great treasures of knowledge" },
+                    { id: 2505, type: "TRUE_FALSE", question: "The Word of Wisdom was given as a 'principle with promise'.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            },
+            {
+                id: "living-2",
+                title: "Tithing & Fast Offerings",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "45%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 2601, type: "MULTIPLE_CHOICE", question: "What percentage of our income is tithing?", options: ["10%", "5%", "20%", "1%"], correctAnswer: "10%" },
+                    { id: 2602, type: "TRUE_FALSE", question: "Tithing funds are used to build temples and meetinghouses.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2603, type: "MULTIPLE_CHOICE", question: "How often do we typically fast and give a fast offering?", options: ["Once a month", "Once a year", "Every Sunday", "Never"], correctAnswer: "Once a month" },
+                    { id: 2604, type: "MULTIPLE_CHOICE", question: "What is a proper fast?", options: ["Going without food and drink for two meals", "Eating only bread", "Skipping one meal", "Avoiding sweets"], correctAnswer: "Going without food and drink for two meals" },
+                    { id: 2605, type: "TRUE_FALSE", question: "The Law of Tithing was revealed through the Prophet Joseph Smith.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            },
+            {
+                id: "living-3",
+                title: "Personal Prayer & Study",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 2701, type: "MULTIPLE_CHOICE", question: "How should we address Heavenly Father in prayer?", options: ["With reverence and love", "Like a casual friend", "Only with formal titles", "By shouting"], correctAnswer: "With reverence and love" },
+                    { id: 2702, type: "TRUE_FALSE", question: "We should pray every morning and night.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2703, type: "MULTIPLE_CHOICE", question: "What did Nephi say we should do to the words of Christ?", options: ["Feast upon them", "Read them once", "Ignore them", "Sample them"], correctAnswer: "Feast upon them" },
+                    { id: 2704, type: "MULTIPLE_CHOICE", question: "Where can we find the words of Christ?", options: ["In the scriptures and from prophets", "Only in old books", "Nowhere", "Only in our own thoughts"], correctAnswer: "In the scriptures and from prophets" },
+                    { id: 2705, type: "TRUE_FALSE", question: "Sincere prayer can help us receive personal revelation.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 10,
+        title: "Unit 10: Service & Charity",
+        description: "Developing the pure love of Christ through serving others.",
+        color: "bg-[#ce82ff]",
+        levels: [
+            {
+                id: "service-1",
+                title: "The Spirit of Service",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 2801, type: "MULTIPLE_CHOICE", question: "Who is our greatest example of service?", options: ["Jesus Christ", "Brigham Young", "Joseph Smith", "Nephi"], correctAnswer: "Jesus Christ" },
+                    { id: 2802, type: "TRUE_FALSE", question: "Service to others is a way to show our love for God.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2803, type: "MULTIPLE_CHOICE", question: "In what way did Jesus serve His apostles at the Last Supper?", options: ["He washed their feet", "He gave them gold", "He built them a house", "He cooked them a steak"], correctAnswer: "He washed their feet" },
+                    { id: 2804, type: "MULTIPLE_CHOICE", question: "What is the primary motive for Christian service?", options: ["Love for God and man", "To be seen of others", "To get rewards", "To be famous"], correctAnswer: "Love for God and man" },
+                    { id: 2805, type: "TRUE_FALSE", question: "Even small acts of kindness are considered service.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            },
+            {
+                id: "service-2",
+                title: "Pure Love of Christ",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "45%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 2901, type: "MULTIPLE_CHOICE", question: "What is the definition of charity according to Moroni?", options: ["The pure love of Christ", "Giving money", "Being nice", "Going to church"], correctAnswer: "The pure love of Christ" },
+                    { id: 2902, type: "TRUE_FALSE", question: "Charity never faileth.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 2903, type: "MULTIPLE_CHOICE", question: "Which of these is a characteristic of charity?", options: ["It is kind and seeketh not her own", "It is prideful", "It is easily provoked", "It envieth"], correctAnswer: "It is kind and seeketh not her own" },
+                    { id: 2904, type: "MULTIPLE_CHOICE", question: "We should pray to be filled with what?", options: ["This love (charity)", "Food", "Knowledge only", "Power"], correctAnswer: "This love (charity)" },
+                    { id: 2905, type: "TRUE_FALSE", question: "Charity is the greatest of all the gifts of God.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            },
+            {
+                id: "service-3",
+                title: "The Law of the Harvest",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 3001, type: "MULTIPLE_CHOICE", question: "What do we reap?", options: ["What we sow", "Whatever we want", "Nothing", "Only wheat"], correctAnswer: "What we sow" },
+                    { id: 3002, type: "TRUE_FALSE", question: "If we sow good seeds, we will reap good fruit.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3003, type: "MULTIPLE_CHOICE", question: "Galatians 6:9 says, 'And let us not be weary in...'", options: ["Well doing", "Sleeping", "Eating", "Running"], correctAnswer: "Well doing" },
+                    { id: 3004, type: "MULTIPLE_CHOICE", question: "What is the ultimate reward for a faithful life?", options: ["Eternal Life", "A big house", "A gold medal", "A new car"], correctAnswer: "Eternal Life" },
+                    { id: 3005, type: "TRUE_FALSE", question: "The Lord will reward every man according to his works.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 11,
+        title: "Unit 11: Church Organization",
+        description: "Understanding how wards, stakes, and the worldwide Church are organized.",
+        color: "bg-[#58cc02]",
+        levels: [
+            {
+                id: "org-1", title: "Stake and Ward", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3101, type: "MULTIPLE_CHOICE", question: "A collection of several wards is called a...", options: ["Stake", "Branch", "Group", "Zone"], correctAnswer: "Stake" },
+                    { id: 3102, type: "TRUE_FALSE", question: "A Ward is a local congregation of members.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3103, type: "MULTIPLE_CHOICE", question: "Who leads a Ward?", options: ["Bishop", "Stake President", "Mission President", "Elder"], correctAnswer: "Bishop" }
+                ]
+            },
+            {
+                id: "org-2", title: "Bishoprics", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3201, type: "MULTIPLE_CHOICE", question: "How many counselors does a Bishop have?", options: ["2", "1", "3", "12"], correctAnswer: "2" },
+                    { id: 3202, type: "TRUE_FALSE", question: "The Bishop is the presiding high priest in the ward.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3203, type: "MULTIPLE_CHOICE", question: "Who is the 'father of the ward'?", options: ["The Bishop", "The Clerk", "The Deacon", "The Teacher"], correctAnswer: "The Bishop" }
+                ]
+            },
+            {
+                id: "org-3", title: "Callings", totalQuestions: 3, iconType: "star", position: { top: "230px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3301, type: "TRUE_FALSE", question: "A 'calling' is an assignment to serve in the Church.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3302, type: "MULTIPLE_CHOICE", question: "Who issues callings in a ward?", options: ["The Bishopric", "The Prophet only", "The Primary kids", "The Neighbors"], correctAnswer: "The Bishopric" },
+                    { id: 3303, type: "MULTIPLE_CHOICE", question: "Service in callings is mainly...", options: ["Voluntary", "Paid", "Forced", "For fame"], correctAnswer: "Voluntary" }
+                ]
+            },
+            {
+                id: "org-4", title: "Sustainings", totalQuestions: 3, iconType: "book", position: { top: "320px", left: "50%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3401, type: "MULTIPLE_CHOICE", question: "How do members show support for a new calling?", options: ["By raising the right hand", "By clapping", "By shouting", "By voting"], correctAnswer: "By raising the right hand" },
+                    { id: 3402, type: "TRUE_FALSE", question: "Sustaining is a promise to support and help the person.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3403, type: "MULTIPLE_CHOICE", question: "After being sustained, a member is usually...", options: ["Set apart", "Graduated", "Promoted", "Retired"], correctAnswer: "Set apart" }
+                ]
+            },
+            {
+                id: "org-5", title: "Quorums", totalQuestions: 3, iconType: "star", position: { top: "410px", left: "40%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3501, type: "MULTIPLE_CHOICE", question: "An organized group of priesthood holders is a...", options: ["Quorum", "Class", "League", "Team"], correctAnswer: "Quorum" },
+                    { id: 3502, type: "TRUE_FALSE", question: "Deacons, Teachers, and Priests have their own quorums.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3503, type: "MULTIPLE_CHOICE", question: "Who presides over the Deacons Quorum?", options: ["The Quorum President", "The Bishop", "The Elder", "The High Priest"], correctAnswer: "The Quorum President" }
+                ]
+            },
+            {
+                id: "org-6", title: "Relief Society", totalQuestions: 3, iconType: "book", position: { top: "500px", left: "60%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3601, type: "TRUE_FALSE", question: "Relief Society is for the women of the Church.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3602, type: "MULTIPLE_CHOICE", question: "What is the motto of Relief Society?", options: ["Charity Never Faileth", "Be Prepared", "Zion First", "Love One Another"], correctAnswer: "Charity Never Faileth" },
+                    { id: 3603, type: "MULTIPLE_CHOICE", question: "Relief Society was founded in which city?", options: ["Nauvoo", "Kirtland", "Salt Lake", "Missouri"], correctAnswer: "Nauvoo" }
+                ]
+            },
+            {
+                id: "org-7", title: "Young Programs", totalQuestions: 3, iconType: "star", position: { top: "590px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3701, type: "MULTIPLE_CHOICE", question: "Young Women and Young Men programs are for ages...", options: ["11-18", "5-10", "18-30", "0-3"], correctAnswer: "11-18" },
+                    { id: 3702, type: "TRUE_FALSE", question: "The goal is to help youth come unto Christ.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3703, type: "MULTIPLE_CHOICE", question: "The theme for youth changes...", options: ["Annually", "Every year", "Every month", "Never"], correctAnswer: "Annually" }
+                ]
+            },
+            {
+                id: "org-8", title: "Primary", totalQuestions: 3, iconType: "book", position: { top: "680px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3801, type: "MULTIPLE_CHOICE", question: "The Primary is for children up to age...", options: ["11", "5", "8", "14"], correctAnswer: "11" },
+                    { id: 3802, type: "TRUE_FALSE", question: "Children sing 'I am a Child of God' in Primary.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3803, type: "MULTIPLE_CHOICE", question: "What is the Primary color theme often associated with?", options: ["CTR (Choose the Right)", "LDS", "Zion", "Hope"], correctAnswer: "CTR (Choose the Right)" }
+                ]
+            },
+            {
+                id: "org-9", title: "General Conference", totalQuestions: 3, iconType: "star", position: { top: "770px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3901, type: "MULTIPLE_CHOICE", question: "How many times a year is General Conference held?", options: ["Twice", "Once", "Four times", "Every month"], correctAnswer: "Twice" },
+                    { id: 3902, type: "TRUE_FALSE", question: "We hear from the Prophet and Apostles during conference.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3903, type: "MULTIPLE_CHOICE", question: "In which months is conference usually held?", options: ["April and October", "January and June", "March and September", "May and December"], correctAnswer: "April and October" }
+                ]
+            },
+            {
+                id: "org-10", title: "The Prophet", totalQuestions: 3, iconType: "trophy", position: { top: "860px", left: "50%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 4001, type: "MULTIPLE_CHOICE", question: "Who leads the whole Church on earth?", options: ["The Prophet", "The Bishop", "The Elder", "The Deacon"], correctAnswer: "The Prophet" },
+                    { id: 4002, type: "TRUE_FALSE", question: "The Prophet is the President of the Church.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4003, type: "MULTIPLE_CHOICE", question: "The Prophet is supported by the Quorum of the...", options: ["Twelve Apostles", "Seventy", "Elders", "Deacons"], correctAnswer: "Twelve Apostles" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: "Unit 12: Family & The Home",
+        description: "Strengthening families through gospel principles.",
+        color: "bg-[#ce82ff]",
+        levels: [
+            {
+                id: "fam-1", title: "The Family Proclamation", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4101, type: "MULTIPLE_CHOICE", question: "What is the official document about families called?", options: ["The Family Proclamation", "The Family Law", "The Family Book", "The Family Guide"], correctAnswer: "The Family Proclamation" },
+                    { id: 4102, type: "TRUE_FALSE", question: "Marriage is ordained of God.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4103, type: "MULTIPLE_CHOICE", question: "Where should the gospel be taught first?", options: ["In the home", "In the school", "In the mall", "In the park"], correctAnswer: "In the home" }
+                ]
+            },
+            {
+                id: "fam-2", title: "Temple Marriage", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "45%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4201, type: "TRUE_FALSE", question: "Temple marriage is for time and all eternity.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4202, type: "MULTIPLE_CHOICE", question: "What is the ceremony that joins families forever?", options: ["Sealing", "Baptism", "Graduation", "Birthday"], correctAnswer: "Sealing" },
+                    { id: 4203, type: "MULTIPLE_CHOICE", question: "Where do sealings take place?", options: ["The Temple", "The Chapel", "The Park", "The Home"], correctAnswer: "The Temple" }
+                ]
+            },
+            {
+                id: "fam-3", title: "Parenting", totalQuestions: 3, iconType: "star", position: { top: "230px", left: "55%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4301, type: "MULTIPLE_CHOICE", question: "Parents have a sacred duty to rear children in...", options: ["Love and righteousness", "Fear", "Wealth", "Anger"], correctAnswer: "Love and righteousness" },
+                    { id: 4302, type: "TRUE_FALSE", question: "Children are an heritage of the Lord.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4303, type: "MULTIPLE_CHOICE", question: "Who should help parents in their duties?", options: ["Each other (as equal partners)", "The government", "Nobody", "Strangers"], correctAnswer: "Each other (as equal partners)" }
+                ]
+            },
+            {
+                id: "fam-4", title: "Family Home Evening", totalQuestions: 3, iconType: "book", position: { top: "320px", left: "50%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4401, type: "MULTIPLE_CHOICE", question: "What is the weekly family meeting called?", options: ["Family Home Evening", "Family Talk", "Family Game", "Family Party"], correctAnswer: "Family Home Evening" },
+                    { id: 4402, type: "TRUE_FALSE", question: "The Church encourages holding FHE on Monday nights.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4403, type: "MULTIPLE_CHOICE", question: "FHE usually includes...", options: ["Lesson, prayer, and activity", "Sleeping", "Watching TV only", "Fighting"], correctAnswer: "Lesson, prayer, and activity" }
+                ]
+            },
+            {
+                id: "fam-5", title: "Family Prayer", totalQuestions: 3, iconType: "star", position: { top: "410px", left: "45%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4501, type: "MULTIPLE_CHOICE", question: "How often should families pray together?", options: ["Daily (Morning and Night)", "Once a year", "On birthdays", "Never"], correctAnswer: "Daily (Morning and Night)" },
+                    { id: 4502, type: "TRUE_FALSE", question: "Family prayer brings peace and unity.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4503, type: "MULTIPLE_CHOICE", question: "Who should take turns leading the family prayer?", options: ["Every family member", "Only the dad", "Only the mom", "Only the kids"], correctAnswer: "Every family member" }
+                ]
+            },
+            {
+                id: "fam-6", title: "Honor Parents", totalQuestions: 3, iconType: "book", position: { top: "500px", left: "55%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4601, type: "MULTIPLE_CHOICE", question: "The fifth commandment says: 'Honor thy...'", options: ["Father and thy mother", "Neighbor", "Self", "Friend"], correctAnswer: "Father and thy mother" },
+                    { id: 4602, type: "TRUE_FALSE", question: "Obeying parents is a way to show love.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4603, type: "MULTIPLE_CHOICE", question: "What does it mean to honor parents?", options: ["Show respect and love", "Ignore them", "Argue with them", "Hide from them"], correctAnswer: "Show respect and love" }
+                ]
+            },
+            {
+                id: "fam-7", title: "Charity at Home", totalQuestions: 3, iconType: "star", position: { top: "590px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4701, type: "TRUE_FALSE", question: "Charity should begin at home.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4702, type: "MULTIPLE_CHOICE", question: "Kind words to siblings is a form of...", options: ["Charity", "Selfishness", "Pride", "Boredom"], correctAnswer: "Charity" },
+                    { id: 4703, type: "MULTIPLE_CHOICE", question: "Jesus taught us to love one another as He...", options: ["Loved us", "Warned us", "Ignored us", "Left us"], correctAnswer: "Loved us" }
+                ]
+            },
+            {
+                id: "fam-8", title: "Self-Reliance", totalQuestions: 3, iconType: "book", position: { top: "680px", left: "45%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4801, type: "MULTIPLE_CHOICE", question: "Families should work together to be...", options: ["Self-reliant", "Rich", "Famous", "Dependent"], correctAnswer: "Self-reliant" },
+                    { id: 4802, type: "TRUE_FALSE", question: "Learning to save money is part of self-reliance.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4803, type: "MULTIPLE_CHOICE", question: "Self-reliance means taking care of our own...", options: ["Needs", "Wants only", "Neighbors' pets", "Video games"], correctAnswer: "Needs" }
+                ]
+            },
+            {
+                id: "fam-9", title: "Ancestry", totalQuestions: 3, iconType: "star", position: { top: "770px", left: "55%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4901, type: "MULTIPLE_CHOICE", question: "Ancestors are family members who...", options: ["Lived before us", "Live next door", "Are our pets", "Are our friends"], correctAnswer: "Lived before us" },
+                    { id: 4902, type: "TRUE_FALSE", question: "Learning family stories connects us to our roots.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 4903, type: "MULTIPLE_CHOICE", question: "Family history helps us find names for...", options: ["Temple work", "A book", "A movie", "A game"], correctAnswer: "Temple work" }
+                ]
+            },
+            {
+                id: "fam-10", title: "Eternal Joy", totalQuestions: 3, iconType: "trophy", position: { top: "860px", left: "50%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 5001, type: "TRUE_FALSE", question: "God's plan for families is for our eternal joy.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5002, type: "MULTIPLE_CHOICE", question: "The goal of the plan of salvation is to return to...", options: ["God as families", "Our old house", "The moon", "The woods"], correctAnswer: "God as families" },
+                    { id: 5003, type: "MULTIPLE_CHOICE", question: "Families can be together...", options: ["Forever", "For a year", "For a week", "Never"], correctAnswer: "Forever" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 13,
+        title: "Unit 13: Gospel Study Tools",
+        description: "Equipping yourself with tools for lifelong learning.",
+        color: "bg-[#ff9600]",
+        levels: [
+            {
+                id: "study-1", title: "The Holy Bible", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5101, type: "MULTIPLE_CHOICE", question: "The Bible contains the Old and New...", options: ["Testaments", "Chapters", "Verses", "Stories"], correctAnswer: "Testaments" },
+                    { id: 5102, type: "TRUE_FALSE", question: "The Bible is the word of God.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 3103, type: "MULTIPLE_CHOICE", question: "The New Testament tells the life of...", options: ["Jesus Christ", "Moses", "Adam", "Noah"], correctAnswer: "Jesus Christ" }
+                ]
+            },
+            {
+                id: "study-2", title: "Book of Mormon", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5201, type: "MULTIPLE_CHOICE", question: "The Book of Mormon is another testament of...", options: ["Jesus Christ", "The US", "The Moon", "The Garden"], correctAnswer: "Jesus Christ" },
+                    { id: 5202, type: "TRUE_FALSE", question: "It was translated by Joseph Smith.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5203, type: "MULTIPLE_CHOICE", question: "Who was the main prophet who kept the records?", options: ["Mormon", "Nephi", "Alma", "Ammon"], correctAnswer: "Mormon" }
+                ]
+            },
+            {
+                id: "study-3", title: "Study Aids", totalQuestions: 3, iconType: "star", position: { top: "230px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5301, type: "MULTIPLE_CHOICE", question: "Small notes at the bottom of the page are...", options: ["Footnotes", "Headlines", "Titles", "Pictures"], correctAnswer: "Footnotes" },
+                    { id: 5302, type: "TRUE_FALSE", question: "The Topical Guide helps find scriptures by subject.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5303, type: "MULTIPLE_CHOICE", question: "Where can you find definitions of words?", options: ["Bible Dictionary", "Storybook", "Magazine", "News"], correctAnswer: "Bible Dictionary" }
+                ]
+            },
+            {
+                id: "study-4", title: "Daily Habits", totalQuestions: 3, iconType: "book", position: { top: "320px", left: "50%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5401, type: "MULTIPLE_CHOICE", question: "How often should we study the scriptures?", options: ["Daily", "Weekly", "Annually", "Never"], correctAnswer: "Daily" },
+                    { id: 5402, type: "TRUE_FALSE", question: "Setting a specific time for study is helpful.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5403, type: "MULTIPLE_CHOICE", question: "Prayer before study invites the...", options: ["Holy Ghost", "Sleepiness", "Hunger", "Noise"], correctAnswer: "Holy Ghost" }
+                ]
+            },
+            {
+                id: "study-5", title: "Gospel Library", totalQuestions: 3, iconType: "star", position: { top: "410px", left: "40%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5501, type: "MULTIPLE_CHOICE", question: "What is the official Church app for study?", options: ["Gospel Library", "Social Media", "Game Hub", "News App"], correctAnswer: "Gospel Library" },
+                    { id: 5502, type: "TRUE_FALSE", question: "You can highlight and take notes in the app.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5503, type: "MULTIPLE_CHOICE", question: "The app contains...", options: ["Scriptures, manuals, and music", "Only games", "Nothing", "Only pictures"], correctAnswer: "Scriptures, manuals, and music" }
+                ]
+            },
+            {
+                id: "study-6", title: "Applying Truth", totalQuestions: 3, iconType: "book", position: { top: "500px", left: "60%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5601, type: "MULTIPLE_CHOICE", question: "Nephi said to 'liken all scriptures' to...", options: ["Ourselves", "Strangers", "Nobody", "Animals"], correctAnswer: "Ourselves" },
+                    { id: 5602, type: "TRUE_FALSE", question: "Scriptures give us answers to life's problems.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5603, type: "MULTIPLE_CHOICE", question: "Which principle helps us use what we learn?", options: ["Application", "Forgetting", "Ignoring", "Doubting"], correctAnswer: "Application" }
+                ]
+            },
+            {
+                id: "study-7", title: "Journals", totalQuestions: 3, iconType: "star", position: { top: "590px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5701, type: "MULTIPLE_CHOICE", question: "Writing down spiritual feelings is a...", options: ["Journal", "Grocery list", "Text message", "Ticket"], correctAnswer: "Journal" },
+                    { id: 5702, type: "TRUE_FALSE", question: "Prophets encourage keeping a journal.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5703, type: "MULTIPLE_CHOICE", question: "Journals help us remember God's...", options: ["Mercy and blessings", "Anger", "Rules only", "Distance"], correctAnswer: "Mercy and blessings" }
+                ]
+            },
+            {
+                id: "study-8", title: "Teaching Others", totalQuestions: 3, iconType: "book", position: { top: "680px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5801, type: "MULTIPLE_CHOICE", question: "What is one of the best ways to learn?", options: ["Teaching others", "Sleeping", "Running", "Doing nothing"], correctAnswer: "Teaching others" },
+                    { id: 5802, type: "TRUE_FALSE", question: "Sharing your testimony strengthens it.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5803, type: "MULTIPLE_CHOICE", question: "Who should we share our gospel learning with?", options: ["Family and friends", "Nobody", "Our enemies only", "Strangers only"], correctAnswer: "Family and friends" }
+                ]
+            },
+            {
+                id: "study-9", title: "Lifelong Learning", totalQuestions: 3, iconType: "star", position: { top: "770px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5901, type: "TRUE_FALSE", question: "Gospel study should continue throughout our lives.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 5902, type: "MULTIPLE_CHOICE", question: "We should seek learning by study and by...", options: ["Faith", "Luck", "Money", "Sleep"], correctAnswer: "Faith" },
+                    { id: 5903, type: "MULTIPLE_CHOICE", question: "Whose voice should we learn to hear through study?", options: ["The Lord's", "The world's", "The crowd's", "The radio's"], correctAnswer: "The Lord's" }
+                ]
+            },
+            {
+                id: "study-10", title: "The End Goal", totalQuestions: 3, iconType: "trophy", position: { top: "860px", left: "50%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 6001, type: "MULTIPLE_CHOICE", question: "The goal of all study is to become more like...", options: ["Jesus Christ", "A famous person", "A rich person", "Ourselves only"], correctAnswer: "Jesus Christ" },
+                    { id: 6002, type: "TRUE_FALSE", question: "Scriptures point us toward eternal life.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 6003, type: "MULTIPLE_CHOICE", question: "Study helps us build our foundation upon the...", options: ["Rock (Christ)", "Sand", "Water", "Air"], correctAnswer: "Rock (Christ)" }
                 ]
             }
         ]
@@ -1102,7 +1497,7 @@ const mongolianUnits: Unit[] = [
                         type: "MULTIPLE_CHOICE",
                         question: "АНУ-ын аль мужид Анхны Үзэгдэл болсон бэ?",
                         options: ["Нью-Йорк", "Огайо", "Миссури", "Иллинойс"],
-                        correctAnswer: "Миссури"
+                        correctAnswer: "Нью-Йорк"
                     }
                 ]
             },
@@ -1802,6 +2197,408 @@ const mongolianUnits: Unit[] = [
                     { id: 2103, type: "MULTIPLE_CHOICE", question: "Мянганы хаанчлалын үеэр дэлхий дээр хэн хувиараа хаанчлах вэ?", options: ["Есүс Христ", "Хаан", "Зөвхөн бошиглогч", "Тэнгэр элч"], correctAnswer: "Есүс Христ" },
                     { id: 2104, type: "MULTIPLE_CHOICE", question: "Мянганы хаанчлалын үеэр ямар чухал ажил үргэлжлэх вэ?", options: ["Нас барагсдын төлөөх ариун сүмийн ажил", "Сансрын хөлөг барих", "Шинэ улс үүсгэх", "Юу ч биш, амрах үе"], correctAnswer: "Нас барагсдын төлөөх ариун сүмийн ажил" },
                     { id: 2105, type: "TRUE_FALSE", question: "Итгэлийн зүйлс 10-ын дагуу, дэлхий диваажингийн алдраа хүлээн авна.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 8,
+        title: "Нэгж 8: Сүмийн Түүх ба Пионерууд",
+        description: "Өрнө рүү хийсэн аялал ба Сионыг байгуулсан нь.",
+        color: "bg-[#ff9600]",
+        levels: [
+            {
+                id: "history-1",
+                title: "Өрнө рүү нүүсэн нь",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 2201, type: "MULTIPLE_CHOICE", question: "Анхны пионеруудын бүлэг хэдэн онд Солт Лэйк хөндийд орж ирсэн бэ?", options: ["1847", "1830", "1820", "1850"], correctAnswer: "1847" },
+                    { id: 2202, type: "MULTIPLE_CHOICE", question: "Пионеруудыг Солт Лэйк хөндий рүү хэн удирдаж ирсэн бэ?", options: ["Бригам Янг", "Иосеф Смит", "Жон Тайлор", "Вилфорд Вудрэфф"], correctAnswer: "Бригам Янг" },
+                    { id: 2203, type: "TRUE_FALSE", question: "Пионерууд шинэ гэртээ хүрэхийн тулд 1000 гаруй миль зам туулсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2204, type: "MULTIPLE_CHOICE", question: "Пионеруудын замын нэр юу байсан бэ?", options: ["Мормоны зам", "Орегоны зам", "Санта Фе зам", "Торгоны зам"], correctAnswer: "Мормоны зам" },
+                    { id: 2205, type: "TRUE_FALSE", question: "Олон пионерууд тэргэнцэр ашиглан ачаа бараагаа тал хээрээр чирсэн.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "history-2",
+                title: "Сионыг байгуулах нь",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "40%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 2301, type: "MULTIPLE_CHOICE", question: "Аль ариун сүмийг барихад 40 жил зарцуулсан бэ?", options: ["Солт Лэйк ариун сүм", "Киртланд ариун сүм", "Наву ариун сүм", "Манти ариун сүм"], correctAnswer: "Солт Лэйк ариун сүм" },
+                    { id: 2302, type: "TRUE_FALSE", question: "Халамжийн Нийгэмлэг Навуд зохион байгуулагдсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2303, type: "MULTIPLE_CHOICE", question: "Халамжийн Нийгэмлэгийн анхны ерөнхийлөгч хэн байсан бэ?", options: ["Эмма Смит", "Элиза Р. Снөү", "Люси Мак Смит", "Зина Д. Х. Янг"], correctAnswer: "Эмма Смит" },
+                    { id: 2304, type: "MULTIPLE_CHOICE", question: "Солт Лэйк хотын аль барилга акустикаараа алдартай vэ?", options: ["Табернакл", "Конференц төв", "Beehive House", "Lion House"], correctAnswer: "Табернакл" },
+                    { id: 2305, type: "TRUE_FALSE", question: "Сүм 1830 оны 4-р сарын 6-нд зохион байгуулагдсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "history-3",
+                title: "Дэлхий даяарх өсөлт",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "60%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 2401, type: "MULTIPLE_CHOICE", question: "Сүмийн анхны олон улсын номлол хаана байсан бэ?", options: ["Их Британи", "Канад", "Герман", "Япон"], correctAnswer: "Их Британи" },
+                    { id: 2402, type: "TRUE_FALSE", question: "Сүм дэлхийн бараг бүх улсад гишүүдтэй.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2403, type: "MULTIPLE_CHOICE", question: "Сүм хэдэн онд 10 сая гишүүнтэй болсон бэ?", options: ["1997", "1980", "2010", "2020"], correctAnswer: "1997" },
+                    { id: 2404, type: "MULTIPLE_CHOICE", question: "'Би бол Мормон' аяныг ямар онцлох нэрээр сольсон бэ?", options: ["Есүс Христийн Сүм", "Хожмын үеийн гэгээнтнүүд", "Сэргээлт", "Христэд итгэх итгэл"], correctAnswer: "Есүс Христийн Сүм" },
+                    { id: 2405, type: "TRUE_FALSE", question: "Европ дахь анхны ариун сүм Швейцарьт баригдсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 9,
+        title: "Нэгж 9: Сайн Мэдээгээр Амьдрах",
+        description: "Сайн мэдээний зарчмуудыг өдөр тутмын амьдралдаа хэрэгжүүлэх.",
+        color: "bg-[#1cb0f6]",
+        levels: [
+            {
+                id: "living-1",
+                title: "Мэргэн ухааны үг",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 2501, type: "MULTIPLE_CHOICE", question: "Сургаал ба Гэрээний аль хэсэгт Мэргэн ухааны үг байдаг вэ?", options: ["Хэсэг 89", "Хэсэг 1", "Хэсэг 76", "Хэсэг 121"], correctAnswer: "Хэсэг 89" },
+                    { id: 2502, type: "TRUE_FALSE", question: "Мэргэн ухааны үг нь эрүүл өвс ургамал, үр тариа хэрэглэхийг дэмждэг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2503, type: "MULTIPLE_CHOICE", question: "Мэргэн ухааны үгэнд ямар бодисыг тусгайлан хориглосон бэ?", options: ["Согтууруулах ундаа", "Ус", "Сүү", "Жүүс"], correctAnswer: "Согтууруулах ундаа" },
+                    { id: 2504, type: "MULTIPLE_CHOICE", question: "Мэргэн ухааны үгийг дагадаг хүмүүс юу олно гэж Их Эзэн амласан бэ?", options: ["Мэргэн ухаан ба мэдлэгийн агуу эрдэнэс", "Баялаг", "Алдар нэр", "Супер хүч"], correctAnswer: "Мэргэн ухаан ба мэдлэгийн агуу эрдэнэс" },
+                    { id: 2505, type: "TRUE_FALSE", question: "Мэргэн ухааны үг нь 'амлалт бүхий зарчим' болгон өгөгдсөн.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "living-2",
+                title: "Аравны нэг ба Мацгийн өргөл",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "45%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 2601, type: "MULTIPLE_CHOICE", question: "Бидний орлогын хэдэн хувь нь аравны нэг vэ?", options: ["10%", "5%", "20%", "1%"], correctAnswer: "10%" },
+                    { id: 2602, type: "TRUE_FALSE", question: "Аравны нэгийн хөрөнгийг ариун сүм, цуглааны байр барихад зарцуулдаг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2603, type: "MULTIPLE_CHOICE", question: "Бид ихэвчлэн хэр давтамжтай мацаг барьж, мацгийн өргөл өгдөг вэ?", options: ["Сард нэг удаа", "Жилд нэг удаа", "Ням гараг бүр", "Хэзээ ч үгүй"], correctAnswer: "Сард нэг удаа" },
+                    { id: 2604, type: "MULTIPLE_CHOICE", question: "Зөв мацаг гэж юу vэ?", options: ["Хоёр хоол алгасаж хоол ундгүй байх", "Зөвхөн талх идэх", "Нэг хоол алгасах", "Чихэр идэхгүй байх"], correctAnswer: "Хоёр хоол алгасаж хоол ундгүй байх" },
+                    { id: 2605, type: "TRUE_FALSE", question: "Аравны нэгийн хууль Бошиглогч Иосеф Смитээр дамжуулан илчлэгдсэн.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "living-3",
+                title: "Хувийн залбирал ба Судлал",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 2701, type: "MULTIPLE_CHOICE", question: "Залбирахдаа Тэнгэрлэг Эцэгт хэрхэн хандах ёстой вэ?", options: ["Хүндэтгэл ба хайраар", "Энгийн найз шиг", "Зөвхөн албан ёсны цолоор", "Хашхирч"], correctAnswer: "Хүндэтгэл ба хайраар" },
+                    { id: 2702, type: "TRUE_FALSE", question: "Бид өглөө, орой бүр залбирах ёстой.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2703, type: "MULTIPLE_CHOICE", question: "Нифай биднийг Христийн үгсийг яах ёстой гэж хэлсэн бэ?", options: ["Наршин идэх", "Нэг удаа унших", "Үл тоомсорлох", "Амсах"], correctAnswer: "Наршин идэх" },
+                    { id: 2704, type: "MULTIPLE_CHOICE", question: "Христийн үгсийг хаанаас олж болох вэ?", options: ["Судрууд болон бошиглогчдоос", "Зөвхөн хуучин номноос", "Хаанаас ч үгүй", "Зөвхөн өөрийн бодлоос"], correctAnswer: "Судрууд болон бошиглогчдоос" },
+                    { id: 2705, type: "TRUE_FALSE", question: "Чин сэтгэлийн залбирал нь бидэнд хувийн илчлэлт авахад тусалдаг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 10,
+        title: "Нэгж 10: Үйлчлэл ба Энэрэл",
+        description: "Бусдад үйлчилснээр Христийн цэвэр хайрыг хөгжүүлэх нь.",
+        color: "bg-[#ce82ff]",
+        levels: [
+            {
+                id: "service-1",
+                title: "Үйлчлэлийн сүнс",
+                totalQuestions: 5,
+                iconType: "star",
+                position: { top: "50px", left: "50%" },
+                status: "LOCKED",
+                xpReward: 10,
+                questions: [
+                    { id: 2801, type: "MULTIPLE_CHOICE", question: "Үйлчлэлийн хамгийн агуу жишээ хэн бэ?", options: ["Есүс Христ", "Бригам Янг", "Иосеф Смит", "Нифай"], correctAnswer: "Есүс Христ" },
+                    { id: 2802, type: "TRUE_FALSE", question: "Бусдад үйлчлэх нь Бурханыг хайрлах хайраа харуулах нэг арга зам юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2803, type: "MULTIPLE_CHOICE", question: "Сүүлчийн зоогийн үеэр Есүс төлөөлөгчдөдөө ямар байдлаар үйлчилсэн бэ?", options: ["Хөлийг нь угаасан", "Алтан зоос өгсөн", "Байшин барьж өгсөн", "Стейк хийж өгсөн"], correctAnswer: "Хөлийг нь угаасан" },
+                    { id: 2804, type: "MULTIPLE_CHOICE", question: "Христийн үйлчлэлийн үндсэн сэдэл юу вэ?", options: ["Бурхан ба хүмүүсийг хайрлах хайр", "Бусдад харагдах", "Шагнал авах", "Алдартай болох"], correctAnswer: "Бурхан ба хүмүүсийг хайрлах хайр" },
+                    { id: 2805, type: "TRUE_FALSE", question: "Жижигхэн сайхан сэтгэлийн үйлдлүүд ч үйлчлэлд тооцогдоно.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "service-2",
+                title: "Христийн цэвэр хайр",
+                totalQuestions: 5,
+                iconType: "book",
+                position: { top: "160px", left: "45%" },
+                status: "LOCKED",
+                xpReward: 15,
+                questions: [
+                    { id: 2901, type: "MULTIPLE_CHOICE", question: "Моронайн хэлснээр энэрэл гэж юу вэ?", options: ["Христийн цэвэр хайр", "Мөнгө өгөх", "Сайхан ааш гаргах", "Сүмд явах"], correctAnswer: "Христийн цэвэр хайр" },
+                    { id: 2902, type: "TRUE_FALSE", question: "Энэрэл хэзээ ч барагдашгүй.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 2903, type: "MULTIPLE_CHOICE", question: "Энэрлийн нэг шинж чанар нь юу вэ?", options: ["Энэ нь эелдэг бөгөөд өөрийнхийгөө эрж хайдаггүй", "Энэ нь бардам", "Энэ нь амархан уурладаг", "Энэ нь атаархдаг"], correctAnswer: "Энэ нь эелдэг бөгөөд өөрийнхийгөө эрж хайдаггүй" },
+                    { id: 2904, type: "MULTIPLE_CHOICE", question: "Бид юугаар дүүрэхийн тулд залбирах ёстой vэ?", options: ["Энэхүү хайраар (энэрэл)", "Хоол", "Зөвхөн мэдлэг", "Хүч"], correctAnswer: "Энэхүү хайраар (энэрэл)" },
+                    { id: 2905, type: "TRUE_FALSE", question: "Энэрэл бол Бурханы бүх бэлгүүдээс хамгийн агуу нь юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "service-3",
+                title: "Ургацын хууль",
+                totalQuestions: 5,
+                iconType: "trophy",
+                position: { top: "270px", left: "55%" },
+                status: "LOCKED",
+                xpReward: 20,
+                questions: [
+                    { id: 3001, type: "MULTIPLE_CHOICE", question: "Бид юуг хурааж авдаг вэ?", options: ["Юу тарьсан түүнийгээ", "Хүссэн бүхнээ", "Юу ч биш", "Зөвхөн буудай"], correctAnswer: "Юу тарьсан түүнийгээ" },
+                    { id: 3002, type: "TRUE_FALSE", question: "Хэрэв бид сайн үр таривал сайн үр жимс хураах болно.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3003, type: "MULTIPLE_CHOICE", question: "Галат 6:9-д 'Сайныг үйлдэхдээ...' гэж юу гэж хэлсэн бэ?", options: ["Цөхрөхгүй байцгаая", "Унтацгаая", "Идэцгээе", "Гүйцгээе"], correctAnswer: "Цөхрөхгүй байцгаая" },
+                    { id: 3004, type: "MULTIPLE_CHOICE", question: "Итгэлтэй амьдралын эцсийн шагнал юу вэ?", options: ["Мөнх Амьдрал", "Том байшин", "Алтан медаль", "Шинэ машин"], correctAnswer: "Мөнх Амьдрал" },
+                    { id: 3005, type: "TRUE_FALSE", question: "Их Эзэн хүн бүрийг үйлсийнх нь дагуу шагнах болно.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 11,
+        title: "Нэгж 11: Сүмийн Зохион Байгуулалт",
+        description: "Халиун, гадас болон дэлхий даяарх Сүм хэрхэн зохион байгуулагддагийг ойлгох.",
+        color: "bg-[#58cc02]",
+        levels: [
+            {
+                id: "org-1", title: "Гадас ба Халиун", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3101, type: "MULTIPLE_CHOICE", question: "Хэд хэдэн халиуны нэгдлийг юу гэж нэрлэдэг вэ?", options: ["Гадас", "Салбар", "Бүлэг", "Бүс"], correctAnswer: "Гадас" },
+                    { id: 3102, type: "TRUE_FALSE", question: "Халиун бол гишүүдийн орон нутгийн цуглаан юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3103, type: "MULTIPLE_CHOICE", question: "Халиуныг хэн удирддаг вэ?", options: ["Бишоп", "Гадасны ерөнхийлөгч", "Номлолын ерөнхийлөгч", "Ахлагч"], correctAnswer: "Бишоп" }
+                ]
+            },
+            {
+                id: "org-2", title: "Бишопууд", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3201, type: "MULTIPLE_CHOICE", question: "Бишоп хэдэн зөвлөхтэй вэ?", options: ["2", "1", "3", "12"], correctAnswer: "2" },
+                    { id: 3202, type: "TRUE_FALSE", question: "Бишоп бол халиуны тэргүүлэх дээд прист юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3203, type: "MULTIPLE_CHOICE", question: "Халиуны 'эцэг' гэж хэнийг хэлдэг вэ?", options: ["Бишоп", "Бичээч", "Дикон", "Багш"], correctAnswer: "Бишоп" }
+                ]
+            },
+            {
+                id: "org-3", title: "Дуудлага", totalQuestions: 3, iconType: "star", position: { top: "230px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3301, type: "TRUE_FALSE", question: "'Дуудлага' гэдэг нь Сүмд үйлчлэх томилолт юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3302, type: "MULTIPLE_CHOICE", question: "Халиунд дуудлагыг хэн өгдөг вэ?", options: ["Бишопын зөвлөл", "Зөвхөн Бошиглогч", "Хүүхдийн хэсгийнхэн", "Хөршүүд"], correctAnswer: "Бишопын зөвлөл" },
+                    { id: 3303, type: "MULTIPLE_CHOICE", question: "Дуудлагад үйлчлэх нь гол төлөв...", options: ["Сайн дурынх", "Цалинтай", "Албадан", "Нэр төр хөөцөлдсөн"], correctAnswer: "Сайн дурынх" }
+                ]
+            },
+            {
+                id: "org-4", title: "Дэмжин батлах", totalQuestions: 3, iconType: "book", position: { top: "320px", left: "50%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3401, type: "MULTIPLE_CHOICE", question: "Гишүүд шинэ дуудлагыг хэрхэн дэмждэг вэ?", options: ["Баруун гараа өргөж", "Алга ташиж", "Хашхирч", "Санал хурааж"], correctAnswer: "Баруун гараа өргөж" },
+                    { id: 3402, type: "TRUE_FALSE", question: "Дэмжин батлах нь тухайн хүнийг дэмжиж, туслах амлалт юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3403, type: "MULTIPLE_CHOICE", question: "Дэмжин батлагдсаны дараа гишүүнийг ихэвчлэн...", options: ["Онцгойлон адисалдаг", "Төгсгөдөг", "Тушаал дэвшүүлдэг", "Тэтгэвэрт гаргадаг"], correctAnswer: "Онцгойлон адисалдаг" }
+                ]
+            },
+            {
+                id: "org-5", title: "Чуулгууд", totalQuestions: 3, iconType: "star", position: { top: "410px", left: "40%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3501, type: "MULTIPLE_CHOICE", question: "Санваартнуудын зохион байгуулалттай хэсгийг юу гэдэг вэ?", options: ["Чуулга", "Анги", "Лиг", "Баг"], correctAnswer: "Чуулга" },
+                    { id: 3502, type: "TRUE_FALSE", question: "Дикон, Багш, Пристүүд өөрсдийн чуулгатай байдаг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3503, type: "MULTIPLE_CHOICE", question: "Диконы чуулгыг хэн удирддаг вэ?", options: ["Чуулгын ерөнхийлөгч", "Бишоп", "Ахлагч", "Дээд прист"], correctAnswer: "Чуулгын ерөнхийлөгч" }
+                ]
+            },
+            {
+                id: "org-6", title: "Халамжийн Нийгэмлэг", totalQuestions: 3, iconType: "book", position: { top: "500px", left: "60%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3601, type: "TRUE_FALSE", question: "Халамжийн Нийгэмлэг нь Сүмийн эмэгтэйчүүдэд зориулагдсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3602, type: "MULTIPLE_CHOICE", question: "Халамжийн Нийгэмлэгийн уриа юу вэ?", options: ["Энэрэл хэзээ ч барагдашгүй", "Бэлэн бай", "Сион нэгдүгээрт", "Бие биенээ хайрла"], correctAnswer: "Энэрэл хэзээ ч барагдашгүй" },
+                    { id: 3603, type: "MULTIPLE_CHOICE", question: "Халамжийн Нийгэмлэг анх аль хотод байгуулагдсан бэ?", options: ["Наву", "Киртланд", "Солт Лэйк", "Миссури"], correctAnswer: "Наву" }
+                ]
+            },
+            {
+                id: "org-7", title: "Залуучуудын хөтөлбөр", totalQuestions: 3, iconType: "star", position: { top: "590px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3701, type: "MULTIPLE_CHOICE", question: "Залуу эмэгтэйчүүд, залуу эрэгтэйчүүдийн хөтөлбөр ямар насныханд зориулагдсан бэ?", options: ["11-18", "5-10", "18-30", "0-3"], correctAnswer: "11-18" },
+                    { id: 3702, type: "TRUE_FALSE", question: "Зорилго нь залуучуудад Христэд ирэхэд нь туслах явдал юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3703, type: "MULTIPLE_CHOICE", question: "Залуучуудын сэдэв хэр давтамжтай өөрчлөгддөг вэ?", options: ["Жил бүр", "Жил болгон", "Сар бүр", "Хэзээ ч үгүй"], correctAnswer: "Жил бүр" }
+                ]
+            },
+            {
+                id: "org-8", title: "Хүүхдийн хэсэг", totalQuestions: 3, iconType: "book", position: { top: "680px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 3801, type: "MULTIPLE_CHOICE", question: "Хүүхдийн хэсэг хэдэн нас хүртэлх хүүхдүүдэд зориулагдсан бэ?", options: ["11", "5", "8", "14"], correctAnswer: "11" },
+                    { id: 3802, type: "TRUE_FALSE", question: "Хүүхдүүд Хүүхдийн хэсэгт 'Би Бурханы хүүхэд' дууг дуулдаг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3803, type: "MULTIPLE_CHOICE", question: "Хүүхдийн хэсгийн өнгөт сэдэв юутай холбоотой вэ?", options: ["Зөвийг Сонго (CTR)", "СҮХҮГ", "Сион", "Итгэл найдвар"], correctAnswer: "Зөвийг Сонго (CTR)" }
+                ]
+            },
+            {
+                id: "org-9", title: "Ерөнхий Чуулган", totalQuestions: 3, iconType: "star", position: { top: "770px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 3901, type: "MULTIPLE_CHOICE", question: "Ерөнхий чуулган жилд хэдэн удаа болдог вэ?", options: ["Хоёр", "Нэг", "Дөрөв", "Сар бүр"], correctAnswer: "Хоёр" },
+                    { id: 3902, type: "TRUE_FALSE", question: "Чуулганы үеэр бид Бошиглогч болон Төлөөлөгчдийн үгийг сонсдог.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 3903, type: "MULTIPLE_CHOICE", question: "Чуулган ихэвчлэн аль саруудад болдог вэ?", options: ["4 ба 10-р сар", "1 ба 6-р сар", "3 ба 9-р сар", "5 ба 12-р сар"], correctAnswer: "4 ба 10-р сар" }
+                ]
+            },
+            {
+                id: "org-10", title: "Бошиглогч", totalQuestions: 3, iconType: "trophy", position: { top: "860px", left: "50%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 4001, type: "MULTIPLE_CHOICE", question: "Дэлхий дээрх бүх Сүмийг хэн удирддаг вэ?", options: ["Бошиглогч", "Бишоп", "Ахлагч", "Дикон"], correctAnswer: "Бошиглогч" },
+                    { id: 4002, type: "TRUE_FALSE", question: "Бошиглогч бол Сүмийн ерөнхийлөгч юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4003, type: "MULTIPLE_CHOICE", question: "Бошиглогчийг ... Чуулга дэмждэг.", options: ["Арван хоёр Төлөөлөгчийн", "Далангийн", "Ахлагчдын", "Диконуудын"], correctAnswer: "Арван хоёр Төлөөлөгчийн" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 12,
+        title: "Нэгж 12: Гэр Бүл ба Гэр Орон",
+        description: "Сайн мэдээний зарчмуудаар гэр бүлээ хүчирхэгжүүлэх нь.",
+        color: "bg-[#ce82ff]",
+        levels: [
+            {
+                id: "fam-1", title: "Гэр бүлийн тунхаглал", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4101, type: "MULTIPLE_CHOICE", question: "Гэр бүлийн тухай албан ёсны баримт бичгийг юу гэж нэрлэдэг вэ?", options: ["Гэр бүлийн тунхаглал", "Гэр бүлийн хууль", "Гэр бүлийн ном", "Гэр бүлийн удирдамж"], correctAnswer: "Гэр бүлийн тунхаглал" },
+                    { id: 4102, type: "TRUE_FALSE", question: "Гэрлэлт бол Бурханаас томилогдсон зүйл юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4103, type: "MULTIPLE_CHOICE", question: "Сайн мэдээг хамгийн түрүүнд хаана заах ёстой вэ?", options: ["Гэртээ", "Сургууль дээр", "Дэлгүүрт", "Паркад"], correctAnswer: "Гэртээ" }
+                ]
+            },
+            {
+                id: "fam-2", title: "Ариун Сүмийн Гэрлэлт", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "45%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4201, type: "TRUE_FALSE", question: "Ариун сүмийн гэрлэлт нь энэ амьдрал болон мөнхөд зориулагдсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4202, type: "MULTIPLE_CHOICE", question: "Гэр бүлийг мөнхөд нэгтгэдэг ёслол юу вэ?", options: ["Лацдан холболт", "Баптисм", "Төгсөлт", "Төрсөн өдөр"], correctAnswer: "Лацдан холболт" },
+                    { id: 4203, type: "MULTIPLE_CHOICE", question: "Лацдан холболт хаана болдог вэ?", options: ["Ариун Сүмд", "Цуглааны байранд", "Паркад", "Гэртээ"], correctAnswer: "Ариун Сүмд" }
+                ]
+            },
+            {
+                id: "fam-3", title: "Эцэг эх байх", totalQuestions: 3, iconType: "star", position: { top: "230px", left: "55%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4301, type: "MULTIPLE_CHOICE", question: "Эцэг эхчүүд хүүхдээ ... өсгөх ариун үүрэгтэй.", options: ["Хайр ба зөв шударга байдалд", "Айдас дотор", "Баян тансагт", "Уур хилэн дотор"], correctAnswer: "Хайр ба зөв шударга байдалд" },
+                    { id: 4302, type: "TRUE_FALSE", question: "Хүүхдүүд бол Их Эзэний өв юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4303, type: "MULTIPLE_CHOICE", question: "Эцэг эхчүүд бие биедээ хэрхэн туслах ёстой вэ?", options: ["Тэгш эрхтэй хамтрагчийн хувьд", "Засгийн газраар", "Хэн ч биш", "Танихгүй хүмүүсээр"], correctAnswer: "Тэгш эрхтэй хамтрагчийн хувьд" }
+                ]
+            },
+            {
+                id: "fam-4", title: "Гэр бүлийн үдэш", totalQuestions: 3, iconType: "book", position: { top: "320px", left: "50%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4401, type: "MULTIPLE_CHOICE", question: "Долоо хоног бүр болдог гэр бүлийн цуглааныг юу гэдэг vэ?", options: ["Гэр бүлийн үдэш", "Гэр бүлийн яриа", "Гэр бүлийн тоглоом", "Гэр бүлийн үдэшлэг"], correctAnswer: "Гэр бүлийн үдэш" },
+                    { id: 4402, type: "TRUE_FALSE", question: "Сүм Гэр бүлийн үдшийг Даваа гарагийн орой хийхийг зөвлөдөг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4403, type: "MULTIPLE_CHOICE", question: "Гэр бүлийн үдэшт ихэвчлэн юу багтдаг вэ?", options: ["Хичээл, залбирал ба үйл ажиллагаа", "Унтах", "Зөвхөн зурагт үзэх", "Маргалдах"], correctAnswer: "Хичээл, залбирал ба үйл ажиллагаа" }
+                ]
+            },
+            {
+                id: "fam-5", title: "Гэр бүлийн залбирал", totalQuestions: 3, iconType: "star", position: { top: "410px", left: "45%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4501, type: "MULTIPLE_CHOICE", question: "Гэр бүлээрээ хэр давтамжтай залбирах ёстой вэ?", options: ["Өдөр бүр (Өглөө, орой)", "Жилд нэг удаа", "Төрсөн өдрөөр", "Хэзээ ч үгүй"], correctAnswer: "Өдөр бүр (Өглөө, орой)" },
+                    { id: 4502, type: "TRUE_FALSE", question: "Гэр бүлийн залбирал нь амар амгалан, эв нэгдлийг авчирдаг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4503, type: "MULTIPLE_CHOICE", question: "Гэр бүлийн залбирлыг хэн удирдах ёстой вэ?", options: ["Гэр бүлийн гишүүн бүр ээлжлэн", "Зөвхөн аав", "Зөвхөн ээж", "Зөвхөн хүүхдүүд"], correctAnswer: "Гэр бүлийн гишүүн бүр ээлжлэн" }
+                ]
+            },
+            {
+                id: "fam-6", title: "Эцэг эхээ хүндэтгэх", totalQuestions: 3, iconType: "book", position: { top: "500px", left: "55%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4601, type: "MULTIPLE_CHOICE", question: "Тав дахь тушаалд: '... хүндэтгэ' гэсэн байдаг.", options: ["Эцэг эхээ", "Хөршөө", "Өөрийгөө", "Найзыгаа"], correctAnswer: "Эцэг эхээ" },
+                    { id: 4602, type: "TRUE_FALSE", question: "Эцэг эхийнхээ үгэнд орох нь хайраа харуулах нэг арга юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4603, type: "MULTIPLE_CHOICE", question: "Эцэг эхээ хүндэтгэх гэдэг нь юу гэсэн үг вэ?", options: ["Хүндэтгэл ба хайр үзүүлэх", "Үл тоомсорлох", "Тэдэнтэй маргах", "Тэднээс нуугдах"], correctAnswer: "Хүндэтгэл ба хайр үзүүлэх" }
+                ]
+            },
+            {
+                id: "fam-7", title: "Гэртээ энэрэнгүй байх", totalQuestions: 3, iconType: "star", position: { top: "590px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4701, type: "TRUE_FALSE", question: "Энэрэл гэрээс эхлэх ёстой.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4702, type: "MULTIPLE_CHOICE", question: "Ах дүү нартаа сайхан үг хэлэх нь ... нэг хэлбэр юм.", options: ["Энэрлийн", "Амин хувиа хичээх", "Бардамналын", "Уйтгарын"], correctAnswer: "Энэрлийн" },
+                    { id: 4703, type: "MULTIPLE_CHOICE", question: "Есүс бидэнд бие биенээ Өөр шигээ ... заасан.", options: ["Хайрлахыг", "Сануулахыг", "Үл тоохыг", "Орхихыг"], correctAnswer: "Хайрлахыг" }
+                ]
+            },
+            {
+                id: "fam-8", title: "Өөртөө итгэлтэй байдал", totalQuestions: 3, iconType: "book", position: { top: "680px", left: "45%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 4801, type: "MULTIPLE_CHOICE", question: "Гэр бүлүүд ... байхын тулд хамтдаа ажиллах ёстой.", options: ["Өөртөө итгэлтэй (бие даасан)", "Баян", "Алдартай", "Хамааралтай"], correctAnswer: "Өөртөө итгэлтэй (бие даасан)" },
+                    { id: 4802, type: "TRUE_FALSE", question: "Мөнгө хэмнэж сурах нь өөртөө итгэлтэй байдлын нэг хэсэг юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4803, type: "MULTIPLE_CHOICE", question: "Өөртөө итгэлтэй байх гэдэг нь өөрийн ... анхаарал тавих гэсэн үг.", options: ["Хэрэгцээнд", "Зөвхөн хүсэлд", "Хөршийн тэжээвэр амьтанд", "Видео тоглоомд"], correctAnswer: "Хэрэгцээнд" }
+                ]
+            },
+            {
+                id: "fam-9", title: "Өвөг дээдэс", totalQuestions: 3, iconType: "star", position: { top: "770px", left: "55%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 4901, type: "MULTIPLE_CHOICE", question: "Өвөг дээдэс гэж хэнийг хэлдэг вэ?", options: ["Биднээс өмнө амьдарч байсан гэр бүлийн гишүүд", "Хажуу хаалганы хөрш", "Бидний тэжээвэр амьтад", "Бидний найзууд"], correctAnswer: "Биднээс өмнө амьдарч байсан гэр бүлийн гишүүд" },
+                    { id: 4902, type: "TRUE_FALSE", question: "Гэр бүлийн түүхийг сурч мэдэх нь биднийг язгуур үндэстэй маань холбодог.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 4903, type: "MULTIPLE_CHOICE", question: "Гэр бүлийн түүх нь бидэнд ... зөрийн зориулж нэр олоход тусалдаг.", options: ["Ариун сүмийн ажилд", "Ном бичихэд", "Кино хийхэд", "Тоглоом тоглоход"], correctAnswer: "Ариун сүмийн ажилд" }
+                ]
+            },
+            {
+                id: "fam-10", title: "Мөнхийн баяр баясгалан", totalQuestions: 3, iconType: "trophy", position: { top: "860px", left: "50%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 5001, type: "TRUE_FALSE", question: "Гэр бүлүүдэд зориулсан Бурханы төлөвлөгөө нь бидний мөнхийн баяр баясгалангийн төлөө юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5002, type: "MULTIPLE_CHOICE", question: "Авралын төлөвлөгөөний зорилго нь ... Бурханд эргэж очих юм.", options: ["Гэр бүлээрээ", "Хуучин байрандаа", "Сар руу", "Ой руу"], correctAnswer: "Гэр бүлээрээ" },
+                    { id: 5003, type: "MULTIPLE_CHOICE", question: "Гэр бүлүүд ... хамт байж чадна.", options: ["Мөнхөд", "Нэг жил", "Долоо хоног", "Хэзээ ч үгүй"], correctAnswer: "Мөнхөд" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 13,
+        title: "Нэгж 13: Сайн Мэдээг Судлах Хэрэгслүүд",
+        description: "Насан туршдаа суралцахад зориулсан хэрэгслээр өөрийгөө зэвсэглэх.",
+        color: "bg-[#ff9600]",
+        levels: [
+            {
+                id: "study-1", title: "Ариун Библи", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5101, type: "MULTIPLE_CHOICE", question: "Библид Хуучин ба Шинэ ... багтдаг.", options: ["Гэрээ", "Бүлэг", "Шүлэг", "Түүх"], correctAnswer: "Гэрээ" },
+                    { id: 5102, type: "TRUE_FALSE", question: "Библи бол Бурханы үг юм.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5103, type: "MULTIPLE_CHOICE", question: "Шинэ Гэрээнд ... амьдралын тухай өгүүлдэг.", options: ["Есүс Христийн", "Мосегийн", "Адамын", "Ноагийн"], correctAnswer: "Есүс Христийн" }
+                ]
+            },
+            {
+                id: "study-2", title: "Мормоны Ном", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5201, type: "MULTIPLE_CHOICE", question: "Мормоны Ном бол ... өөр нэг гэрээ юм.", options: ["Есүс Христийн", "АНУ-ын", "Сарны", "Цэцэрлэгийн"], correctAnswer: "Есүс Христийн" },
+                    { id: 5202, type: "TRUE_FALSE", question: "Үүнийг Иосеф Смит орчуулсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5203, type: "MULTIPLE_CHOICE", question: "Цэдгүүдийг хөтөлсөн гол бошиглогч хэн бэ?", options: ["Мормон", "Нифай", "Алма", "Аммон"], correctAnswer: "Мормон" }
+                ]
+            },
+            {
+                id: "study-3", title: "Судлах хэрэгслүүд", totalQuestions: 3, iconType: "star", position: { top: "230px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5301, type: "MULTIPLE_CHOICE", question: "Хуудасны доод талд байдаг жижиг тэмдэглэлүүд юу вэ?", options: ["Зүүлт тайлбар", "Гарчиг", "Нэр", "Зураг"], correctAnswer: "Зүүлт тайлбар" },
+                    { id: 5302, type: "TRUE_FALSE", question: "Сэдэвчилсэн удирдамж нь судруудыг сэдвээр нь олоход тусалдаг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5303, type: "MULTIPLE_CHOICE", question: "Үгсийн утгыг хаанаас олж болох вэ?", options: ["Библийн толь бичиг", "Үлгэрийн ном", "Сэтгүүл", "Мэдээ"], correctAnswer: "Библийн толь бичиг" }
+                ]
+            },
+            {
+                id: "study-4", title: "Өдөр тутмын зуршил", totalQuestions: 3, iconType: "book", position: { top: "320px", left: "50%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5401, type: "MULTIPLE_CHOICE", question: "Бид судруудыг хэр давтамжтай судлах ёстой вэ?", options: ["Өдөр бүр", "Долоо хоног бүр", "Жил бүр", "Хэзээ ч үгүй"], correctAnswer: "Өдөр бүр" },
+                    { id: 5402, type: "TRUE_FALSE", question: "Судлахад зориулж тодорхой цаг гаргах нь тустай.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5403, type: "MULTIPLE_CHOICE", question: "Судлахаасаа өмнө залбирах нь ... урьдаг.", options: ["Ариун Сүнсийг", "Нойр хүрэхийг", "Өлсөхийг", "Дуу чимээг"], correctAnswer: "Ариун Сүнсийг" }
+                ]
+            },
+            {
+                id: "study-5", title: "Сайн мэдээний номын сан", totalQuestions: 3, iconType: "star", position: { top: "410px", left: "40%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5501, type: "MULTIPLE_CHOICE", question: "Сүмийн суралцахад зориулсан албан ёсны аппликейшн юу вэ?", options: ["Сайн мэдээний номын сан", "Олон нийтийн сүлжээ", "Тоглоомын төв", "Мэдээний апп"], correctAnswer: "Сайн мэдээний номын сан" },
+                    { id: 5502, type: "TRUE_FALSE", question: "Аппликейшн дээр тэмдэглэл хөтөлж, тодруулж болдог.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5503, type: "MULTIPLE_CHOICE", question: "Аппликейшнд юу багтдаг вэ?", options: ["Судрууд, гарын авлага, хөгжим", "Зөвхөн тоглоом", "Юу ч байхгүй", "Зөвхөн зураг"], correctAnswer: "Судрууд, гарын авлага, хөгжим" }
+                ]
+            },
+            {
+                id: "study-6", title: "Үнэнийг хэрэгжүүлэх", totalQuestions: 3, iconType: "book", position: { top: "500px", left: "60%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5601, type: "MULTIPLE_CHOICE", question: "Нифай судруудыг ... 'зүйрлэн' үзээрэй гэж хэлсэн.", options: ["Өөртөө", "Танихгүй хүнд", "Хэнд ч биш", "Амьтдад"], correctAnswer: "Өөртөө" },
+                    { id: 5602, type: "TRUE_FALSE", question: "Судрууд бидэнд амьдралын асуудлуудад хариулт өгдөг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5603, type: "MULTIPLE_CHOICE", question: "Суралцсан зүйлээ ашиглахад ямар зарчим тусалдаг вэ?", options: ["Хэрэгжүүлэх", "Мартах", "Үл тоомсорлох", "Эргэлзэх"], correctAnswer: "Хэрэгжүүлэх" }
+                ]
+            },
+            {
+                id: "study-7", title: "Тэмдэглэл хөтлөх", totalQuestions: 3, iconType: "star", position: { top: "590px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5701, type: "MULTIPLE_CHOICE", question: "Сүнслэг мэдрэмжээ бичиж тэмдэглэхийг юу гэдэг вэ?", options: ["Өдрийн тэмдэглэл", "Хүнсний жагсаалт", "Мессеж", "Тасалбар"], correctAnswer: "Өдрийн тэмдэглэл" },
+                    { id: 5702, type: "TRUE_FALSE", question: "Бошиглогчид өдрийн тэмдэглэл хөтлөхийг дэмждэг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5703, type: "MULTIPLE_CHOICE", question: "Тэмдэглэл хөтлөх нь Бурханы ... санахад тусалдаг.", options: ["Нигүүлсэл ба адислалуудыг", "Уур хилэнг", "Зөвхөн дүрмийг", "Зай хол байдлыг"], correctAnswer: "Нигүүлсэл ба адислалуудыг" }
+                ]
+            },
+            {
+                id: "study-8", title: "Бусдад заах", totalQuestions: 3, iconType: "book", position: { top: "680px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 5801, type: "MULTIPLE_CHOICE", question: "Суралцах хамгийн сайн аргуудын нэг юу вэ?", options: ["Бусдад заах", "Унтах", "Гүйх", "Юу ч хийхгүй байх"], correctAnswer: "Бусдад заах" },
+                    { id: 5802, type: "TRUE_FALSE", question: "Гэрчлэлээ хуваалцах нь түүнийг хүчирхэгжүүлдэг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5803, type: "MULTIPLE_CHOICE", question: "Бид сурсан зүйлээ хэнтэй хуваалцах ёстой вэ?", options: ["Гэр бүл, найзуудтайгаа", "Хэнтэй ч биш", "Зөвхөн дайсантайгаа", "Зөвхөн танихгүй хүмүүстэй"], correctAnswer: "Гэр бүл, найзуудтайгаа" }
+                ]
+            },
+            {
+                id: "study-9", title: "Насан туршийн суралцагч", totalQuestions: 3, iconType: "star", position: { top: "770px", left: "60%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 5901, type: "TRUE_FALSE", question: "Сайн мэдээг судлах нь бидний амьдралын туршид үргэлжлэх ёстой.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 5902, type: "MULTIPLE_CHOICE", question: "Бид суралцах ба ... суралцахыг эрэлхийлэх ёстой.", options: ["Итгэлээр", "Азаар", "Мөнгөөр", "Нойроор"], correctAnswer: "Итгэлээр" },
+                    { id: 5903, type: "MULTIPLE_CHOICE", question: "Судалснаар бид хэний дуу хоолойг сонсож сурах ёстой вэ?", options: ["Их Эзэний", "Ертөнцийн", "Олон түмний", "Радиогийн"], correctAnswer: "Их Эзэний" }
+                ]
+            },
+            {
+                id: "study-10", title: "Эцсийн зорилго", totalQuestions: 3, iconType: "trophy", position: { top: "860px", left: "50%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 6001, type: "MULTIPLE_CHOICE", question: "Бүх судалгааны зорилго нь ... илүү адилхан болох явдал юм.", options: ["Есүс Христтэй", "Алдартай хүнтэй", "Баян хүнтэй", "Зөвхөн өөртэйгөө"], correctAnswer: "Есүс Христтэй" },
+                    { id: 6002, type: "TRUE_FALSE", question: "Судрууд биднийг мөнх амьдрал руу хөтөлдөг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 6003, type: "MULTIPLE_CHOICE", question: "Судлал нь сууриа ... дээр барихад тусалдаг.", options: ["Хад (Христ) дээр", "Элсэн дээр", "Усан дээр", "Агаар дээр"], correctAnswer: "Хад (Христ) дээр" }
                 ]
             }
         ]

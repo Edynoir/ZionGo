@@ -52,6 +52,8 @@ export const Sidebar = () => {
 
 export const MobileNav = () => {
     const { isAdmin } = useUserStore();
+    const location = useLocation();
+
     const navItems = [
         { icon: Home, href: "/" },
         { icon: Book, href: "/doctrinal-mastery" },

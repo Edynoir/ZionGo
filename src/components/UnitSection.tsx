@@ -4,6 +4,7 @@ import clsx from 'clsx';
 import { Link } from 'react-router-dom';
 import type { Unit, Level } from '../types/curriculum';
 import { useUserStore } from '../store/useUserStore';
+import { getUnits } from '../data/lessons';
 
 interface UnitSectionProps {
     unit: Unit;
@@ -78,9 +79,11 @@ export const UnitSection = ({ unit, unitIndex }: UnitSectionProps) => {
         // First level of subsequent units: active if last level of previous unit is completed
         // (We don't have prev unit info here, but the parent could pass it — for now, just check if levelIndex === 0 and unitIndex > 0)
         if (levelIndex === 0 && unitIndex > 0) {
-            // This will be handled by checking completedLessons from the previous unit's last level
-            // For simplicity, unlock if the user has completed at least unitIndex * 3 lessons
-            return { isCompleted: false, isActive: completedLessons.length >= unitIndex * 3 };
+            // Find the total number of levels in all previous units
+            const previousUnits = getUnits(useUserStore.getState().language).slice(0, unitIndex);
+            const totalPreviousLevels = previousUnits.reduce((sum: number, u: Unit) => sum + u.levels.length, 0);
+
+            return { isCompleted: false, isActive: completedLessons.length >= totalPreviousLevels };
         }
 
         return { isCompleted: false, isActive: false };
