@@ -1445,6 +1445,122 @@ const englishUnits: Unit[] = [
                 ]
             }
         ]
+    },
+    {
+        id: 14,
+        title: "Unit 14: The Life of Jesus Christ",
+        description: "Follow the mortal ministry and teachings of the Savior.",
+        color: "bg-[#58cc02]",
+        levels: [
+            {
+                id: "life-1", title: "The Birth of Jesus", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 6101, type: "MULTIPLE_CHOICE", question: "In what city was Jesus born?", options: ["Bethlehem", "Nazareth", "Jerusalem", "Rome"], correctAnswer: "Bethlehem" },
+                    { id: 6102, type: "MULTIPLE_CHOICE", question: "Who was the mother of Jesus?", options: ["Mary", "Martha", "Elisabeth", "Ruth"], correctAnswer: "Mary" },
+                    { id: 6103, type: "TRUE_FALSE", question: "An angel appeared to shepherds to announce Jesus' birth.", options: ["True", "False"], correctAnswer: "True" }
+                ]
+            },
+            {
+                id: "life-2", title: "Miracles of Jesus", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 6201, type: "MULTIPLE_CHOICE", question: "What was Jesus' first miracle?", options: ["Turning water into wine", "Healing a blind man", "Walking on water", "Raising Lazarus"], correctAnswer: "Turning water into wine" },
+                    { id: 6202, type: "TRUE_FALSE", question: "Jesus fed 5,000 people with five loaves and two fishes.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 6203, type: "MULTIPLE_CHOICE", question: "Who did Jesus raise from the dead after four days?", options: ["Lazarus", "Peter", "John", "Stephen"], correctAnswer: "Lazarus" }
+                ]
+            },
+            {
+                id: "life-3", title: "Sermon on the Mount", totalQuestions: 3, iconType: "trophy", position: { top: "230px", left: "60%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 6301, type: "MULTIPLE_CHOICE", question: "What are the blessings taught in the Sermon on the Mount called?", options: ["The Beatitudes", "The Commandments", "The Parables", "The Laws"], correctAnswer: "The Beatitudes" },
+                    { id: 6302, type: "TRUE_FALSE", question: "Jesus taught to 'love your enemies'.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 6303, type: "MULTIPLE_CHOICE", question: "Which prayer did Jesus teach during this sermon?", options: ["The Lord's Prayer", "Prayer of Enos", "Nephi's Prayer", "The Apostle's Creed"], correctAnswer: "The Lord's Prayer" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 15,
+        title: "Unit 15: The New Testament",
+        description: "Exploring the records of the Savior and His Apostles.",
+        color: "bg-[#1cb0f6]",
+        levels: [
+            {
+                id: "nt-1", title: "The Twelve Apostles", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 6401, type: "MULTIPLE_CHOICE", question: "Who was the chief Apostle after Jesus' ascension?", options: ["Peter", "James", "John", "Paul"], correctAnswer: "Peter" },
+                    { id: 6402, type: "TRUE_FALSE", question: "Many of the Apostles were originally fishermen.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 6403, type: "MULTIPLE_CHOICE", question: "Which Apostle was a tax collector?", options: ["Matthew", "Mark", "Luke", "John"], correctAnswer: "Matthew" }
+                ]
+            },
+            {
+                id: "nt-2", title: "Parables of the Savior", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "45%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 6501, type: "MULTIPLE_CHOICE", question: "In the parable of the Prodigal Son, how did the father react when the son returned?", options: ["He ran and fell on his neck and kissed him", "He turned him away", "He made him a slave", "He was angry"], correctAnswer: "He ran and fell on his neck and kissed him" },
+                    { id: 6502, type: "TRUE_FALSE", question: "The parable of the Sower describes different ways people receive the word of God.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 6503, type: "MULTIPLE_CHOICE", question: "Which parable teaches about being a good neighbor?", options: ["The Good Samaritan", "The Lost Sheep", "The Ten Virgins", "The Talents"], correctAnswer: "The Good Samaritan" }
+                ]
+            },
+            {
+                id: "nt-3", title: "The Resurrection", totalQuestions: 3, iconType: "trophy", position: { top: "230px", left: "55%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 6601, type: "MULTIPLE_CHOICE", question: "Who was the first person to see the resurrected Lord?", options: ["Mary Magdalene", "Peter", "John", "His Mother"], correctAnswer: "Mary Magdalene" },
+                    { id: 6602, type: "TRUE_FALSE", question: "Jesus has a body of flesh and bones after His resurrection.", options: ["True", "False"], correctAnswer: "True" },
+                    { id: 6603, type: "MULTIPLE_CHOICE", question: "How many days did Jesus remain with His Apostles before His ascension?", options: ["40 days", "3 days", "7 days", "10 days"], correctAnswer: "40 days" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 14,
+        title: "Нэгж 14: Есүс Христийн амьдрал",
+        description: "Аврагчийн мөнх бус тохинуул болон сургаалыг дага.",
+        color: "bg-[#58cc02]",
+        levels: [
+            {
+                id: "life-1", title: "Есүсийн мэндлэлт", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 6101, type: "MULTIPLE_CHOICE", question: "Есүс аль хотод төрсөн бэ?", options: ["Бетлехем", "Назарет", "Иерусалим", "Ром"], correctAnswer: "Бетлехем" },
+                    { id: 6102, type: "MULTIPLE_CHOICE", question: "Есүсийн эх хэн байсан бэ?", options: ["Мариа", "Марта", "Елизабет", "Рут"], correctAnswer: "Мариа" },
+                    { id: 6103, type: "TRUE_FALSE", question: "Тэнгэр элч хоньчдод үзэгдэж Есүсийн мэндэлснийг зарласан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" }
+                ]
+            },
+            {
+                id: "life-2", title: "Есүсийн гайхамшиг", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "40%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 6201, type: "MULTIPLE_CHOICE", question: "Есүсийн анхны гайхамшиг юу байсан бэ?", options: ["Усыг дарс болгосон", "Хараагүй хүнийг эдгээсэн", "Усан дээгүүр алхсан", "Лазарыг амилуулсан"], correctAnswer: "Усыг дарс болгосон" },
+                    { id: 6202, type: "TRUE_FALSE", question: "Есүс таван талх, хоёр загасаар 5000 хүнийг хооллосон.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 6203, type: "MULTIPLE_CHOICE", question: "Есүс дөрвөн хоногийн дараа хэнийг үхлээс амилуулсан бэ?", options: ["Лазар", "Петр", "Иохан", "Стефан"], correctAnswer: "Лазар" }
+                ]
+            },
+            {
+                id: "life-3", title: "Уулан дээрх номлол", totalQuestions: 3, iconType: "trophy", position: { top: "230px", left: "60%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 6301, type: "MULTIPLE_CHOICE", question: "Уулан дээрх номлолд заасан ерөөлүүдийг юу гэж нэрлэдэг вэ?", options: ["Ерөөлүүд (Beatitudes)", "Зарлигууд", "Сургаалт зүйрлэлүүд", "Хуулиуд"], correctAnswer: "Ерөөлүүд (Beatitudes)" },
+                    { id: 6302, type: "TRUE_FALSE", question: "Есүс 'дайснуудаа хайрла' гэж заасан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 6303, type: "MULTIPLE_CHOICE", question: "Энэ номлолын үеэр Есүс ямар залбирлыг заасан бэ?", options: ["Их Эзэний залбирал", "Еносын залбирал", "Нифайн залбирал", "Төлөөлөгчдийн итгэл"], correctAnswer: "Их Эзэний залбирал" }
+                ]
+            }
+        ]
+    },
+    {
+        id: 15,
+        title: "Нэгж 15: Шинэ Гэрээ",
+        description: "Аврагч болон Түүний төлөөлөгчдийн цэдгийг судлах.",
+        color: "bg-[#1cb0f6]",
+        levels: [
+            {
+                id: "nt-1", title: "Арван хоёр төлөөлөгч", totalQuestions: 3, iconType: "star", position: { top: "50px", left: "50%" }, status: "LOCKED", xpReward: 10, questions: [
+                    { id: 6401, type: "MULTIPLE_CHOICE", question: "Есүсийг тэнгэрт одсоны дараа тэргүүлэх төлөөлөгч хэн байсан бэ?", options: ["Петр", "Иаков", "Иохан", "Паул"], correctAnswer: "Петр" },
+                    { id: 6402, type: "TRUE_FALSE", question: "Төлөөлөгчдийн ихэнх нь анх загасчид байсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 6403, type: "MULTIPLE_CHOICE", question: "Аль төлөөлөгч татвар хураагч байсан бэ?", options: ["Матай", "Марк", "Лук", "Иохан"], correctAnswer: "Матай" }
+                ]
+            },
+            {
+                id: "nt-2", title: "Аврагчийн сургаалт зүйрлэл", totalQuestions: 3, iconType: "book", position: { top: "140px", left: "45%" }, status: "LOCKED", xpReward: 15, questions: [
+                    { id: 6501, type: "MULTIPLE_CHOICE", question: "Тэнэмэл хүүгийн зүйрлэлд хүүгээ буцаж ирэхэд эцэг нь яаж хүлээж авсан бэ?", options: ["Гүйж очоод хүзүүгээр нь тэвэрч үнссэн", "Түүнийг хөөсөн", "Түүнийг боол болгосон", "Уурласан"], correctAnswer: "Гүйж очоод хүзүүгээр нь тэвэрч үнссэн" },
+                    { id: 6502, type: "TRUE_FALSE", question: "Тариачны зүйрлэл нь хүмүүс Бурханы үгийг хэрхэн хүлээж авдаг өөр өөр аргуудыг дүрсэлдэг.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 6503, type: "MULTIPLE_CHOICE", question: "Ямар зүйрлэл сайн хөрш байх талаар заадаг вэ?", options: ["Сайн Самари хүн", "Алдагдсан хонь", "Арван онгон охид", "Талантууд"], correctAnswer: "Сайн Самари хүн" }
+                ]
+            },
+            {
+                id: "nt-3", title: "Дахин амилалт", totalQuestions: 3, iconType: "trophy", position: { top: "230px", left: "55%" }, status: "LOCKED", xpReward: 20, questions: [
+                    { id: 6601, type: "MULTIPLE_CHOICE", question: "Дахин амилсан Их Эзэнийг хамгийн түрүүнд хэн харсан бэ?", options: ["Магдалагийн Мариа", "Петр", "Иохан", "Түүний эх"], correctAnswer: "Магдалагийн Мариа" },
+                    { id: 6602, type: "TRUE_FALSE", question: "Есүс дахин амилсныхаа дараа махан бие, ястай байсан.", options: ["Үнэн", "Худал"], correctAnswer: "Үнэн" },
+                    { id: 6603, type: "MULTIPLE_CHOICE", question: "Есүс тэнгэрт өгсөхөөсөө өмнө төлөөлөгчидтэйгөө хэд хоносон бэ?", options: ["40 хоног", "3 хоног", "7 хоног", "10 хоног"], correctAnswer: "40 хоног" }
+                ]
+            }
+        ]
     }
 ];
 
