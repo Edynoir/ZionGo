@@ -2,7 +2,7 @@
 
 export type Language = 'en' | 'mn';
 
-type TranslationKeys = {
+export type TranslationKeys = {
     // Navigation
     'nav.learn': string;
     'nav.mastery': string;

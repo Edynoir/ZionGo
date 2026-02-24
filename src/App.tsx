@@ -8,7 +8,6 @@ import { Shop } from './pages/Shop';
 import { Profile } from './pages/Profile';
 import { AdminPanel } from './pages/AdminPanel';
 import { DoctrinalMastery } from './pages/DoctrinalMastery';
-import { More } from './pages/More';
 import { Landing } from './pages/Landing';
 import { useUserStore } from './store/useUserStore';
 import { Loader } from 'lucide-react';
@@ -41,7 +40,6 @@ function App() {
               <Route path="/profile" element={<Profile />} />
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/doctrinal-mastery" element={<DoctrinalMastery />} />
-              <Route path="/more" element={<More />} />
             </Route>
             <Route path="/lesson/:lessonId" element={<Lesson />} />
             <Route path="*" element={<Navigate to="/" replace />} />
