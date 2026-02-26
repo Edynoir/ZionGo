@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from 'framer-motion';
-import { Trophy, Pyramid, Tent, Castle, Leaf, Sparkles, Star, User } from 'lucide-react';
+import { Trophy, Pyramid, Tent, Castle, Leaf, Sparkles, Star } from 'lucide-react';
 import { useUserStore } from '../../store/useUserStore';
 import { useTranslation } from '../../utils/i18n';
 import { useState } from 'react';
