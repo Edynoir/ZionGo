@@ -1,5 +1,5 @@
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Trophy, Store, User, MoreHorizontal, Book, ShieldCheck } from 'lucide-react';
+import { Home, Trophy, Store, User, MoreHorizontal, Book, ShieldCheck, Package } from 'lucide-react';
 import clsx from 'clsx';
 import { useUserStore } from '../../store/useUserStore';
 import { useTranslation } from '../../utils/i18n';
@@ -43,6 +43,7 @@ export const Sidebar = () => {
                 <SidebarItem icon={Trophy} label={t('nav.leaderboard')} href="/leaderboard" />
                 <SidebarItem icon={Store} label={t('nav.shop')} href="/shop" />
                 <SidebarItem icon={User} label={t('nav.profile')} href="/profile" />
+                <SidebarItem icon={Package} label={t('nav.inventory')} href="/inventory" />
                 {isAdmin && <SidebarItem icon={ShieldCheck} label={t('nav.admin')} href="/admin" />}
                 <SidebarItem icon={MoreHorizontal} label={t('nav.more')} href="/more" />
             </nav>
@@ -59,6 +60,7 @@ export const MobileNav = () => {
         { icon: Book, href: "/doctrinal-mastery" },
         { icon: Trophy, href: "/leaderboard" },
         { icon: Store, href: "/shop" },
+        { icon: Package, href: "/inventory" },
         ...(isAdmin ? [{ icon: ShieldCheck, href: "/admin" }] : []),
         { icon: MoreHorizontal, href: "/more" }
     ];

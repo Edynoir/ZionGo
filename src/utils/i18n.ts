@@ -9,6 +9,7 @@ type TranslationKeys = {
     'nav.leaderboard': string;
     'nav.shop': string;
     'nav.profile': string;
+    'nav.inventory': string;
     'nav.more': string;
     'nav.admin': string;
 
@@ -63,6 +64,30 @@ type TranslationKeys = {
     'shop.streakFreezeDesc': string;
     'shop.doubleNothing': string;
     'shop.doubleNothingDesc': string;
+
+    // Inventory
+    'inventory.title': string;
+    'inventory.noItems': string;
+    'inventory.items': string;
+    'inventory.streakFreeze': string;
+    'inventory.streakFreezeDesc': string;
+    'inventory.doubleWager': string;
+    'inventory.doubleWagerDesc': string;
+
+    // Admin
+    'admin.manageUsers': string;
+    'admin.editUser': string;
+    'admin.updateSuccess': string;
+    'admin.xp': string;
+    'admin.gems': string;
+    'admin.inventory': string;
+    'admin.migrationTitle': string;
+    'admin.migrationDesc': string;
+    'admin.migrationStart': string;
+    'admin.migrationSuccess': string;
+    'admin.migrationFailed': string;
+    'admin.migrationConfirm': string;
+    'admin.migrating': string;
 
     // Leaderboard
     'leaderboard.title': string;
@@ -139,6 +164,7 @@ const translations: Record<Language, TranslationKeys> = {
         'nav.leaderboard': 'Leaderboard',
         'nav.shop': 'Shop',
         'nav.profile': 'Profile',
+        'nav.inventory': 'Inventory',
         'nav.more': 'More',
         'nav.admin': 'Admin',
 
@@ -193,6 +219,30 @@ const translations: Record<Language, TranslationKeys> = {
         'shop.streakFreezeDesc': 'Streak Freeze allows your streak to remain in place for one full day of inactivity.',
         'shop.doubleNothing': 'Double or Nothing',
         'shop.doubleNothingDesc': 'Attempt to double your 50 gem wager by maintaining a 7 day streak.',
+
+        // Inventory
+        'inventory.title': 'My Inventory',
+        'inventory.noItems': 'Your inventory is empty. Visit the shop to get some items!',
+        'inventory.items': 'Collected Items',
+        'inventory.streakFreeze': 'Streak Freeze',
+        'inventory.streakFreezeDesc': 'Protects your streak for one day of inactivity.',
+        'inventory.doubleWager': 'Double or Nothing',
+        'inventory.doubleWagerDesc': 'Active wager to double your gems.',
+
+        // Admin
+        'admin.manageUsers': 'Manage Users',
+        'admin.editUser': 'Edit User Stats',
+        'admin.updateSuccess': 'User updated successfully!',
+        'admin.xp': 'Experience points (XP)',
+        'admin.gems': 'Gems',
+        'admin.inventory': 'Inventory Items',
+        'admin.migrationTitle': 'Content Migration',
+        'admin.migrationDesc': 'Sync local lessons and doctrinal mastery data to Firestore. This will overwrite existing cloud content.',
+        'admin.migrationStart': 'Start Migration',
+        'admin.migrationSuccess': 'Migration Successful!',
+        'admin.migrationFailed': 'Migration Failed',
+        'admin.migrationConfirm': 'Are you sure you want to override Firestore data with local data?',
+        'admin.migrating': 'Migrating...',
 
         // Leaderboard
         'leaderboard.title': 'Amethyst League',
@@ -267,6 +317,7 @@ const translations: Record<Language, TranslationKeys> = {
         'nav.leaderboard': 'Тэргүүлэгчид',
         'nav.shop': 'Дэлгүүр',
         'nav.profile': 'Профайл',
+        'nav.inventory': 'Цүнх',
         'nav.more': 'Бусад',
         'nav.admin': 'Админ',
 
@@ -321,6 +372,30 @@ const translations: Record<Language, TranslationKeys> = {
         'shop.streakFreezeDesc': 'Таны цуваа нэг өдрийн идэвхгүй байдлын үед хэвээр үлдэх боломжтой.',
         'shop.doubleNothing': 'Давхар эсвэл юу ч үгүй',
         'shop.doubleNothingDesc': '7 хоногийн цувааг хадгалж, 50 эрдэнийн чулууг давхарлах оролдлого.',
+
+        // Inventory
+        'inventory.title': 'Миний цүнх',
+        'inventory.noItems': 'Таны цүнх хоосон байна. Дэлгүүрээс зарим зүйлс аваарай!',
+        'inventory.items': 'Цуглуулсан зүйлс',
+        'inventory.streakFreeze': 'Цуваа хөлдөөх',
+        'inventory.streakFreezeDesc': 'Нэг өдрийн идэвхгүй байдалд таны цувааг хамгаална.',
+        'inventory.doubleWager': 'Давхарлах эсвэл юу ч үгүй',
+        'inventory.doubleWagerDesc': 'Эрдэнийн чулуугаа давхарлах идэвхтэй бооцоо.',
+
+        // Admin
+        'admin.manageUsers': 'Хэрэглэгчдийг удирдах',
+        'admin.editUser': 'Хэрэглэгчийн статистик засах',
+        'admin.updateSuccess': 'Хэрэглэгчийг амжилттай шинэчиллээ!',
+        'admin.xp': 'Туршлагын оноо (XP)',
+        'admin.gems': 'Эрдэнийн чулуу',
+        'admin.inventory': 'Цүнхэн дэх зүйлс',
+        'admin.migrationTitle': 'Өгөгдөл шилжүүлэх',
+        'admin.migrationDesc': 'Дотоод хичээл болон цээжлэх судрын өгөгдлийг Firestore руу синк хийх. Энэ нь үүлэн дээрх өгөгдлийг дахин бичих болно.',
+        'admin.migrationStart': 'Шилжүүлж эхлэх',
+        'admin.migrationSuccess': 'Шилжүүлэлт амжилттай!',
+        'admin.migrationFailed': 'Шилжүүлэлт амжилтгүй',
+        'admin.migrationConfirm': 'Та Firestore-ийн өгөгдлийг дотоод өгөгдлөөр солихдоо итгэлтэй байна уу?',
+        'admin.migrating': 'Шилжүүлж байна...',
 
         // Leaderboard
         'leaderboard.title': 'Аметист лиг',

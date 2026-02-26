@@ -4,19 +4,20 @@ import { Star, Gem as GemIcon, RefreshCw, Home } from 'lucide-react';
 import { QuizHeader } from '../components/lesson/QuizHeader';
 import { QuizFooter } from '../components/lesson/QuizFooter';
 import { MultipleChoiceQuestion } from '../components/lesson/MultipleChoiceQuestion';
-import { getUnits } from '../data/lessons';
 import { useUserStore } from '../store/useUserStore';
+import { useContentStore } from '../store/useContentStore';
 import { useTranslation } from '../utils/i18n';
 
 export const Lesson = () => {
     const { lessonId } = useParams();
     const navigate = useNavigate();
     const { language, loseHeart, gainXp, completeLessonById } = useUserStore();
+    const { units } = useContentStore();
     const { t } = useTranslation(language);
-    const units = getUnits(language);
+    const unitList = units[language];
 
     // Find the lesson data
-    const currentUnit = units.find(u => u.levels.some(l => l.id === lessonId));
+    const currentUnit = unitList.find(u => u.levels.some(l => l.id === lessonId));
     const currentLevel = currentUnit?.levels.find(l => l.id === lessonId);
     const questions = currentLevel?.questions || [];
 

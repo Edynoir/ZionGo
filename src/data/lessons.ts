@@ -28,7 +28,7 @@ export interface Unit {
     levels: Level[];
 }
 
-const englishUnits: Unit[] = [
+export const englishUnits: Unit[] = [
     {
         id: 1,
         title: "Unit 1: The Restoration",
@@ -1448,7 +1448,7 @@ const englishUnits: Unit[] = [
     }
 ];
 
-const mongolianUnits: Unit[] = [
+export const mongolianUnits: Unit[] = [
     {
         id: 1,
         title: "Нэгж 1: Сэргээлт",

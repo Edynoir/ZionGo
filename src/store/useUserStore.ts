@@ -30,6 +30,7 @@ interface UserState {
     language: 'en' | 'mn';
     lastLessonDate: string | null;
     completedLessons: string[];
+    inventory: string[];
     nickname: string | null;
     isAdmin: boolean;
     loading: boolean;
@@ -53,6 +54,7 @@ interface UserState {
     buyItem: (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => void;
     updateNickname: (name: string) => Promise<void>;
     updateAvatar: (url: string) => Promise<void>;
+    updateUserStatsAdmin: (userId: string, stats: { xp?: number; gems?: number; inventory?: string[] }) => Promise<void>;
     clearError: () => void;
 }
 
@@ -70,6 +72,7 @@ export const useUserStore = create<UserState>()(
             language: 'en',
             lastLessonDate: null,
             completedLessons: [],
+            inventory: [],
             nickname: null,
             isAdmin: false,
             loading: true,
@@ -99,6 +102,7 @@ export const useUserStore = create<UserState>()(
                                     gems: data.gems ?? 100,
                                     lastLessonDate: data.lastLessonDate ?? null,
                                     completedLessons: data.completedLessons ?? [],
+                                    inventory: data.inventory ?? [],
                                     theme: data.theme ?? 'light',
                                     notifications: data.notifications ?? true,
                                     fontSize: data.fontSize ?? 'medium',
@@ -133,7 +137,8 @@ export const useUserStore = create<UserState>()(
                                     email: user.email,
                                     displayName: user.displayName,
                                     photoURL: user.photoURL,
-                                    isAdmin: false
+                                    isAdmin: false,
+                                    inventory: []
                                 }, { merge: true });
                             }
                         });
@@ -199,7 +204,8 @@ export const useUserStore = create<UserState>()(
                         fontSize: state.fontSize,
                         language: state.language,
                         lastLessonDate: state.lastLessonDate,
-                        completedLessons: state.completedLessons
+                        completedLessons: state.completedLessons,
+                        inventory: state.inventory,
                     }, { merge: true });
                 } catch (err: any) {
                     set({ error: err.message });
@@ -216,6 +222,7 @@ export const useUserStore = create<UserState>()(
                     streak: 1,
                     gems: 100,
                     completedLessons: [],
+                    inventory: [],
                     lastLessonDate: null,
                     nickname: null,
                     isAdmin: false,
@@ -316,24 +323,44 @@ export const useUserStore = create<UserState>()(
                 const lastDate = state.lastLessonDate;
 
                 let newStreak = state.streak;
+                let newInventory = [...(state.inventory || [])];
+                let earnedGems = 5;
 
                 if (lastDate !== today) {
-                    const yesterday = new Date();
-                    yesterday.setDate(yesterday.getDate() - 1);
-                    const yesterdayString = yesterday.toISOString().split('T')[0];
+                    if (lastDate) {
+                        const lastTime = new Date(lastDate).getTime();
+                        const todayTime = new Date(today).getTime();
+                        const daysDiff = Math.floor((todayTime - lastTime) / (1000 * 60 * 60 * 24));
 
-                    if (lastDate === yesterdayString) {
-                        newStreak += 1;
+                        if (daysDiff === 1) {
+                            // Perfect consecutive day
+                            newStreak += 1;
+                        } else if (daysDiff === 2 && newInventory.includes('STREAK_FREEZE')) {
+                            // Missed exactly one day, but has a freeze!
+                            newInventory = newInventory.filter(item => item !== 'STREAK_FREEZE');
+                            newStreak += 1; // Keep streak going as if they didn't miss
+                        } else if (daysDiff > 1) {
+                            // Missed >1 days without enough freezes, reset streak
+                            newStreak = 1;
+                        }
                     } else {
+                        // First ever lesson
                         newStreak = 1;
                     }
+                }
+
+                // Check Double Wager on 7-day increments
+                if (newStreak > 0 && newStreak % 7 === 0 && newStreak > state.streak && newInventory.includes('DOUBLE_WAGER')) {
+                    newInventory = newInventory.filter(item => item !== 'DOUBLE_WAGER');
+                    earnedGems += 100; // Reward double the 50 gem wager
                 }
 
                 const updates = {
                     streak: newStreak,
                     lastLessonDate: today,
                     xp: state.xp + 10,
-                    gems: state.gems + 5
+                    gems: state.gems + earnedGems,
+                    inventory: newInventory
                 };
 
                 if (state.user) {
@@ -351,15 +378,32 @@ export const useUserStore = create<UserState>()(
                 const lastDate = state.lastLessonDate;
 
                 let newStreak = state.streak;
+                let newInventory = [...(state.inventory || [])];
+                let earnedGems = 5;
+
                 if (lastDate !== today) {
-                    const yesterday = new Date();
-                    yesterday.setDate(yesterday.getDate() - 1);
-                    const yesterdayString = yesterday.toISOString().split('T')[0];
-                    if (lastDate === yesterdayString) {
-                        newStreak += 1;
+                    if (lastDate) {
+                        const lastTime = new Date(lastDate).getTime();
+                        const todayTime = new Date(today).getTime();
+                        const daysDiff = Math.floor((todayTime - lastTime) / (1000 * 60 * 60 * 24));
+
+                        if (daysDiff === 1) {
+                            newStreak += 1;
+                        } else if (daysDiff === 2 && newInventory.includes('STREAK_FREEZE')) {
+                            newInventory = newInventory.filter(item => item !== 'STREAK_FREEZE');
+                            newStreak += 1;
+                        } else if (daysDiff > 1) {
+                            newStreak = 1;
+                        }
                     } else {
                         newStreak = 1;
                     }
+                }
+
+                // Check Double Wager
+                if (newStreak > 0 && newStreak % 7 === 0 && newStreak > state.streak && newInventory.includes('DOUBLE_WAGER')) {
+                    newInventory = newInventory.filter(item => item !== 'DOUBLE_WAGER');
+                    earnedGems += 100;
                 }
 
                 const updates = {
@@ -367,7 +411,8 @@ export const useUserStore = create<UserState>()(
                     streak: newStreak,
                     lastLessonDate: today,
                     xp: state.xp + 10,
-                    gems: state.gems + 5
+                    gems: state.gems + earnedGems,
+                    inventory: newInventory
                 };
 
                 if (state.user) {
@@ -379,14 +424,25 @@ export const useUserStore = create<UserState>()(
 
             buyItem: (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => {
                 set((state) => {
-                    if (state.gems < cost) return {}; // Not enough gems
+                    if (state.gems < cost) return {};
 
-                    const updates: Partial<UserState> = { gems: state.gems - cost };
+                    const updates: any = { gems: state.gems - cost };
 
                     if (type === 'HEARTS') {
                         updates.hearts = 5;
+                    } else if (type === 'FREEZE') {
+                        const newInventory = [...(state.inventory || [])];
+                        if (!newInventory.includes('STREAK_FREEZE')) {
+                            newInventory.push('STREAK_FREEZE');
+                        }
+                        updates.inventory = newInventory;
+                    } else if (type === 'WAGER') {
+                        const newInventory = [...(state.inventory || [])];
+                        if (!newInventory.includes('DOUBLE_WAGER')) {
+                            newInventory.push('DOUBLE_WAGER');
+                        }
+                        updates.inventory = newInventory;
                     }
-                    // Add other logic logic later if needed (e.g. freeze inventory)
 
                     if (state.user) {
                         updateDoc(doc(db, 'users', state.user.uid), updates);
@@ -428,6 +484,16 @@ export const useUserStore = create<UserState>()(
                 return { name: 'Zion', key: 'leaderboard.cityZion', nextXp: null, progress: 100 };
             },
 
+            updateUserStatsAdmin: async (userId: string, stats: { xp?: number; gems?: number; inventory?: string[] }) => {
+                try {
+                    const userRef = doc(db, 'users', userId);
+                    await updateDoc(userRef, stats);
+                } catch (err: any) {
+                    set({ error: err.message });
+                    throw err;
+                }
+            },
+
             clearError: () => set({ error: null })
         }),
         {
@@ -443,6 +509,7 @@ export const useUserStore = create<UserState>()(
                 language: state.language,
                 lastLessonDate: state.lastLessonDate,
                 completedLessons: state.completedLessons,
+                inventory: state.inventory,
                 nickname: state.nickname
             }),
         }

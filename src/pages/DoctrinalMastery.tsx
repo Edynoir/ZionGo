@@ -1,6 +1,7 @@
 import { useState, useMemo, useCallback } from 'react';
 import { Book, ExternalLink, RefreshCw, Brain, GraduationCap, ChevronLeft, ChevronRight, Shuffle, ChevronDown, ChevronUp, BookOpen } from 'lucide-react';
-import { getMasteryData, type MasteryScripture } from '../data/doctrinalMastery';
+import type { MasteryScripture } from '../data/doctrinalMastery';
+import { useContentStore } from '../store/useContentStore';
 import clsx from 'clsx';
 import { useUserStore } from '../store/useUserStore';
 import { useTranslation } from '../utils/i18n';
@@ -13,14 +14,15 @@ export const DoctrinalMastery = () => {
     const [mode, setMode] = useState<Mode>('STUDY');
     const [selectedVolume, setSelectedVolume] = useState<Volume>('ALL');
     const { gainXp, language } = useUserStore();
+    const { mastery } = useContentStore();
     const { t } = useTranslation(language);
 
     // Data Filtering
     const filteredData = useMemo(() => {
-        const data = getMasteryData(language);
+        const data = mastery[language];
         if (selectedVolume === 'ALL') return data;
         return data.filter(item => item.volume === selectedVolume);
-    }, [selectedVolume, language]);
+    }, [selectedVolume, language, mastery]);
 
     return (
         <div className="flex flex-col items-center py-6 px-4 max-w-4xl mx-auto min-h-[calc(100vh-80px)]">

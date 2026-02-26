@@ -9,17 +9,26 @@ import { Profile } from './pages/Profile';
 import { AdminPanel } from './pages/AdminPanel';
 import { DoctrinalMastery } from './pages/DoctrinalMastery';
 import { More } from './pages/More';
+import { Inventory } from './pages/Inventory';
 import { Landing } from './pages/Landing';
 import { useUserStore } from './store/useUserStore';
+import { useContentStore } from './store/useContentStore';
 import { Loader } from 'lucide-react';
+import { usePushNotifications } from './hooks/usePushNotifications';
 
 function App() {
   const { user, loading, initAuth } = useUserStore();
+  const { fetchContent } = useContentStore();
+
+  usePushNotifications(); // Automatically requests permission and saves token if logged in
 
   useEffect(() => {
+    console.log('App component mounted');
     const unsub = initAuth();
+    console.log('Fetching content...');
+    fetchContent();
     return () => unsub();
-  }, []);
+  }, [fetchContent, initAuth]);
 
   if (loading) {
     return (
@@ -39,6 +48,7 @@ function App() {
               <Route path="/leaderboard" element={<Leaderboard />} />
               <Route path="/shop" element={<Shop />} />
               <Route path="/profile" element={<Profile />} />
+              <Route path="/inventory" element={<Inventory />} />
               <Route path="/admin" element={<AdminPanel />} />
               <Route path="/doctrinal-mastery" element={<DoctrinalMastery />} />
               <Route path="/more" element={<More />} />

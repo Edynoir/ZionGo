@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Trophy, User, Loader, MapPin } from 'lucide-react';
+import { MapPin, Loader } from 'lucide-react';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useUserStore } from '../store/useUserStore';
@@ -21,7 +21,9 @@ export const Leaderboard = () => {
     const { t } = useTranslation(language);
     const [users, setUsers] = useState<LeaderboardUser[]>([]);
     const [loading, setLoading] = useState(true);
+    const [errorMsg, setErrorMsg] = useState<string | null>(null);
     const [viewMode, setViewMode] = useState<'MAP' | 'LIST'>('MAP');
+    const [showOthers, setShowOthers] = useState<boolean>(true);
 
     const currentLeague = getLeague(currentUserXp);
 
@@ -47,8 +49,13 @@ export const Leaderboard = () => {
                 setLoading(false);
                 clearTimeout(timeout);
             },
-            (error) => {
+            (error: any) => {
                 console.error("Leaderboard fetch error:", error);
+                if (error.code === 'permission-denied') {
+                    setErrorMsg("Missing permissions. Please update your Firebase Firestore security rules.");
+                } else {
+                    setErrorMsg("Failed to load leaderboard.");
+                }
                 setLoading(false);
                 clearTimeout(timeout);
             }
@@ -100,6 +107,27 @@ export const Leaderboard = () => {
                     </button>
                 </div>
 
+                {/* Show Others Toggle (Map View Only) */}
+                {viewMode === 'MAP' && (
+                    <div className="flex items-center justify-center gap-3 mb-6">
+                        <span className="text-sm font-bold text-[var(--text-secondary)]">Show Others</span>
+                        <button
+                            onClick={() => setShowOthers(!showOthers)}
+                            className={clsx(
+                                "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
+                                showOthers ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-700'
+                            )}
+                        >
+                            <span
+                                className={clsx(
+                                    "inline-block h-4 w-4 transform rounded-full bg-white transition-transform",
+                                    showOthers ? 'translate-x-6' : 'translate-x-1'
+                                )}
+                            />
+                        </button>
+                    </div>
+                )}
+
                 {/* Progress Bar to next city (Only in List view or as global stats) */}
                 {viewMode === 'LIST' && (
                     <>
@@ -122,10 +150,19 @@ export const Leaderboard = () => {
             </div>
 
             {viewMode === 'MAP' ? (
-                <LeagueMap />
+                <LeagueMap users={showOthers ? users : undefined} />
             ) : (
                 <div className="max-w-lg w-full border-2 border-[var(--border-color)] rounded-2xl overflow-hidden bg-[var(--bg-card)]">
-                    {users.map((user, index) => {
+                    {errorMsg && (
+                        <div className="p-8 text-center text-red-500 bg-red-50 dark:bg-red-900/10">
+                            <span className="font-bold">Error:</span> {errorMsg}
+                            <div className="mt-4 text-sm text-[var(--text-secondary)]">
+                                See the setup guide to update your <code className="bg-gray-100 dark:bg-gray-800 px-1 rounded">firestore.rules</code> to allow reading the users collection.
+                            </div>
+                        </div>
+                    )}
+
+                    {!errorMsg && users.map((user, index) => {
                         const rank = index + 1;
                         const isMe = user.uid === currentUser?.uid;
 
@@ -135,11 +172,11 @@ export const Leaderboard = () => {
                                     {rank}
                                 </span>
 
-                                <div className="w-10 h-10 rounded-full bg-gray-200 dark:bg-gray-700 flex items-center justify-center text-gray-400 overflow-hidden">
+                                <div className="w-10 h-10 rounded-full bg-gradient-to-br from-indigo-400 to-purple-500 shadow-md flex items-center justify-center text-white font-black overflow-hidden">
                                     {user.photoURL ? (
                                         <img src={user.photoURL} alt={user.displayName} className="w-full h-full object-cover" />
                                     ) : (
-                                        rank === 1 ? <Trophy size={20} className="text-yellow-500" /> : <User size={20} />
+                                        (user.nickname || user.displayName || '?').charAt(0).toUpperCase()
                                     )}
                                 </div>
 
@@ -158,7 +195,7 @@ export const Leaderboard = () => {
                             </div>
                         );
                     })}
-                    {users.length === 0 && (
+                    {!errorMsg && users.length === 0 && (
                         <div className="p-8 text-center text-gray-400">
                             {t('leaderboard.noUsers')}
                         </div>

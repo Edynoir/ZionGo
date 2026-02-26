@@ -720,7 +720,7 @@ export const masteryData: MasteryScripture[] = [
 
 
 // MONGOLIAN TRANSLATIONS
-const mongolianMasteryData: MasteryScripture[] = [
+export const mongolianMasteryData: MasteryScripture[] = [
     // OLD TESTAMENT
     { id: 'ot-1', volume: 'Old Testament', reference: 'Мосе 1:39', text: 'Энэ бол хүний мөнх бус байдал ба мөнх амьдралыг бий болгох миний ажил ба алдар суу юм.', url: 'https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/1?lang=mon&id=39#p39' },
     { id: 'ot-2', volume: 'Old Testament', reference: 'Мосе 7:18', text: 'Их Эзэн Өөрийн хүмүүсийг Сион хэмээн дуудсан, учир нь тэд нэг зүрх сэтгэлтэй, нэг санаатай байв.', url: 'https://www.churchofjesuschrist.org/study/scriptures/pgp/moses/7?lang=mon&id=18#p18' },
