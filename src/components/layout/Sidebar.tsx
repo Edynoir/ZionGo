@@ -31,7 +31,7 @@ export const Sidebar = () => {
     const { t } = useTranslation(language);
 
     return (
-        <div className="hidden md:flex flex-col w-20 lg:w-64 h-screen border-r-2 border-[var(--border-color)] p-4 fixed left-0 top-0 bg-[var(--bg-card)] z-50 transition-colors">
+        <div className="hidden md:flex flex-col w-20 lg:w-64 h-screen border-r-2 border-[var(--border-color)] p-4 pt-[calc(1rem+env(safe-area-inset-top))] pb-[calc(1rem+env(safe-area-inset-bottom))] fixed left-0 top-0 bg-[var(--bg-card)] z-50 transition-colors">
             <a href="/" className="mb-8 px-2 flex items-center gap-3 hover:opacity-80 transition-opacity">
                 <img src={logoImg} alt="ZionGo Logo" className="w-10 h-10 lg:w-14 lg:h-14 object-contain" />
                 <img src={logoTextImg} alt="ZionGo" className="h-6 lg:h-8 w-auto hidden lg:block" />
@@ -66,7 +66,7 @@ export const MobileNav = () => {
     ];
 
     return (
-        <div className="md:hidden fixed bottom-0 left-0 right-0 h-20 bg-[var(--bg-card)] border-t-2 border-[var(--border-color)] flex justify-around items-center px-4 z-50 transition-colors">
+        <div className="md:hidden fixed bottom-0 left-0 right-0 h-[calc(5rem+env(safe-area-inset-bottom))] pb-[env(safe-area-inset-bottom)] bg-[var(--bg-card)] border-t-2 border-[var(--border-color)] flex justify-around items-center px-4 z-50 transition-colors">
             {navItems.map(({ icon: Icon, href }) => {
                 const isActive = location.pathname === href;
 

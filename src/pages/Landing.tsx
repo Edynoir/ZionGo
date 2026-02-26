@@ -9,7 +9,7 @@ export const Landing = () => {
     return (
         <div className="min-h-screen bg-[#131F24] text-white font-[var(--font-body)]">
             {/* Navbar */}
-            <nav className="flex items-center justify-between px-6 py-4 max-w-6xl mx-auto">
+            <nav className="flex items-center justify-between px-6 pt-[calc(1rem+env(safe-area-inset-top))] pb-4 max-w-6xl mx-auto">
                 <div className="flex items-center gap-3">
                     <img src={mainLogo} alt="ZionGo" className="h-16 md:h-20 w-auto object-contain" />
                 </div>

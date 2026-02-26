@@ -127,7 +127,7 @@ export const Lesson = () => {
         <div className="flex flex-col h-screen max-h-screen overflow-hidden bg-[var(--bg-body)] transition-colors">
             <QuizHeader progress={progress} title={currentLevel.title} />
 
-            <main className="flex-1 overflow-y-auto pb-32">
+            <main className="flex-1 overflow-y-auto pb-[calc(8rem+env(safe-area-inset-bottom))]">
                 <MultipleChoiceQuestion
                     question={currentQuestion}
                     selectedOption={selectedOption}

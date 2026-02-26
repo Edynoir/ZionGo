@@ -6,7 +6,7 @@ export const TopHeader = () => {
     const { hearts, xp, streak, gems } = useUserStore();
 
     return (
-        <header className="sticky top-0 z-40 bg-[var(--bg-body)] border-b-2 border-[var(--border-color)] h-16 flex items-center justify-between px-4 md:px-8 transition-colors">
+        <header className="sticky top-0 z-40 bg-[var(--bg-body)] border-b-2 border-[var(--border-color)] h-[calc(4rem+env(safe-area-inset-top))] pt-[env(safe-area-inset-top)] flex items-center justify-between px-4 md:px-8 transition-colors">
             <div className="flex items-center gap-6 max-w-5xl mx-auto w-full">
                 {/* Streak */}
                 <div className="flex items-center gap-2 group cursor-default">

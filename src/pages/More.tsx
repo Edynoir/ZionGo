@@ -139,7 +139,22 @@ export const More = () => {
                             </div>
                         </div>
                         <button
-                            onClick={() => setLocalNotifications(!localNotifications)}
+                            onClick={async () => {
+                                if (!localNotifications) {
+                                    // User wants to turn JS notifications ON
+                                    const { requestNotificationPermission } = await import('../hooks/usePushNotifications');
+                                    const { useUserStore } = await import('../store/useUserStore');
+                                    const granted = await requestNotificationPermission(useUserStore.getState().user);
+                                    if (granted) {
+                                        setLocalNotifications(true);
+                                    } else {
+                                        alert("Permission required to enable notifications.");
+                                    }
+                                } else {
+                                    // Turning off
+                                    setLocalNotifications(false);
+                                }
+                            }}
                             className={clsx(
                                 "relative w-14 h-8 rounded-full transition-colors",
                                 localNotifications ? 'bg-green-500' : 'bg-gray-300'

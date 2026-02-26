@@ -5,7 +5,7 @@ import { TopHeader } from './TopHeader';
 
 export const Layout = () => {
     return (
-        <div className="min-h-screen bg-[var(--bg-body)] md:pl-20 lg:pl-64 pb-20 md:pb-0 transition-colors">
+        <div className="min-h-screen bg-[var(--bg-body)] md:pl-20 lg:pl-64 pb-[calc(5rem+env(safe-area-inset-bottom))] md:pb-0 transition-colors">
             <Sidebar />
             <TopHeader />
             <main className="max-w-5xl mx-auto pt-6 px-4 md:px-8">

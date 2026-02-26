@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { MapPin, Loader } from 'lucide-react';
+import { MapPin, Loader, Ghost, Users } from 'lucide-react';
 import { collection, query, orderBy, limit, onSnapshot } from 'firebase/firestore';
 import { db } from '../firebase/config';
 import { useUserStore } from '../store/useUserStore';
@@ -109,21 +109,30 @@ export const Leaderboard = () => {
 
                 {/* Show Others Toggle (Map View Only) */}
                 {viewMode === 'MAP' && (
-                    <div className="flex items-center justify-center gap-3 mb-6">
-                        <span className="text-sm font-bold text-[var(--text-secondary)]">Show Others</span>
+                    <div className="flex bg-[var(--bg-card)] border-2 border-[var(--border-color)] p-1 rounded-xl mb-6 self-center max-w-xs mx-auto">
                         <button
-                            onClick={() => setShowOthers(!showOthers)}
+                            onClick={() => setShowOthers(false)}
                             className={clsx(
-                                "relative inline-flex h-6 w-11 items-center rounded-full transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2",
-                                showOthers ? 'bg-blue-500' : 'bg-gray-300 dark:bg-gray-700'
+                                "flex-1 py-2 px-4 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2",
+                                !showOthers
+                                    ? "bg-purple-500 text-white shadow-md shadow-purple-500/20"
+                                    : "text-[var(--text-secondary)] hover:bg-purple-50 dark:hover:bg-purple-900/20 hover:text-purple-500"
                             )}
                         >
-                            <span
-                                className={clsx(
-                                    "inline-block h-4 w-4 transform rounded-full bg-white transition-transform",
-                                    showOthers ? 'translate-x-6' : 'translate-x-1'
-                                )}
-                            />
+                            <Ghost size={18} />
+                            {t('leaderboard.ghostMode' as any) || "Ghost"}
+                        </button>
+                        <button
+                            onClick={() => setShowOthers(true)}
+                            className={clsx(
+                                "flex-1 py-2 px-4 rounded-lg font-bold text-sm transition-all flex items-center justify-center gap-2",
+                                showOthers
+                                    ? "bg-green-500 text-white shadow-md shadow-green-500/20"
+                                    : "text-[var(--text-secondary)] hover:bg-green-50 dark:hover:bg-green-900/20 hover:text-green-500"
+                            )}
+                        >
+                            <Users size={18} />
+                            {t('leaderboard.socialMode' as any) || "Social"}
                         </button>
                     </div>
                 )}

@@ -47,7 +47,7 @@ async function checkDuplicates() {
     }
 
     // Also check levels for a few units
-    const { data: levels } = await supabase.from('levels').select('unit_id, count').select('unit_id', { count: 'exact', head: true });
+    const { data: levels } = await supabase.from('levels').select('unit_id');
     console.log(`\nLevels count: ${levels?.length || 0}`);
 }
 

@@ -13,7 +13,7 @@ export const QuizHeader = ({ progress, title }: QuizHeaderProps) => {
     const { t } = useTranslation(language);
 
     return (
-        <div className="flex items-center gap-4 px-4 py-6 max-w-5xl mx-auto w-full bg-[var(--bg-body)]">
+        <div className="flex items-center gap-4 px-4 pt-[calc(1.5rem+env(safe-area-inset-top))] pb-6 max-w-5xl mx-auto w-full bg-[var(--bg-body)]">
             <Link to="/">
                 <X className="text-gray-400 hover:text-gray-600 cursor-pointer" size={28} />
             </Link>

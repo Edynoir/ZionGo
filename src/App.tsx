@@ -14,13 +14,10 @@ import { Landing } from './pages/Landing';
 import { useUserStore } from './store/useUserStore';
 import { useContentStore } from './store/useContentStore';
 import { Loader } from 'lucide-react';
-import { usePushNotifications } from './hooks/usePushNotifications';
 
 function App() {
   const { user, loading, initAuth } = useUserStore();
   const { fetchContent } = useContentStore();
-
-  usePushNotifications(); // Automatically requests permission and saves token if logged in
 
   useEffect(() => {
     console.log('App component mounted');

@@ -18,7 +18,7 @@ export const QuizFooter = ({ status, onCheck, onContinue, isCheckDisabled, corre
 
     return (
         <div className={clsx(
-            "fixed bottom-0 left-0 right-0 p-4 pb-8 md:pb-4 border-t-2 z-50",
+            "fixed bottom-0 left-0 right-0 p-4 pb-[calc(2rem+env(safe-area-inset-bottom))] md:pb-[calc(1rem+env(safe-area-inset-bottom))] border-t-2 z-50",
             status === 'CORRECT' ? "bg-green-100 border-green-200" :
                 status === 'WRONG' ? "bg-rose-100 border-rose-200" : "bg-white border-gray-200"
         )}>
