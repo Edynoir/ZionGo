@@ -1,6 +1,6 @@
 import { useState, useMemo } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { Star, Gem as GemIcon, RefreshCw, Home } from 'lucide-react';
+import { Star, Flame, RefreshCw, Home } from 'lucide-react';
 import { QuizHeader } from '../components/lesson/QuizHeader';
 import { QuizFooter } from '../components/lesson/QuizFooter';
 import { MultipleChoiceQuestion } from '../components/lesson/MultipleChoiceQuestion';
@@ -72,7 +72,7 @@ export const Lesson = () => {
 
     if (isComplete) {
         const earnedXp = (shuffledQuestions.length * 10) + 10;
-        const earnedGems = 5;
+        const earnedSpirits = 5;
 
         return (
             <div className="flex flex-col items-center justify-center min-h-screen bg-[var(--bg-body)] p-6 text-center text-[var(--text-primary)]">
@@ -93,9 +93,9 @@ export const Lesson = () => {
                             <span className="text-sm font-bold text-gray-400 uppercase">{t('lesson.totalXp')}</span>
                         </div>
                         <div className="bg-[var(--bg-card)] border-2 border-[var(--border-color)] rounded-2xl p-6 flex flex-col items-center gap-2 transform transition-all hover:scale-105">
-                            <GemIcon className="w-12 h-12 text-sky-400 fill-sky-400" />
-                            <span className="text-2xl font-black text-sky-400">+{earnedGems}</span>
-                            <span className="text-sm font-bold text-gray-400 uppercase">{t('lesson.gems')}</span>
+                            <Flame className="w-12 h-12 text-sky-400 fill-sky-400" />
+                            <span className="text-2xl font-black text-sky-400">+{earnedSpirits}</span>
+                            <span className="text-sm font-bold text-gray-400 uppercase">{t('lesson.spirits')}</span>
                         </div>
                     </div>
 

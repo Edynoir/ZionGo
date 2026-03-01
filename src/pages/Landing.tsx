@@ -49,7 +49,7 @@ export const Landing = () => {
                             <Star className="text-yellow-500" size={32} />
                             <div>
                                 <h3 className="font-bold text-xl">Gamified Learning</h3>
-                                <p className="text-gray-400 text-sm">Earn XP and Gems as you learn.</p>
+                                <p className="text-gray-400 text-sm">Earn XP and holy spirit power as you learn.</p>
                             </div>
                         </div>
                         <div className="flex items-center gap-4">

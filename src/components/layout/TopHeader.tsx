@@ -1,4 +1,4 @@
-import { Flame, Star, Heart, Gem } from 'lucide-react';
+import { Flame, Star, Heart } from 'lucide-react';
 import { useUserStore } from '../../store/useUserStore';
 import clsx from 'clsx';
 
@@ -21,9 +21,9 @@ export const TopHeader = () => {
                     </span>
                 </div>
 
-                {/* gems/XP - Using Star for XP/gems as per common patterns or just Gems */}
+                {/* spirits/XP - Using Flame for spirits */}
                 <div className="flex items-center gap-2 group cursor-default">
-                    <Gem className="w-6 h-6 text-sky-400 fill-sky-400" />
+                    <Flame className="w-6 h-6 text-sky-400 fill-sky-400" />
                     <span className="font-bold text-lg text-sky-400">{gems}</span>
                 </div>
 

@@ -49,9 +49,9 @@ export const Shop = () => {
         <div className="flex flex-col items-center py-8">
             <div className="mb-8 text-center">
                 <h1 className="text-2xl font-bold text-[var(--text-primary)]">{t('shop.title')}</h1>
-                <div className="text-[#1cb0f6] font-bold text-xl flex items-center justify-center gap-2">
-                    <div className="w-2 h-2 bg-[#1cb0f6] rounded-full" />
-                    {gems} {t('shop.gems')}
+                <div className="text-[#0ea5e9] font-bold text-xl flex items-center justify-center gap-2">
+                    <div className="w-2 h-2 bg-[#0ea5e9] rounded-full" />
+                    {gems} {t('shop.spirits')}
                 </div>
             </div>
 

@@ -57,7 +57,7 @@ type TranslationKeys = {
 
     // Shop
     'shop.title': string;
-    'shop.gems': string;
+    'shop.spirits': string;
     'shop.refillHearts': string;
     'shop.refillHeartsDesc': string;
     'shop.streakFreeze': string;
@@ -142,7 +142,7 @@ type TranslationKeys = {
     // Lesson
     'lesson.completed': string;
     'lesson.totalXp': string;
-    'lesson.gems': string;
+    'lesson.spirits': string;
     'lesson.review': string;
 
     // Common
@@ -192,7 +192,7 @@ const translations: Record<Language, TranslationKeys> = {
 
         // Profile
         'profile.statistics': 'Statistics',
-        'profile.dayStreak': 'Day Streak',
+        'profile.dayStreak': 'Holy spirit power',
         'profile.totalXP': 'Total XP',
         'profile.getStarted': 'Get Started',
         'profile.signOut': 'Sign Out',
@@ -212,13 +212,13 @@ const translations: Record<Language, TranslationKeys> = {
 
         // Shop
         'shop.title': 'Shop',
-        'shop.gems': 'Gems',
+        'shop.spirits': 'Gem',
         'shop.refillHearts': 'Refill Hearts',
         'shop.refillHeartsDesc': 'Get full health so you can worry less about making mistakes.',
         'shop.streakFreeze': 'Streak Freeze',
         'shop.streakFreezeDesc': 'Streak Freeze allows your streak to remain in place for one full day of inactivity.',
         'shop.doubleNothing': 'Double or Nothing',
-        'shop.doubleNothingDesc': 'Attempt to double your 50 gem wager by maintaining a 7 day streak.',
+        'shop.doubleNothingDesc': 'Attempt to double your 50 gem wager by maintaining a 7 day holy spirit power.',
 
         // Inventory
         'inventory.title': 'My Inventory',
@@ -227,14 +227,14 @@ const translations: Record<Language, TranslationKeys> = {
         'inventory.streakFreeze': 'Streak Freeze',
         'inventory.streakFreezeDesc': 'Protects your streak for one day of inactivity.',
         'inventory.doubleWager': 'Double or Nothing',
-        'inventory.doubleWagerDesc': 'Active wager to double your gems.',
+        'inventory.doubleWagerDesc': 'Active wager to double your gem.',
 
         // Admin
         'admin.manageUsers': 'Manage Users',
         'admin.editUser': 'Edit User Stats',
         'admin.updateSuccess': 'User updated successfully!',
         'admin.xp': 'Experience points (XP)',
-        'admin.gems': 'Gems',
+        'admin.gems': 'Gem',
         'admin.inventory': 'Inventory Items',
         'admin.migrationTitle': 'Content Migration',
         'admin.migrationDesc': 'Sync local lessons and doctrinal mastery data to Firestore. This will overwrite existing cloud content.',
@@ -297,7 +297,7 @@ const translations: Record<Language, TranslationKeys> = {
         // Lesson
         'lesson.completed': 'You completed',
         'lesson.totalXp': 'Total XP',
-        'lesson.gems': 'Gems',
+        'lesson.spirits': 'Gem',
         'lesson.review': 'Review Lesson',
 
         // Common
@@ -345,7 +345,7 @@ const translations: Record<Language, TranslationKeys> = {
 
         // Profile
         'profile.statistics': 'Статистик',
-        'profile.dayStreak': 'Өдрийн цуваа',
+        'profile.dayStreak': 'Ариун сүнсний хүч',
         'profile.totalXP': 'Нийт XP',
         'profile.getStarted': 'Эхлэх',
         'profile.signOut': 'Гарах',
@@ -365,13 +365,13 @@ const translations: Record<Language, TranslationKeys> = {
 
         // Shop
         'shop.title': 'Дэлгүүр',
-        'shop.gems': 'Эрдэнийн чулуу',
+        'shop.spirits': 'Эрдэнийн чулуу',
         'shop.refillHearts': 'Зүрх дүүргэх',
         'shop.refillHeartsDesc': 'Бүрэн эрүүл мэндээ авч, алдаа хийхээс санаа зовохгүй байх.',
         'shop.streakFreeze': 'Цуваа хөлдөөх',
         'shop.streakFreezeDesc': 'Таны цуваа нэг өдрийн идэвхгүй байдлын үед хэвээр үлдэх боломжтой.',
         'shop.doubleNothing': 'Давхар эсвэл юу ч үгүй',
-        'shop.doubleNothingDesc': '7 хоногийн цувааг хадгалж, 50 эрдэнийн чулууг давхарлах оролдлого.',
+        'shop.doubleNothingDesc': '7 хоногийн Ариун сүнсний хүчийг хадгалж, 50 эрдэнийн чулууг давхарлах оролдлого.',
 
         // Inventory
         'inventory.title': 'Миний цүнх',
@@ -450,7 +450,7 @@ const translations: Record<Language, TranslationKeys> = {
         // Lesson
         'lesson.completed': 'Та дуусгалаа',
         'lesson.totalXp': 'Нийт XP',
-        'lesson.gems': 'Эрдэнийн чулуу',
+        'lesson.spirits': 'Эрдэнийн чулуу',
         'lesson.review': 'Хичээлээ шалгах',
 
         // Common

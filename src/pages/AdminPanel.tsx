@@ -18,7 +18,7 @@ interface UserData {
     xp: number;
     gems: number;
     streak: number;
-    inventory: string[];
+    inventory: { id: string, purchasedAt: string }[];
     nickname?: string;
     displayName?: string;
 }
@@ -99,15 +99,15 @@ export const AdminPanel = () => {
     const addItem = () => {
         if (!newItem) return;
         const currentInv = editValues.inventory || [];
-        if (!currentInv.includes(newItem)) {
-            setEditValues({ ...editValues, inventory: [...currentInv, newItem] });
+        if (!currentInv.some(item => item.id === newItem)) {
+            setEditValues({ ...editValues, inventory: [...currentInv, { id: newItem, purchasedAt: new Date().toISOString() }] });
         }
         setNewItem('');
     };
 
-    const removeItem = (item: string) => {
+    const removeItem = (item: { id: string, purchasedAt: string }) => {
         const currentInv = editValues.inventory || [];
-        setEditValues({ ...editValues, inventory: currentInv.filter(i => i !== item) });
+        setEditValues({ ...editValues, inventory: currentInv.filter(i => i.id !== item.id) });
     };
 
     const handleMigrate = async () => {
@@ -190,9 +190,9 @@ export const AdminPanel = () => {
                             onClick={handleMigrate}
                             disabled={migrating}
                             className={`px-8 py-4 rounded-2xl font-bold text-lg transition-all flex items-center justify-center gap-3 min-w-[200px] ${migrating ? "bg-gray-100 dark:bg-gray-800 text-gray-400 cursor-not-allowed" :
-                                    migrationStatus === 'success' ? "bg-green-500 text-white" :
-                                        migrationStatus === 'error' ? "bg-red-500 text-white" :
-                                            "bg-orange-500 text-white hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-orange-500/20"
+                                migrationStatus === 'success' ? "bg-green-500 text-white" :
+                                    migrationStatus === 'error' ? "bg-red-500 text-white" :
+                                        "bg-orange-500 text-white hover:bg-orange-600 hover:scale-[1.02] active:scale-[0.98] shadow-xl shadow-orange-500/20"
                                 }`}
                         >
                             {migrating ? (
@@ -219,7 +219,7 @@ export const AdminPanel = () => {
                                     <tr className="border-b-2 border-[var(--border-color)] text-xs font-bold text-[var(--text-secondary)] uppercase tracking-wider">
                                         <th className="px-6 py-4">User</th>
                                         <th className="px-6 py-4 text-center">XP</th>
-                                        <th className="px-6 py-4 text-center">Gems</th>
+                                        <th className="px-6 py-4 text-center">{t('admin.gems')}</th>
                                         <th className="px-6 py-4">Inventory</th>
                                         <th className="px-6 py-4 text-right">Actions</th>
                                     </tr>
@@ -262,8 +262,8 @@ export const AdminPanel = () => {
                                                     <div className="space-y-2">
                                                         <div className="flex flex-wrap gap-1">
                                                             {editValues.inventory?.map(item => (
-                                                                <span key={item} className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-bold">
-                                                                    {item}
+                                                                <span key={item.id} className="inline-flex items-center gap-1 px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-xs font-bold">
+                                                                    {item.id}
                                                                     <button onClick={() => removeItem(item)} className="text-red-500 hover:text-red-600">
                                                                         <Trash2 size={12} />
                                                                     </button>
@@ -286,8 +286,8 @@ export const AdminPanel = () => {
                                                 ) : (
                                                     <div className="flex flex-wrap gap-1">
                                                         {user.inventory.length > 0 ? user.inventory.map(item => (
-                                                            <span key={item} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-[10px] font-bold uppercase">
-                                                                {item}
+                                                            <span key={item.id} className="px-2 py-1 bg-gray-100 dark:bg-gray-800 rounded-lg text-[10px] font-bold uppercase">
+                                                                {item.id}
                                                             </span>
                                                         )) : <span className="text-xs text-gray-400 italic">No items</span>}
                                                     </div>

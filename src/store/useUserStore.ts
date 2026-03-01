@@ -6,10 +6,13 @@ import {
     signInWithPopup,
     signOut,
     onAuthStateChanged,
-    createUserWithEmailAndPassword,
-    signInWithEmailAndPassword
+    signInWithEmailAndPassword,
+    signInWithCredential,
+    createUserWithEmailAndPassword
 } from 'firebase/auth';
 import type { User } from 'firebase/auth';
+import { Capacitor } from '@capacitor/core';
+import { GoogleAuth } from '@codetrix-studio/capacitor-google-auth';
 import {
     doc,
     setDoc,
@@ -30,7 +33,7 @@ interface UserState {
     language: 'en' | 'mn';
     lastLessonDate: string | null;
     completedLessons: string[];
-    inventory: string[];
+    inventory: { id: string, purchasedAt: string }[];
     nickname: string | null;
     isAdmin: boolean;
     loading: boolean;
@@ -54,7 +57,7 @@ interface UserState {
     buyItem: (cost: number, type: 'HEARTS' | 'FREEZE' | 'WAGER') => void;
     updateNickname: (name: string) => Promise<void>;
     updateAvatar: (url: string) => Promise<void>;
-    updateUserStatsAdmin: (userId: string, stats: { xp?: number; gems?: number; inventory?: string[] }) => Promise<void>;
+    updateUserStatsAdmin: (userId: string, stats: { xp?: number; gems?: number; inventory?: { id: string, purchasedAt: string }[] }) => Promise<void>;
     clearError: () => void;
 }
 
@@ -153,9 +156,28 @@ export const useUserStore = create<UserState>()(
             loginGoogle: async () => {
                 try {
                     set({ error: null });
-                    const provider = new GoogleAuthProvider();
-                    const result = await signInWithPopup(auth, provider);
-                    const user = result.user;
+
+                    let user: User;
+
+                    if (Capacitor.isNativePlatform()) {
+                        // Native Mobile (Android/iOS) Flow
+                        GoogleAuth.initialize({
+                            clientId: '307023261082-tk7jslk31nqq153q0okm5v10m9j2ov3m.apps.googleusercontent.com',
+                            scopes: ['profile', 'email'],
+                            grantOfflineAccess: true,
+                        });
+
+                        const googleUser = await GoogleAuth.signIn();
+                        const credential = GoogleAuthProvider.credential(googleUser.authentication.idToken);
+                        const result = await signInWithCredential(auth, credential);
+                        user = result.user;
+                    } else {
+                        // Web flow
+                        const provider = new GoogleAuthProvider();
+                        const result = await signInWithPopup(auth, provider);
+                        user = result.user;
+                    }
+
                     const userRef = doc(db, 'users', user.uid);
 
                     // Check if user exists in Firestore first
@@ -327,6 +349,17 @@ export const useUserStore = create<UserState>()(
                 let earnedGems = 5;
 
                 if (lastDate !== today) {
+                    const now = new Date();
+                    // Clean up expired items (2-day limit for STREAK_FREEZE)
+                    newInventory = newInventory.filter(item => {
+                        if (item.id === 'STREAK_FREEZE') {
+                            const purchasedAt = new Date(item.purchasedAt);
+                            const ageInDays = (now.getTime() - purchasedAt.getTime()) / (1000 * 60 * 60 * 24);
+                            return ageInDays <= 2;
+                        }
+                        return true;
+                    });
+
                     if (lastDate) {
                         const lastTime = new Date(lastDate).getTime();
                         const todayTime = new Date(today).getTime();
@@ -335,13 +368,13 @@ export const useUserStore = create<UserState>()(
                         if (daysDiff === 1) {
                             // Perfect consecutive day
                             newStreak += 1;
-                        } else if (daysDiff === 2 && newInventory.includes('STREAK_FREEZE')) {
+                        } else if (daysDiff === 2 && newInventory.some(item => item.id === 'STREAK_FREEZE')) {
                             // Missed exactly one day, but has a freeze!
-                            newInventory = newInventory.filter(item => item !== 'STREAK_FREEZE');
+                            newInventory = newInventory.filter(item => item.id !== 'STREAK_FREEZE');
                             newStreak += 1; // Keep streak going as if they didn't miss
-                        } else if (daysDiff > 1) {
-                            // Missed >1 days without enough freezes, reset streak
-                            newStreak = 1;
+                        } else if (daysDiff >= 2) {
+                            // Missed 2 or more days, reset streak to 0
+                            newStreak = 0;
                         }
                     } else {
                         // First ever lesson
@@ -350,8 +383,8 @@ export const useUserStore = create<UserState>()(
                 }
 
                 // Check Double Wager on 7-day increments
-                if (newStreak > 0 && newStreak % 7 === 0 && newStreak > state.streak && newInventory.includes('DOUBLE_WAGER')) {
-                    newInventory = newInventory.filter(item => item !== 'DOUBLE_WAGER');
+                if (newStreak > 0 && newStreak % 7 === 0 && newStreak > state.streak && newInventory.some(item => item.id === 'DOUBLE_WAGER')) {
+                    newInventory = newInventory.filter(item => item.id !== 'DOUBLE_WAGER');
                     earnedGems += 100; // Reward double the 50 gem wager
                 }
 
@@ -382,6 +415,17 @@ export const useUserStore = create<UserState>()(
                 let earnedGems = 5;
 
                 if (lastDate !== today) {
+                    const now = new Date();
+                    // Clean up expired items
+                    newInventory = newInventory.filter(item => {
+                        if (item.id === 'STREAK_FREEZE') {
+                            const purchasedAt = new Date(item.purchasedAt);
+                            const ageInDays = (now.getTime() - purchasedAt.getTime()) / (1000 * 60 * 60 * 24);
+                            return ageInDays <= 2;
+                        }
+                        return true;
+                    });
+
                     if (lastDate) {
                         const lastTime = new Date(lastDate).getTime();
                         const todayTime = new Date(today).getTime();
@@ -389,11 +433,11 @@ export const useUserStore = create<UserState>()(
 
                         if (daysDiff === 1) {
                             newStreak += 1;
-                        } else if (daysDiff === 2 && newInventory.includes('STREAK_FREEZE')) {
-                            newInventory = newInventory.filter(item => item !== 'STREAK_FREEZE');
+                        } else if (daysDiff === 2 && newInventory.some(item => item.id === 'STREAK_FREEZE')) {
+                            newInventory = newInventory.filter(item => item.id !== 'STREAK_FREEZE');
                             newStreak += 1;
-                        } else if (daysDiff > 1) {
-                            newStreak = 1;
+                        } else if (daysDiff >= 2) {
+                            newStreak = 0;
                         }
                     } else {
                         newStreak = 1;
@@ -401,8 +445,8 @@ export const useUserStore = create<UserState>()(
                 }
 
                 // Check Double Wager
-                if (newStreak > 0 && newStreak % 7 === 0 && newStreak > state.streak && newInventory.includes('DOUBLE_WAGER')) {
-                    newInventory = newInventory.filter(item => item !== 'DOUBLE_WAGER');
+                if (newStreak > 0 && newStreak % 7 === 0 && newStreak > state.streak && newInventory.some(item => item.id === 'DOUBLE_WAGER')) {
+                    newInventory = newInventory.filter(item => item.id !== 'DOUBLE_WAGER');
                     earnedGems += 100;
                 }
 
@@ -427,19 +471,20 @@ export const useUserStore = create<UserState>()(
                     if (state.gems < cost) return {};
 
                     const updates: any = { gems: state.gems - cost };
+                    const now = new Date().toISOString();
 
                     if (type === 'HEARTS') {
                         updates.hearts = 5;
                     } else if (type === 'FREEZE') {
                         const newInventory = [...(state.inventory || [])];
-                        if (!newInventory.includes('STREAK_FREEZE')) {
-                            newInventory.push('STREAK_FREEZE');
+                        if (!newInventory.some(item => item.id === 'STREAK_FREEZE')) {
+                            newInventory.push({ id: 'STREAK_FREEZE', purchasedAt: now });
                         }
                         updates.inventory = newInventory;
                     } else if (type === 'WAGER') {
                         const newInventory = [...(state.inventory || [])];
-                        if (!newInventory.includes('DOUBLE_WAGER')) {
-                            newInventory.push('DOUBLE_WAGER');
+                        if (!newInventory.some(item => item.id === 'DOUBLE_WAGER')) {
+                            newInventory.push({ id: 'DOUBLE_WAGER', purchasedAt: now });
                         }
                         updates.inventory = newInventory;
                     }
@@ -484,7 +529,7 @@ export const useUserStore = create<UserState>()(
                 return { name: 'Zion', key: 'leaderboard.cityZion', nextXp: null, progress: 100 };
             },
 
-            updateUserStatsAdmin: async (userId: string, stats: { xp?: number; gems?: number; inventory?: string[] }) => {
+            updateUserStatsAdmin: async (userId: string, stats: { xp?: number; gems?: number; inventory?: { id: string, purchasedAt: string }[] }) => {
                 try {
                     const userRef = doc(db, 'users', userId);
                     await updateDoc(userRef, stats);
